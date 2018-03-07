@@ -1,0 +1,89 @@
+<br/>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Novo Morador(a)</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <form method="POST" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" name="condominio" for="condominio">Condomínio</label>
+                        <div class="col-sm-8">
+                            <select class="select2_demo_3 form-control form-control" name="condominio">
+                                <?php foreach($lista_condominio as $condominio): ?>
+                                    <option value="<?php print_r($condominio[0]); ?>"><?php print_r($condominio[1]); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" name="bloco" for="bloco">Bloco</label>
+                        <div class="col-sm-8">
+                            <select class="select2_demo_3 form-control form-control" name="bloco">
+                                <?php foreach($lista_bloco as $bloco): ?>
+                                    <option value="<?php print_r($bloco[2]); ?>">Bloco - <?php print_r($bloco[2]); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" name="apartamento" for="apartamento">Apartamento</label>
+                        <div class="col-sm-8">
+                            <select class="select2_demo_3 form-control form-control" name="apartamento">
+                                <?php foreach($lista_apartamento as $apartamento): ?>
+                                    <option value="<?php print_r($apartamento[0]); ?>"><?php print_r($apartamento[3]); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="nome">Nome do Morador(a)</label>
+                        <div class="col-sm-8"><input type="text" name="nome" class="form-control"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="celular">Celular</label>
+                        <div class="col-sm-8"><input type="text" name="celular" class="form-control" data-mask="(00) 00000-0000" placeholder="(00) 00000-0000"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="celular2">Celular 2</label>
+                        <div class="col-sm-8"><input type="text" name="celular2" class="form-control" data-mask="(00) 00000-0000" placeholder="(00) 00000-0000"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="cpf">CPF</label>
+                        <div class="col-sm-8"><input type="text" name="cpf" class="form-control" data-mask="000.000.000-00" placeholder="000.000.000-00"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="email">E-mail</label>
+                        <div class="col-sm-8"><input type="email" name="email" class="form-control"></div>
+                    </div>
+
+                    <div class="form1">
+                        <div class="form-button">
+                            <button class="btn btn-primary" type="submit">Salvar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
