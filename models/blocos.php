@@ -43,7 +43,7 @@ class blocos extends model {
 	public function ListarBloco($id) {
 		$array = array();
 
-		$sql = "SELECT blocos.numero, blocos.nome, condominios.nome FROM blocos INNER JOIN condominios ON condominios.id = blocos.condominios_id; WHERE id = $id";
+		$sql = "SELECT blocos.id, blocos.numero, blocos.nome, condominios.nome FROM blocos INNER JOIN condominios ON condominios.id = blocos.condominios_id";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
@@ -60,7 +60,7 @@ class blocos extends model {
 	}
 
 	public function edit($id, $condominio, $numero, $nome) {
-		$sql = "UPDATE blocos SET condominio = '$condominio', numero = '$numero', nome = '$nome'WHERE id = $id";
+		$sql = "UPDATE blocos SET condominio = '$condominio', numero = '$numero', nome = '$nome' WHERE id = $id";
 		$this->db->query($sql);
 	}
 

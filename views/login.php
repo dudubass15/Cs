@@ -25,7 +25,7 @@
 
             <form class="m-t" method="POST" role="form">
                 <div class="form-group">
-                    <input type="email" name="login" class="form-control" placeholder="Login" required="">
+                    <input type="email" name="login" class="form-control" placeholder="Login" required="@cs.com.br">
                 </div>
                 <div class="form-group">
                     <input type="password" name="senha" class="form-control" placeholder="Senha" required="">

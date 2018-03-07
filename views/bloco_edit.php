@@ -17,7 +17,7 @@
                         <div class="col-sm-8">
                             <select class="select2_demo_3 form-control form-control" name="condominio" value="<?php echo $bloco_info[2]; ?>">
                                 <option>
-                                    <?php echo $bloco_info[2]; ?>
+                                    <?php echo $bloco_info[3]; ?>
                                 </option>
                             </select>
                         </div>
