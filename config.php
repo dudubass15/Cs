@@ -1,6 +1,6 @@
 <?php
 
-define('versao', 'dsv'); // Alterar para 'prd' quando for colocar em produção.
+define('versao', 'prd'); // Alterar para 'prd' quando for colocar em produção.
 
 define('URL', 'http://localhost/Cs'); // Sempre alterar quando iniciar novo projeto.
 
@@ -18,9 +18,9 @@ global $config;
 
 	if (versao == 'prd') {
 		$config['versao'] = 'prd';
-		$config['dbname'] = '';
-		$config['host']   = '';
-		$config['user']   = '';
+		$config['dbname'] = 'cs';
+		$config['host']   = 'localhost';
+		$config['user']   = 'root';
 		$config['pass']   = '';
 	}
 

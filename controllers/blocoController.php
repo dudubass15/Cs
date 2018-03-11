@@ -52,6 +52,7 @@ class blocoController extends controller {
 			$nome = addslashes($_POST['nome']);
 
 			$bloco = new blocos();
+			
 			$bloco->edit($id, $condominio, $numero, $nome);
 
 			header('Location: '.URL.'/bloco');
