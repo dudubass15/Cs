@@ -28,12 +28,12 @@
                             <tbody>
                                 <?php foreach($lista_bloco as $bloco): ?>
                                     <tr class="gradeX">
-                                        <td class="center"><?php print_r($bloco[2]); ?></td>
-                                        <td class="center"><?php print_r($bloco[0]); ?></td>
+                                        <td class="center"><?php print_r($bloco[3]); ?></td>
                                         <td class="center"><?php print_r($bloco[1]); ?></td>
+                                        <td class="center"><?php print_r($bloco[2]); ?></td>
                                         <td>
                                             <button class="btn btn-info btn-circle" type="button">
-                                                <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/bloco/edit/<?php print_r($bloco[0]); ?>">
+                                                <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/bloco/edit/<?php echo($bloco[0]); ?>">
                                                     <i class="fa fa-paste"></i>
                                                 </a>
                                             </button>
