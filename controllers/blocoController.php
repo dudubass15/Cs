@@ -44,7 +44,11 @@ class blocoController extends controller {
 	public function edit($id) {
 		$dados = array();
 
-		$bloco = new blocos();
+		$usuario = new usuarios();
+
+		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+			header('Location: '.URL.'/login');
+		}
 
 		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
@@ -58,6 +62,8 @@ class blocoController extends controller {
 			header('Location: '.URL.'/bloco');
 
 		}
+
+		$bloco = new blocos();
 
 		$dados['bloco_info'] = $bloco->ListarBloco($id);
 
