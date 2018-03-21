@@ -12,7 +12,7 @@
                 </div>
                 <div class="ibox-content">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover dataTables-example" style="text-align: center;">
+                        <table class="table table-striped table-bordered table-hover" style="text-align: center;">
                             <thead>
                                 <tr>
                                     <th style="text-align: center;">Nome</th>
