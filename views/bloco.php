@@ -22,20 +22,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($lista_bloco as $bloco): ?>
+                                <?php foreach($lista_bloco as $b): ?>
                                     <tr class="gradeX">
-                                        <td class="center"><?php print_r($bloco[3]); ?></td>
-                                        <td class="center"><?php print_r($bloco[1]); ?></td>
-                                        <td class="center"><?php print_r($bloco[2]); ?></td>
+                                        <td class="center"><?php echo $b['condominio']; ?></td>
+                                        <td class="center"><?php echo $b['numero']; ?></td>
+                                        <td class="center"><?php echo $b['bloco']; ?></td>
                                         <td>
                                             <button class="btn btn-info btn-circle" type="button">
-                                                <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/bloco/edit/<?php echo($bloco[0]); ?>">
+                                                <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/bloco/edit/<?php echo $b['id']; ?>">
                                                     <i class="fa fa-paste"></i>
                                                 </a>
                                             </button>
 
                                             <button class="btn btn-warning btn-circle" type="button">
-                                                <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/bloco/del/<?php print_r($bloco[0]); ?>">
+                                                <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/bloco/del/<?php echo $b['id']; ?>">
                                                     <i class="fa fa-times"></i>
                                                 </a>
                                             </button>

@@ -15,9 +15,9 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="condominio" for="condominio">Condomínio</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="condominio" value="<?php echo $bloco_info[2]; ?>">
+                            <select class="select2_demo_3 form-control form-control" name="condominio" value="<?php echo $bloco_info['id']; ?>">
                                 <option>
-                                    <?php echo $bloco_info[3]; ?>
+                                    <?php echo $bloco_info['nome']; ?>
                                 </option>
                             </select>
                         </div>
@@ -32,7 +32,7 @@
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="nome">Nome</label>
-                        <div class="col-sm-8"><input type="text" name="nome" class="form-control" value="<?php echo $bloco_info[1]; ?>"></div>
+                        <div class="col-sm-8"><input type="text" name="nome" class="form-control" value="<?php echo $bloco_info['nome']; ?>"></div>
                     </div>
 
                     <div class="form1">
