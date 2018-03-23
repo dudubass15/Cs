@@ -9,8 +9,23 @@ class apartamentos extends model {
 		}
 	}
 
-	// Abaixo precisa está presente, pois na view está sendo chamado uma forench utilizando o model condominios ...
-	public function getListaCondominios() {
+	// public function getListaApartamento() {
+	// 	$array = array();
+
+	// 	$sql = "SELECT apartamentos.id, apartamentos.numero_apartamento, apartamentos.telefone AS apartamentos, condominios.nome AS condominio, blocos.numero AS blocos
+	// 	FROM apartamentos 
+	// 	INNER JOIN condominios ON condominios.id = apartamentos.condominios_id
+	// 	INNER JOIN blocos ON blocos.id = apartamentos.blocos_id";
+	// 	$qry = $this->db->query($sql);
+
+	// 	if ($qry->rowCount() > 0) {
+	// 		$array = $qry->fetchAll();
+	// 	}
+
+	// 	return $array;
+	// }
+
+	public function getListaApto() {
 		$array = array();
 
 		$sql = "SELECT * FROM condominios";
@@ -23,8 +38,7 @@ class apartamentos extends model {
 		return $array;
 	}
 
-	// Abaixo precisa está presente, pois na view está sendo chamado uma forench utilizando o model blocos ...
-	public function getListaBlocos() {
+	public function getListaBL() {
 		$array = array();
 
 		$sql = "SELECT * FROM blocos";
@@ -33,7 +47,7 @@ class apartamentos extends model {
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
 		}
-		
+
 		return $array;
 	}
 

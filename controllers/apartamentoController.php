@@ -14,10 +14,7 @@ class apartamentoController extends controller {
 
 		$apartamento = new apartamentos();
 
-		//Abaixo está sendo passado as informações do banco Condomínios e Blocos para ser representados através de forench's na view ...
-		$dados['lista_condominio'] = $apartamento->getListaCondominios();
-
-		$dados['lista_bloco'] = $apartamento->getListaBlocos();
+		$dados['lista_apartamento'] = $apartamento->getLista();
 
 		$this->loadTemplate('apartamento', $dados);
 	}
@@ -27,9 +24,9 @@ class apartamentoController extends controller {
 
 		$apartamento = new apartamentos();
 
-		$dados['lista_condominio'] = $apartamento->getListaCondominios();
+		$dados['lista_apartamento'] = $apartamento->getListaApto();
 
-		$dados['lista_bloco'] = $apartamento->getListaBlocos();
+		$dados['lista_bloco'] = $apartamento->getListaBL();
 
 		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
@@ -45,7 +42,7 @@ class apartamentoController extends controller {
 			header('Location: '.URL.'/home');
 		}
 		
-		$this->loadTemplate('apartamento', $dados);
+		$this->loadTemplate('apartamento_add', $dados);
 	}
 
 }

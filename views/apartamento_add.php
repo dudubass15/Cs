@@ -16,8 +16,9 @@
                         <label class="col-sm-2 control-label" name="condominio" for="condominio">Condomínio</label>
                         <div class="col-sm-8">
                             <select class="select2_demo_3 form-control form-control" name="condominio">
-                                <?php foreach($lista_condominio as $condominio): ?>
-                                    <option value="<?php print_r($condominio[0]); ?>"><?php print_r($condominio[1]); ?></option>
+                                <option></option>
+                                <?php foreach($lista_apartamento as $apartamento): ?>
+                                    <option value="<?php echo $apartamento['nome']; ?>"><?php echo $apartamento['nome']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -28,8 +29,9 @@
                         <label class="col-sm-2 control-label" name="bloco" for="bloco">Bloco</label>
                         <div class="col-sm-8">
                             <select class="select2_demo_3 form-control form-control" name="bloco">
+                                <option></option>
                                 <?php foreach($lista_bloco as $bloco): ?>
-                                    <option value="<?php print_r($bloco[2]); ?>">Bloco - <?php print_r($bloco[2]); ?></option>
+                                    <option value="<?php echo $bloco['numero']; ?>"><?php echo $bloco['numero']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
