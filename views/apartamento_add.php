@@ -31,7 +31,7 @@
                             <select class="select2_demo_3 form-control form-control" name="bloco">
                                 <option></option>
                                 <?php foreach($lista_bloco as $bloco): ?>
-                                    <option value="<?php echo $bloco['numero']; ?>"><?php echo $bloco['numero']; ?></option>
+                                    <option value="<?php echo $bloco['numero']; ?>">Bloco - <?php echo $bloco['numero']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
