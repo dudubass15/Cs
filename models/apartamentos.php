@@ -9,21 +9,21 @@ class apartamentos extends model {
 		}
 	}
 
-	// public function getListaApartamento() {
-	// 	$array = array();
+	public function getLista() {
+		$array = array();
 
-	// 	$sql = "SELECT apartamentos.id, apartamentos.numero_apartamento, apartamentos.telefone AS apartamentos, condominios.nome AS condominio, blocos.numero AS blocos
-	// 	FROM apartamentos 
-	// 	INNER JOIN condominios ON condominios.id = apartamentos.condominios_id
-	// 	INNER JOIN blocos ON blocos.id = apartamentos.blocos_id";
-	// 	$qry = $this->db->query($sql);
+		$sql = "SELECT apartamentos.id, apartamentos.numero_apartamento, apartamentos.telefone AS apartamentos, condominios.id, condominios.nome AS condominios, blocos.id, blocos.numero AS blocos
+				FROM apartamentos 
+				INNER JOIN condominios ON condominios.id = apartamentos.condominios_id
+				INNER JOIN blocos ON blocos.id = apartamentos.blocos_id";
+		$qry = $this->db->query($sql);
 
-	// 	if ($qry->rowCount() > 0) {
-	// 		$array = $qry->fetchAll();
-	// 	}
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetchAll();
+		}
 
-	// 	return $array;
-	// }
+		return $array;
+	}
 
 	public function getListaApto() {
 		$array = array();
@@ -51,9 +51,30 @@ class apartamentos extends model {
 		return $array;
 	}
 
+	public function getAptoInfo($id) {
+		$array = array();
+
+		$sql = "SELECT apartamentos.id, apartamentos.numero_apartamento, apartamentos.telefone AS apartamentos, condominios.id, condominios.nome AS condominios, blocos.id, blocos.numero AS blocos
+				FROM apartamentos 
+				INNER JOIN condominios ON condominios.id = apartamentos.condominios_id
+				INNER JOIN blocos ON blocos.id = apartamentos.blocos_id";
+		$qry = $this->db->query($sql);
+
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetch();
+		}
+
+		return $array;
+	}
+
 	public function add($condominio, $bloco, $apartamentos, $telefone, $senha) {
 		$sql = "INSERT INTO apartamentos (condominios_id, blocos_id, numero_apartamento, telefone, senha_acesso)";
 		$sql.= "VALUE ('$condominio', '$bloco', '$apartamentos', '$telefone', '$senha')";
+		$this->db->query($sql);
+	}
+
+	public function edit($id, $condominio, $bloco, $apartamentos, $telefone, $senha) {
+		$sql = "UPDATE apartamentos SET condominio = '$condominio', bloco = '$bloco', apartamentos = '$apartamentos', telefone = '$telefone', senha = '$senha' WHERE id = $id";
 		$this->db->query($sql);
 	}
 

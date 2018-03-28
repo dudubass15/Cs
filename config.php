@@ -1,6 +1,6 @@
 <?php
 
-define('versao', 'prd'); // Alterar para 'prd' quando for colocar em produção.
+define('versao', 'dsv'); // Alterar para 'prd' quando for colocar em produção.
 
 define('URL', 'http://localhost/Cs'); // Sempre alterar quando iniciar novo projeto.
 
