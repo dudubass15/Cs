@@ -32,7 +32,7 @@
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="nome">Nome</label>
-                        <div class="col-sm-8"><input type="text" name="nome" class="form-control" value="<?php echo $bloco_info['nome']; ?>"></div>
+                        <div class="col-sm-8"><input type="text" name="nome" class="form-control" value="<?php echo $bloco_info[2]; ?>"></div>
                     </div>
 
                     <div class="form1">

@@ -3,7 +3,6 @@ class apartamentoController extends controller {
 
 	public function __construct() {
 		$usuario = new usuarios();
-
 		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
@@ -13,9 +12,8 @@ class apartamentoController extends controller {
 		$dados = array();
 
 		$apartamento = new apartamentos();
-
+		
 		$dados['lista_apartamento'] = $apartamento->getLista();
-
 		$this->loadTemplate('apartamento', $dados);
 	}
 
@@ -25,7 +23,6 @@ class apartamentoController extends controller {
 		$apartamento = new apartamentos();
 
 		$dados['lista_apartamento'] = $apartamento->getListaApto();
-
 		$dados['lista_bloco'] = $apartamento->getListaBL();
 
 		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
@@ -38,7 +35,6 @@ class apartamentoController extends controller {
 			$apartamento = new apartamentos();
 
 			$apartamento->add($condominio, $bloco, $apartamentos, $telefone, $senha);
-
 			header('Location: '.URL.'/home');
 		}
 		
