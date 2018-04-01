@@ -54,7 +54,7 @@ class apartamentos extends model {
 	public function getAptoInfo($id) {
 		$array = array();
 
-		$sql = "SELECT apartamentos.id, apartamentos.numero_apartamento, apartamentos.telefone AS apartamentos, condominios.id, condominios.nome AS condominios, blocos.id, blocos.numero AS blocos
+		$sql = "SELECT apartamentos.id, apartamentos.condominios_id, apartamentos.blocos_id, apartamentos.numero_apartamento, apartamentos.telefone, apartamentos.senha_acesso AS apartamentos, condominios.id, condominios.nome AS condominios, blocos.id, blocos.numero AS blocos
 				FROM apartamentos 
 				INNER JOIN condominios ON condominios.id = apartamentos.condominios_id
 				INNER JOIN blocos ON blocos.id = apartamentos.blocos_id WHERE apartamentos.id = $id ";

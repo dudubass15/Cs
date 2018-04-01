@@ -29,22 +29,22 @@
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="numero_apartamento">Apartamento</label>
+                        <label class="col-sm-2 control-label" for="apartamento">Apartamento</label>
                         <div class="col-sm-8">
-                            <input type="text" name="numero_apartamento" class="form-control" value="<?php echo $apto_edit['numero_apartamento']; ?>">
+                            <input type="text" name="apartamento" class="form-control" value="<?php echo $apto_edit['numero_apartamento']; ?>">
                         </div>
                     </div>
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="telefone">Telefone</label>
-                        <div class="col-sm-8"><input type="text" name="telefone" class="form-control" value="<?php echo $apto_edit['telefones']; ?>" data-mask="(00) 0000-0000"></div>
+                        <div class="col-sm-8"><input type="text" name="telefone" class="form-control" value="<?php echo $apto_edit['telefone']; ?>" data-mask="(00) 0000-0000"></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="senha_acesso">Senha de Acesso</label>
-                        <div class="col-sm-8"><input type="password" name="senha_acesso" class="form-control" value="<?php echo $apto_edit['senha']; ?>" data-mask="000000"></div>
+                        <label class="col-sm-2 control-label" for="senha">Senha de Acesso</label>
+                        <div class="col-sm-8"><input type="text" name="senha" class="form-control" value="<?php echo $apto_edit[5]; ?>" data-mask="000000"></div>
                     </div>
 
                     <div class="form1">

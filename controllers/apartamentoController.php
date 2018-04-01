@@ -36,7 +36,7 @@ class apartamentoController extends controller {
 			$apartamento = new apartamentos();
 
 			$apartamento->add($condominio, $bloco, $apartamentos, $telefone, $senha);
-			header('Location: '.URL.'/home');
+			header('Location: '.URL.'/apartamento');
 		}
 		
 		$this->loadTemplate('apartamento_add', $dados);
@@ -47,16 +47,14 @@ class apartamentoController extends controller {
 
 		$usuario = new usuarios();
 
-		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
-			$condominio = addslashes($_POST['condominio']);
-			$bloco = addslashes($_POST['bloco']);
+		if (isset($_POST['apartamento']) && !empty($_POST['apartamento'])) {
 			$apartamentos = addslashes($_POST['apartamento']);
 			$telefone = addslashes($_POST['telefone']);
 			$senha = addslashes($_POST['senha']);
 
 			$apartamento = new apartamentos();
 
-			$apartamento->edit($id, $condominio, $bloco, $apartamentos, $telefone, $senha);
+			$apartamento->edit($id, $apartamentos, $telefone, $senha);
 
 			header('Location: '.URL.'/apartamento');
 		}
