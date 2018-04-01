@@ -99,7 +99,7 @@ $_SESSION['login'];
 
 										<li><a href="<?php echo URL; ?>/morador/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
 
-										<li><a href="#"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
+										<li><a href="<?php echo URL; ?>/morador"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
 
 									</ul>
 								</li>

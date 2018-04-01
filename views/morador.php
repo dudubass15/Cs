@@ -1,88 +1,59 @@
-<br/>
-<div class="row">
-    <div class="col-lg-12">
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <h5>Novo Morador(a)</h5>
-                <div class="ibox-tools">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Morador(a)</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="ibox-content">
-                <form method="POST" class="form-horizontal">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" name="condominio" for="condominio">Condomínio</label>
-                        <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="condominio">
-                                <?php foreach($lista_condominio as $condominio): ?>
-                                    <option value="<?php print_r($condominio[0]); ?>"><?php print_r($condominio[1]); ?></option>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" style="text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Condomínio</th>
+                                    <th style="text-align: center;">Bloco</th>
+                                    <th style="text-align: center;">Apartamento</th>
+                                    <th style="text-align: center;">Morador(a)</th>
+                                    <th style="text-align: center;">Cpf</th>
+                                    <th style="text-align: center;">E-mail</th>
+                                    <th style="text-align: center;">Celular</th>
+                                    <th style="text-align: center;">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($lista_moradores as $morador): ?>
+                                <tr class="gradeX">
+                                    <td class="center"><?php echo $morador['condominios']; ?></td>
+                                    <td class="center"><?php echo $morador['blocos']; ?></td>
+                                    <td class="center"><?php echo $morador['apartamentos']; ?></td>
+                                    <td class="center"><?php echo $morador['nome_morador']; ?></td>
+                                    <td class="center"><?php echo $morador['cpf']; ?></td>
+                                    <td class="center"><?php echo $morador['moradores']; ?></td>
+                                    <td class="center"><?php echo $morador['celular']; ?></td>
+                                    <td>
+                                        <button class="btn btn-info btn-circle" type="button">
+                                            <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/morador/edit/<?php echo $b[0]; ?>">
+                                                <i class="fa fa-paste"></i>
+                                            </a>
+                                        </button>
+
+                                        <button class="btn btn-warning btn-circle" type="button">
+                                            <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/morador/del/<?php echo $b[0]; ?>">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </button>
+                                    </td>
+                                </tr>
                                 <?php endforeach; ?>
-                            </select>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" name="bloco" for="bloco">Bloco</label>
-                        <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="bloco">
-                                <?php foreach($lista_bloco as $bloco): ?>
-                                    <option value="<?php print_r($bloco[2]); ?>">Bloco - <?php print_r($bloco[2]); ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" name="apartamento" for="apartamento">Apartamento</label>
-                        <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="apartamento">
-                                <?php foreach($lista_apartamento as $apartamento): ?>
-                                    <option value="<?php print_r($apartamento[0]); ?>"><?php print_r($apartamento[3]); ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="nome">Nome do Morador(a)</label>
-                        <div class="col-sm-8"><input type="text" name="nome" class="form-control"></div>
-                    </div>
-
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="celular">Celular</label>
-                        <div class="col-sm-8"><input type="text" name="celular" class="form-control" data-mask="(00) 00000-0000" placeholder="(00) 00000-0000"></div>
-                    </div>
-
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="celular2">Celular 2</label>
-                        <div class="col-sm-8"><input type="text" name="celular2" class="form-control" data-mask="(00) 00000-0000" placeholder="(00) 00000-0000"></div>
-                    </div>
-
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="cpf">CPF</label>
-                        <div class="col-sm-8"><input type="text" name="cpf" class="form-control" data-mask="000.000.000-00" placeholder="000.000.000-00"></div>
-                    </div>
-
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="email">E-mail</label>
-                        <div class="col-sm-8"><input type="email" name="email" class="form-control"></div>
-                    </div>
-
-                    <div class="form1">
-                        <div class="form-button">
-                            <button class="btn btn-primary" type="submit">Salvar</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

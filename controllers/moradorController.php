@@ -21,6 +21,8 @@ class moradorController extends controller {
 
 		$dados['lista_apartamento'] = $morador->getListaApartamentos();
 
+		$dados['lista_moradores'] = $morador->index();
+
 		$this->loadTemplate('morador', $dados);
 	}
 
@@ -49,11 +51,11 @@ class moradorController extends controller {
 
 			$morador->add($condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email);
 
-			header('Location: '.URL.'/home');
+			header('Location: '.URL.'/morador');
 
 		}
 
-		$this->loadTemplate('morador', $dados);
+		$this->loadTemplate('morador_add', $dados);
 	}
 
 }
