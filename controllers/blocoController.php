@@ -29,7 +29,7 @@ class blocoController extends controller {
 		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
 			$numero = addslashes($_POST['numero']);
-			$nome = addslashes($_POST['nome']);
+			$nome = addslashes($_POST['nome_bloco']);
 
 			$bloco = new blocos();
 
@@ -43,17 +43,21 @@ class blocoController extends controller {
 
 	public function edit($id) {
 		$dados = array();
-		$bloco = new blocos();
 
-		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
-			$condominio = addslashes($_POST['condominio']);
+		$usuario = new usuarios();
+
+		if (isset($_POST['numero']) && !empty($_POST['numero'])) {
 			$numero = addslashes($_POST['numero']);
-			$nome = addslashes($_POST['nome']);
+			$nome = addslashes($_POST['nome_bloco']);
 			
-			$bloco->edit($id, $condominio, $numero, $nome);
+			$bloco = new blocos();
+
+			$bloco->edit($id, $numero, $nome);
 
 			header('Location: '.URL.'/bloco');
 		}
+
+		$bloco = new blocos();
 
 		$dados['bloco_info'] = $bloco->ListarBloco($id);
 

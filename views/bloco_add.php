@@ -33,8 +33,8 @@
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="nome">Nome</label>
-                        <div class="col-sm-8"><input type="text" name="nome" class="form-control"></div>
+                        <label class="col-sm-2 control-label" for="nome_bloco">Nome</label>
+                        <div class="col-sm-8"><input type="text" name="nome_bloco" class="form-control"></div>
                     </div>
 
                     <div class="form1">
