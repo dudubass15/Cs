@@ -57,7 +57,7 @@ class apartamentos extends model {
 		$sql = "SELECT apartamentos.id, apartamentos.numero_apartamento, apartamentos.telefone AS apartamentos, condominios.id, condominios.nome AS condominios, blocos.id, blocos.numero AS blocos
 				FROM apartamentos 
 				INNER JOIN condominios ON condominios.id = apartamentos.condominios_id
-				INNER JOIN blocos ON blocos.id = apartamentos.blocos_id";
+				INNER JOIN blocos ON blocos.id = apartamentos.blocos_id WHERE apartamentos.id = $id ";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
@@ -73,8 +73,8 @@ class apartamentos extends model {
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $condominio, $bloco, $apartamentos, $telefone, $senha) {
-		$sql = "UPDATE apartamentos SET condominio = '$condominio', bloco = '$bloco', apartamentos = '$apartamentos', telefone = '$telefone', senha = '$senha' WHERE id = $id";
+	public function edit($id, $apartamentos, $telefone, $senha) {
+		$sql = "UPDATE apartamentos SET numero_apartamento = '$apartamentos', telefone = '$telefone', senha_acesso = '$senha' WHERE id = $id";
 		$this->db->query($sql);
 	}
 

@@ -31,13 +31,13 @@
                                         <td class="center"><?php echo $b['apartamentos']; ?></td>
                                         <td>
                                             <button class="btn btn-info btn-circle" type="button">
-                                                <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/apartamento/edit/<?php echo $b['id']; ?>">
+                                                <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/apartamento/edit/<?php echo $b[0]; ?>">
                                                     <i class="fa fa-paste"></i>
                                                 </a>
                                             </button>
 
                                             <button class="btn btn-warning btn-circle" type="button">
-                                                <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/apartamento/del/<?php echo $b['id']; ?>">
+                                                <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/apartamento/del/<?php echo $b[0]; ?>">
                                                     <i class="fa fa-times"></i>
                                                 </a>
                                             </button>

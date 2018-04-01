@@ -14,6 +14,7 @@ class apartamentoController extends controller {
 		$apartamento = new apartamentos();
 		
 		$dados['lista_apartamento'] = $apartamento->getLista();
+
 		$this->loadTemplate('apartamento', $dados);
 	}
 
@@ -44,9 +45,9 @@ class apartamentoController extends controller {
 	public function edit($id) {
 		$dados = array();
 
-		$apartamento = new apartamentos();
+		$usuario = new usuarios();
 
-		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
+		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
 			$bloco = addslashes($_POST['bloco']);
 			$apartamentos = addslashes($_POST['apartamento']);
@@ -58,7 +59,6 @@ class apartamentoController extends controller {
 			$apartamento->edit($id, $condominio, $bloco, $apartamentos, $telefone, $senha);
 
 			header('Location: '.URL.'/apartamento');
-
 		}
 
 		$apartamento = new apartamentos();
