@@ -58,6 +58,41 @@ class moradorController extends controller {
 		$this->loadTemplate('morador_add', $dados);
 	}
 
+	public function edit($id) {
+		$dados = array();
+
+		$morador = new moradores();
+
+		$dados['lista_condominio'] = $morador->getListaCondominios();
+
+		$dados['lista_bloco'] = $morador->getListaBlocos();
+
+		$dados['lista_apartamento'] = $morador->getListaApartamentos();
+
+		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
+			$condominio = addslashes($_POST['condominio']);
+			$apartamento = addslashes($_POST['apartamento']);
+			$bloco = addslashes($_POST['bloco']);
+			$nome = addslashes($_POST['nome']);
+			$celular = addslashes($_POST['celular']);
+			$celular2 = addslashes($_POST['celular2']);
+			$cpf = addslashes($_POST['cpf']);
+			$email = addslashes($_POST['email']);
+
+			$morador = new moradores();
+
+			$morador->edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email);
+
+			header('Location: '.URL.'/morador');
+		}
+
+		$morador = new moradores();
+
+		$dados['moradores_info'] = $morador->getMoradores($id);
+
+		$this->loadTemplate('morador_edit', $dados);
+	}
+
 }
 
 ?>

@@ -12,16 +12,15 @@ class moradores extends model {
 	public function index() {
 		$array = array();
 
-		$sql = "SELECT condominios.id, condominios.nome AS condominios, 
+		$sql = "SELECT condominios.id, condominios.nome AS condominios,
 				blocos.id, blocos.numero AS blocos,
-				apartamentos.id, apartamentos.numero_apartamento AS apartamentos, 
+				apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
 				moradores.nome_morador, moradores.celular, moradores.celular2, moradores.cpf,
 				moradores.email AS moradores
 				FROM moradores
 				INNER JOIN condominios ON condominios.id = moradores.condominios_id
 				INNER JOIN blocos ON blocos.id = moradores.blocos_id
 				INNER JOIN apartamentos ON apartamentos.id = moradores.apartamentos_id";
-
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
@@ -69,22 +68,38 @@ class moradores extends model {
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
 		}
-		
+
 		return $array;
 	}
 
-	public function add($condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, 
-		$email) {
+	public function getMoradores($id) {
+		$array = array();
+
+		$sql = "SELECT * FROM moradores WHERE id = $id";
+		$qry = $this->db->query($sql);
+
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetch();
+		}
+
+		return $array;
+	}
+
+	public function add($condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email) {
 		$sql = "INSERT INTO moradores (condominios_id, apartamentos_id, blocos_id, nome_morador, celular, celular2, cpf, email)";
 		$sql.= "VALUE ('$condominio', '$apartamento', '$bloco', '$nome', '$celular', '$celular2', '$cpf', '$email')";
+		$this->db->query($sql);
+	}
+
+	public function edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email) {
+		$sql = "UPDATE moradores SET condominio = '$condominio', apartamento = '$apartamento', bloco = '$bloco', nome = '$nome', celular = '$celular', celular2 = '$celular2', cpf = '$cpf', email = '$email' WHERE id = $id";
 		$this->db->query($sql);
 	}
 
 	public function del($id) {
 		$sql = "DELETE FROM moradores WHERE id = $id";
 		$this->db->query($sql);
-	}	
-
+	}
 }
 
-?> 
+?>

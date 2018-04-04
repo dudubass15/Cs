@@ -9,7 +9,7 @@ $_SESSION['login'];
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>CS | Home</title>
+	<title>CS</title>
 
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>/assets/css/template.css">
 
@@ -140,41 +140,41 @@ $_SESSION['login'];
 				</nav>
 			</div>
 
-					<?php $this->loadViewInTemplate($viewName, $viewData); ?>
+			<?php $this->loadViewInTemplate($viewName, $viewData); ?>
 
-					<div class="footer">
-						<div class="pull-right">
-							<strong>Copyright</strong> CS &copy; 2014-2018
-						</div>
-					</div>
+			<div class="footer">
+				<div class="pull-right">
+					<strong>Copyright</strong> CS &copy; 2014-2018
 				</div>
+			</div>
+		</div>
 
 
 
-				<!-- Mainly scripts -->
-				<script src="<?php echo URL; ?>/assets/js/jquery-3.1.1.min.js"></script>
-				<script src="<?php echo URL; ?>/assets/js/bootstrap.min.js"></script>
-				<script src="<?php echo URL; ?>/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-				<script src="<?php echo URL; ?>/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+		<!-- Mainly scripts -->
+		<script src="<?php echo URL; ?>/assets/js/jquery-3.1.1.min.js"></script>
+		<script src="<?php echo URL; ?>/assets/js/bootstrap.min.js"></script>
+		<script src="<?php echo URL; ?>/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+		<script src="<?php echo URL; ?>/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-				<!-- Custom and plugin javascript -->
-				<script src="<?php echo URL; ?>/assets/js/inspinia.js"></script>
-				<script src="<?php echo URL; ?>/assets/js/plugins/pace/pace.min.js"></script>
+		<!-- Custom and plugin javascript -->
+		<script src="<?php echo URL; ?>/assets/js/inspinia.js"></script>
+		<script src="<?php echo URL; ?>/assets/js/plugins/pace/pace.min.js"></script>
 
-				<script src="<?php echo URL; ?>/assets/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
+		<script src="<?php echo URL; ?>/assets/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
 
-				<!-- Select2 -->
-				<script src="<?php echo URL; ?>/assets/js/plugins/select2/select2.full.min.js"></script>
+		<!-- Select2 -->
+		<script src="<?php echo URL; ?>/assets/js/plugins/select2/select2.full.min.js"></script>
 
-				<!-- Mascaras para inputs -->
-				<script src="<?php echo URL; ?>/assets/js/jquery.mask.js"></script>
+		<!-- Mascaras para inputs -->
+		<script src="<?php echo URL; ?>/assets/js/jquery.mask.js"></script>
 
-				<script src="<?php echo URL; ?>/assets/js/plugins/dataTables/datatables.min.js"></script>
+		<script src="<?php echo URL; ?>/assets/js/plugins/dataTables/datatables.min.js"></script>
 
-				<!-- Toastr -->
-				<script src="<?php echo URL; ?>/assets/js/plugins/toastr/toastr.min.js"></script>
+		<!-- Toastr -->
+		<script src="<?php echo URL; ?>/assets/js/plugins/toastr/toastr.min.js"></script>
 
-			</body>
+	</body>
 
 			<!-- <script>
 				$(document).ready(function() {
@@ -284,35 +284,35 @@ $_SESSION['login'];
 
 				});
 			</script>
- -->
+		-->
 
-			<script>
-				$(document).ready(function(){
-					$('.dataTables-example').DataTable({
-						pageLength: 25,
-						responsive: true,
-						dom: '<"html5buttons"B>lTfgitp',
-						buttons: [
-						{ extend: 'copy'},
-						{extend: 'csv'},
-						{extend: 'excel', title: 'ExampleFile'},
-						{extend: 'pdf', title: 'ExampleFile'},
+		<script>
+			$(document).ready(function(){
+				$('.dataTables-example').DataTable({
+					pageLength: 25,
+					responsive: true,
+					dom: '<"html5buttons"B>lTfgitp',
+					buttons: [
+					{ extend: 'copy'},
+					{extend: 'csv'},
+					{extend: 'excel', title: 'ExampleFile'},
+					{extend: 'pdf', title: 'ExampleFile'},
 
-						{extend: 'print',
-						customize: function (win){
-							$(win.document.body).addClass('white-bg');
-							$(win.document.body).css('font-size', '10px');
+					{extend: 'print',
+					customize: function (win){
+						$(win.document.body).addClass('white-bg');
+						$(win.document.body).css('font-size', '10px');
 
-							$(win.document.body).find('table')
-							.addClass('compact')
-							.css('font-size', 'inherit');
-						}
+						$(win.document.body).find('table')
+						.addClass('compact')
+						.css('font-size', 'inherit');
 					}
-					]
+				}
+				]
 
-				});
+			});
 
-				});
+			});
 
-			</script>
-			</html>
+		</script>
+		</html>
