@@ -22,10 +22,12 @@ class loginController extends controller {
 	}
 
 	public function logout() {
+		unset($_SESSION['id']); //Destroi a SESSION ID.
+		unset($_SESSION['login']); //Destroi a SESSION.
+		unset($_SESSION['senha']); //Destroi a SESSION.
+		session_destroy();
+		header('Location: '.URL.'/login');	
 
-		$usuario = new usuarios();// Instancia a classe
-		$usuario->logout();	// acessa o método da classe instancia.
-		header('Location: '.URL.'/login');
 	}
 
 }

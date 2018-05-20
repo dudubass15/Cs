@@ -1,10 +1,10 @@
 <?php
 class usuariosController extends controller {
-
+	private $usuario;
 	public function __construct() {
-		$usuario = new usuarios();
+		$this->usuario = new usuarios();
 
-		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+		if ($this->usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
 	}
@@ -12,9 +12,7 @@ class usuariosController extends controller {
 	public function index(){
 		$dados = array();
 
-		$usuario = new usuarios();
-
-		$dados['lista_usuarios'] = $usuario->getLista();
+		$dados['lista_usuarios'] = $this->usuario->getLista();
 
 		$this->loadTemplate('usuario', $dados);
 	}
@@ -22,9 +20,7 @@ class usuariosController extends controller {
 	public function add() {
 		$dados = array();
 
-		$usuario = new usuarios();
-
-		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+		if ($this->usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
 
@@ -34,9 +30,7 @@ class usuariosController extends controller {
 			$login = addslashes($_POST['login']);
 			$senha = md5($_POST['senha']);
 
-			$usuario = new usuarios();
-
-			$usuario->add($nome, $cpf, $login, $senha);
+			$this->usuario->add($nome, $cpf, $login, $senha);
 
 			header('Location: '.URL.'/home');
 
@@ -48,9 +42,7 @@ class usuariosController extends controller {
 	public function edit($id) {
 		$dados = array();
 
-		$usuario = new usuarios();
-
-		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+		if ($this->usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
 
@@ -60,7 +52,7 @@ class usuariosController extends controller {
 			$login = addslashes($_POST['login']);
 			$senha = md5($_POST['senha']);
 
-			$usuario->edit($id, $nome, $cpf, $login, $senha);
+			$this->usuario->edit($id, $nome, $cpf, $login, $senha);
 
 			header('Location: '.URL.'/usuarios');
 
@@ -73,13 +65,12 @@ class usuariosController extends controller {
 	}
 
 	public function del($id) {
-		$usuario = new usuarios();
 
-		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+		if ($this->usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
 		
-		$usuario->del($id);
+		$this->usuario->del($id);
 
 		header('Location: '.URL.'/usuarios');
 	}

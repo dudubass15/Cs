@@ -27,12 +27,6 @@ class usuarios extends model {
 		return false;
 	}
 
-	public function logout() {
-		unset($_SESSION['id']); //Destroi a SESSION ID.
-		unset($_SESSION['login']); //Destroi a SESSION.
-		unset($_SESSION['senha']); //Destroi a SESSION.
-	}
-
 	public function getLista() {
 		$array = array();
 
