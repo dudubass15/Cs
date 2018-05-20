@@ -15,7 +15,7 @@ class blocos extends model {
 	public function getLista() {
 		$array = array();
 
-		$sql = "SELECT blocos.id, blocos.numero, blocos.nome_bloco AS bloco, condominios.nome AS condominio
+		$sql = "SELECT blocos.id, blocos.numero, blocos.nome AS bloco, condominios.nome AS condominio
 				FROM blocos 
 				INNER JOIN condominios ON condominios.id = blocos.condominios_id";
 		$qry = $this->db->query($sql);

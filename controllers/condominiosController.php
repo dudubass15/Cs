@@ -40,7 +40,7 @@ class condominiosController extends controller {
 
 			$condominio->add($nome, $cnpj, $telefone, $endereco, $cidade, $estado);
 
-			header('Location: '.URL.'/home');
+			header('Location: '.URL.'/condominios');
 
 		}
 

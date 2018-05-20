@@ -12,7 +12,7 @@ class condominios extends model {
 	public function getLista() {
 		$array = array();
 
-		$sql = "SELECT * FROM condominios";
+		$sql = "SELECT * FROM condominios order by nome asc";
 
 		if (!empty($nome)) {
 			$sql.= "WHERE nome LIKE '%$nome%' ";
