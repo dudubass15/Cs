@@ -19,7 +19,6 @@
                                     <th style="text-align: center;">Bloco</th>
                                     <th style="text-align: center;">Apartamento</th>
                                     <th style="text-align: center;">Morador(a)</th>
-                                    <th style="text-align: center;">Cpf</th>
                                     <th style="text-align: center;">E-mail</th>
                                     <th style="text-align: center;">Celular</th>
                                     <th style="text-align: center;">Ações</th>
@@ -32,7 +31,6 @@
                                     <td class="center"><?php echo $morador['blocos']; ?></td>
                                     <td class="center"><?php echo $morador['apartamentos']; ?></td>
                                     <td class="center"><?php echo $morador['nome_morador']; ?></td>
-                                    <td class="center"><?php echo $morador['cpf']; ?></td>
                                     <td class="center"><?php echo $morador['moradores']; ?></td>
                                     <td class="center"><?php echo $morador['celular']; ?></td>
                                     <td>

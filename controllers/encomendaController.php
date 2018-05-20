@@ -12,7 +12,9 @@ class encomendaController extends controller {
 	public function index(){
 		$dados = array();
 
-		$this->loadTemplate('home', $dados);
+		$encomendas = new encomendas();
+
+		$this->loadTemplate('encomendas', $dados);
 	}
 
 }
