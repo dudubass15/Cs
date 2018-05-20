@@ -8,7 +8,7 @@ class loginController extends controller {
 		if (isset($_POST['login']) && !empty($_POST['login'])) { // se o existir $_POST['login'] e não estiver vazia.
 
 			$login = $_POST['login']; // pega dados do formulário.
-			$senha = md5($_POST['senha']); // pega dados do formulário.
+			$senha = base64_encode($_POST['senha']); // pega dados do formulário.
 
 			$usuario = new usuarios();
 						

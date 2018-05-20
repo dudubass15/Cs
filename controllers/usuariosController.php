@@ -14,7 +14,7 @@ class usuariosController extends controller {
 
 		$dados['lista_usuarios'] = $this->usuario->getLista();
 
-		$this->loadTemplate('usuario', $dados);
+		$this->loadTemplate('usuarios', $dados);
 	}
 
 	public function add() {
@@ -28,15 +28,15 @@ class usuariosController extends controller {
 			$nome = addslashes($_POST['nome']);
 			$cpf = addslashes($_POST['cpf']);
 			$login = addslashes($_POST['login']);
-			$senha = md5($_POST['senha']);
+			$senha = base64_encode($_POST['senha']);
 
 			$this->usuario->add($nome, $cpf, $login, $senha);
 
-			header('Location: '.URL.'/home');
+			header('Location: '.URL.'/usuarios');
 
 		}
 
-		$this->loadTemplate('usuario', $dados);
+		$this->loadTemplate('usuario_add', $dados);
 	}
 
 	public function edit($id) {
@@ -50,18 +50,21 @@ class usuariosController extends controller {
 			$nome = addslashes($_POST['nome']);
 			$cpf = addslashes($_POST['cpf']);
 			$login = addslashes($_POST['login']);
-			$senha = md5($_POST['senha']);
+			$senha = base64_encode($_POST['senha']);
+
+			$this->usuario = new usuarios();
 
 			$this->usuario->edit($id, $nome, $cpf, $login, $senha);
 
 			header('Location: '.URL.'/usuarios');
 
-		} else {
-
-			//$dados['error'] = "Por favor insira um nome !";
 		}
 
-		$this->loadTemplate('usuarios_edit', $dados);
+			$usuario = new usuarios();
+
+			$dados['usuarios_edit'] = $usuario->getUsuariosInfo($id);
+
+			$this->loadTemplate('usuarios_edit', $dados);
 	}
 
 	public function del($id) {
