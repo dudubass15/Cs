@@ -56,7 +56,7 @@ $_SESSION['login'];
 						<li>
 							<a href="#"><i class="fa fa-bell"></i> <span class="nav-label">Encomendas</span><span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
-								<li><a href="#"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
+								<li><a href="<?php echo URL; ?>/encomenda/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
 
 								<li><a href="<?php echo URL; ?>/encomenda"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
 							</ul>
