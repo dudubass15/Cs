@@ -14,6 +14,8 @@ class encomendaController extends controller {
 
 		$encomendas = new encomendas();
 
+		$dados['encomendas_registradas'] = $encomendas->getListaEncomendas();
+
 		$this->loadTemplate('encomendas', $dados);
 	}
 
@@ -35,12 +37,13 @@ class encomendaController extends controller {
 			$bloco = addslashes($_POST['bloco']);
 			$apartamentos = addslashes($_POST['apartamento']);
 			$morador = addslashes($_POST['morador']);
-			$entregador = addslashes($_POST['entregador']);
+			$nome_produto = addslashes($_POST['nome_produto']);
 			$empresa = addslashes($_POST['empresa']);
+			$observacao = addslashes($_POST['observacao']);
 
 			$encomendas = new encomendas();
 
-			$apartamento->add($condominio, $bloco, $apartamentos, $morador, $entregador, $empresa);
+			$encomendas->add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao);
 			header('Location: '.URL.'/encomenda');
 		}
 		

@@ -1,40 +1,38 @@
- <br>
- <div class="col-lg-4">
-    <div class="ibox float-e-margins">
-        <div class="ibox-title">
-            <h5>Condomínio - Bloco</h5>
-            <div class="ibox-tools">
-                <a class="collapse-link">
-                    <i class="fa fa-chevron-up"></i>
-                </a>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-wrench"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#">Config option 1</a>
-                    </li>
-                    <li><a href="#">Config option 2</a>
-                    </li>
-                </ul>
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
-                </a>
-            </div>
-        </div>
-        <div class="ibox-content">
-            <address>
-                <strong>Twitter, Inc.</strong><br>
-                795 Folsom Ave, Suite 600<br>
-                San Francisco, CA 94107<br>
-                <abbr title="Phone">P:</abbr> (123) 456-7890
-            </address>
-
-            <address>
-                <strong>Full Name</strong><br>
-                <a href="mailto:#">first.last@example.com</a>
-            </address>
-
-        </div>
-    </div>
-</div>
 <br>
+<div class="col-lg-4">
+     <div class="ibox float-e-margins border-bottom">
+         <div class="ibox-title">
+             <?php foreach($encomendas_registradas as $encomendas): ?>
+                 <h5>
+                 <?php print_r($encomendas['condominios']); ?>
+                 </h5>
+             
+             <div class="ibox-tools">
+                 <a class="collapse-link">
+                     <i class="fa fa-chevron-up"></i>
+                 </a>
+
+                 <a class="close-link">
+                     <i class="fa fa-times"></i>
+                 </a>
+             </div>
+         </div>
+         <div class="ibox-content" style="display: none;">
+             <address>
+                 <strong>Produto: </strong><?php print_r($encomendas['nome_produto']); ?><br>
+                 <strong>Empresa: </strong><?php print_r($encomendas['empresa']); ?><br>
+                 <strong>Recebido em: </strong><?php print_r($encomendas['encomendas']); ?><br>
+             </address>
+
+             <address>
+                 <strong><?php print_r($encomendas['nome_morador']); ?></strong><br>
+                 <strong>Bloco:</strong> <?php print_r($encomendas['blocos']); ?><br>
+                 <strong>Apto:</strong> <?php print_r($encomendas['apartamentos']); ?><br>
+                 <strong>Celular:</strong> <?php print_r($encomendas['celular']); ?><br>
+                 <strong>E-mail:</strong> <?php print_r($encomendas['moradores']); ?>
+             </address>
+
+         </div>
+         <?php endforeach; ?>
+     </div>
+</div>

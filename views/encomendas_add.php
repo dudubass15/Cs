@@ -65,14 +65,20 @@
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="entregador">Entregador</label>
-                        <div class="col-sm-8"><input type="text" name="entregador" class="form-control"></div>
+                        <label class="col-sm-2 control-label" for="nome_produto">Nome do Produto</label>
+                        <div class="col-sm-8"><input type="text" name="nome_produto" class="form-control"></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="empresa">Empresa</label>
                         <div class="col-sm-8"><input type="text" name="empresa" class="form-control"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="observacao">Observações</label>
+                        <div class="col-sm-8"><input type="text" name="observacao" style="width: 100%; height: 100px;" class="form-control"></div>
                     </div>
 
                     <div class="form1">
