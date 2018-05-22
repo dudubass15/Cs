@@ -3,9 +3,8 @@ class condominiosController extends controller {
 
 	public function __construct() {
 		$usuario = new usuarios();
-
-		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
-			header('Location: '.URL.'/login');
+		if (!$usuario->logado()) { //valida o retorno do método se ele é true ou false.
+			echo "<script>document.location='http://sistemaskadu.com.br/Cs/login'</script>";
 		}
 	}
 

@@ -2,19 +2,20 @@
 class usuariosController extends controller {
 	private $usuario;
 	public function __construct() {
-		$this->usuario = new usuarios();
-
-		if ($this->usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
-			header('Location: '.URL.'/login');
+		$usuario = new usuarios();
+		if (!$usuario->logado()) { //valida o retorno do método se ele é true ou false.
+			echo "<script>document.location='http://sistemaskadu.com.br/Cs/login'</script>";
 		}
 	}
 
 	public function index(){
 		$dados = array();
 
-		$dados['lista_usuarios'] = $this->usuario->getLista();
+		$usuario = new usuarios();
 
-		$this->loadTemplate('usuarios', $dados);
+		$dados['lista_usuarios'] = $usuario->getLista();
+
+		$this->loadTemplate('usuario', $dados);
 	}
 
 	public function add() {
