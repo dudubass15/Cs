@@ -4,7 +4,9 @@
         <div class="col-lg-4">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5><?php echo($encomendas['condominios']); ?></h5>
+                    <h5><?php echo($encomendas['apartamentos']); ?> -
+                        Bloco <?php echo($encomendas['blocos']); ?> - 
+                        <?php echo($encomendas['condominios']); ?></h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
