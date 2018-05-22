@@ -26,19 +26,19 @@
                             <tbody>
                                 <?php foreach($lista_condominio as $condominio): ?>
                                 <tr class="gradeX">
-                                    <td class="center"><?php print_r($condominio[1]); ?></td>
-                                    <td class="center"><?php print_r($condominio[2]); ?></td>
-                                    <td class="center"><?php print_r($condominio[4]); ?></td>
-                                    <td class="center"><?php print_r($condominio[5]); ?></td>
-                                    <td class="center"><?php print_r($condominio[6]); ?></td>
+                                    <td class="center"><?php echo($condominio[1]); ?></td>
+                                    <td class="center"><?php echo($condominio[2]); ?></td>
+                                    <td class="center"><?php echo($condominio[4]); ?></td>
+                                    <td class="center"><?php echo($condominio[5]); ?></td>
+                                    <td class="center"><?php echo($condominio[6]); ?></td>
                                     <td>
                                         <button class="btn btn-info btn-circle" type="button">
-                                            <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/condominios/edit/<?php print_r($condominio[0]); ?>">
+                                            <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/condominios/edit/<?php echo($condominio[0]); ?>">
                                             <i class="fa fa-paste"></i>
                                         </button>
 
                                         <button class="btn btn-warning btn-circle" type="button">
-                                        <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/condominios/del/<?php print_r($condominio[0]); ?>">
+                                        <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/condominios/del/<?php echo($condominio[0]); ?>">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
