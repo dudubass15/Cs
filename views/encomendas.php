@@ -1,6 +1,5 @@
 <br>
 <div class="row">
-    
     <?php foreach($encomendas_registradas as $encomendas): ?>
         <div class="col-lg-4">
             <div class="ibox float-e-margins">
@@ -20,7 +19,7 @@
                     <address>
                         <strong>Produto: </strong><?php echo($encomendas['nome_produto']); ?><br>
                         <strong>Empresa: </strong><?php echo($encomendas['empresa']); ?><br>
-                        <strong>Recebido em: </strong><?php echo($encomendas['encomendas']); ?><br>
+                        <strong>Recebido em: </strong><?php echo date("d/m/Y", strtotime($encomendas['encomendas'])); ?><br>
                     </address>
 
                     <address>
@@ -34,5 +33,4 @@
             </div>
         </div>
     <?php endforeach; ?>
-
-</div><br><br>
+</div><br>
