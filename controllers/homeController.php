@@ -12,7 +12,8 @@ class homeController extends controller {
 		$home = new home();
 
 		$dados['encomendas_dia'] = $home->getRelatórioDia();
-		$dados['encomendas_semana'] = $home->getRelatórioSemana();
+		$dados['encomendas_mes'] = $home->getRelatórioMes();
+		$dados['encomendas_ano'] = $home->getRelatórioAno();
 
 		$this->loadTemplate('home', $dados);
 	}

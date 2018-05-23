@@ -49,12 +49,29 @@ class home extends model {
 		return $array;
 	}
 
-	public function getRelatórioSemana() {
+	public function getRelatórioMes() {
 		$array = array();
 
-		$data = date("Y-m-d");
+		// $teste = "SELECT WEEKOFYEAR(data_postagem) FROM encomendas" YEAR;
 
-		$sql = "SELECT COUNT(*) FROM encomendas WHERE data_postagem = '$data' and day(data_postagem) = '7'";
+		$data = date("m");
+
+		$sql = "SELECT COUNT(*) FROM encomendas WHERE MONTH(data_postagem) = '$data'";
+		$qry = $this->db->query($sql);
+
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetchAll();
+		}
+
+		return $array;
+	}
+
+	public function getRelatórioAno() {
+		$array = array();
+
+		$data = date("Y");
+
+		$sql = "SELECT COUNT(*) FROM encomendas WHERE YEAR(data_postagem) = '$data'";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
