@@ -35,7 +35,11 @@ class home extends model {
 	public function getListaQuantidade() {
 		$array = array();
 
-		$sql = "SELECT COUNT(*) FROM encomendas";
+		$data = date("Y-m-d");
+
+		$sql = "SELECT COUNT(*) FROM encomendas WHERE data_postagem = '$data'"; // Filtra por dia
+		// $sql = "SELECT COUNT(*) FROM encomendas WHERE MONTH(data_postagem) = '05'"; Filtrar por Mês.
+		// $sql = "SELECT COUNT(*) FROM encomendas WHERE MONTH(data_postagem) = '05' and day(data_postagem) = '20'"; Filtrar por dia.
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {

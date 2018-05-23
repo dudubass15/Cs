@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'config.php';
+set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__)); //
 
 spl_autoload_register(function ($class){
 	if (strpos($class, 'Controller') > -1) { // Se encontrar no fim do arquivo o texto 'Controller'.
@@ -14,6 +15,10 @@ spl_autoload_register(function ($class){
 	}
 	
 });
+
+// include 'core/core.php';
+// include 'core/controller.php';
+// include 'controllers/homeController.php';
 
 $core = new core();
 $core->run();
