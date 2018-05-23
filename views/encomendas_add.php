@@ -78,7 +78,7 @@
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="observacao">Observações</label>
-                        <div class="col-sm-8"><input type="text" name="observacao" style="width: 100%; height: 100px;" class="form-control"></div>
+                        <div class="col-sm-8"><textarea class="form-control" rows="3" name="observacao"></textarea></div>
                     </div>
 
                     <div class="form1">

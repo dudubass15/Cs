@@ -77,7 +77,7 @@ $_SESSION['login'];
 								</li>
 
 								<li>
-									<a href="#"><i class="fa fa-building-o"></i> <span class="nav-label">Blocos</span> <span class="fa arrow"></span></a>
+									<a href="#"><i class="fa fa-users"></i> <span class="nav-label">Blocos</span> <span class="fa arrow"></span></a>
 									<ul class="nav nav-second-level">
 
 										<li><a href="<?php echo URL; ?>/bloco/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
@@ -99,7 +99,7 @@ $_SESSION['login'];
 								</li>
 
 								<li>
-									<a href="#"><i class="fa fa-male"></i> <span class="nav-label">Morador(a)</span> <span class="fa arrow"></span></a>
+									<a href="#"><i class="fa fa-male"></i> <span class="nav-label">Moradores</span> <span class="fa arrow"></span></a>
 									<ul class="nav nav-second-level">
 
 										<li><a href="<?php echo URL; ?>/morador/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>

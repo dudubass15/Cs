@@ -34,7 +34,7 @@ class moradores extends model {
 	public function getListaCondominios() {
 		$array = array();
 
-		$sql = "SELECT * FROM condominios";
+		$sql = "SELECT * FROM condominios order by nome asc";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {

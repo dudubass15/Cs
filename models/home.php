@@ -31,6 +31,19 @@ class home extends model {
 
 		return $array;
 	}
+
+	public function getListaQuantidade() {
+		$array = array();
+
+		$sql = "SELECT COUNT(*) FROM encomendas";
+		$qry = $this->db->query($sql);
+
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetchAll();
+		}
+
+		return $array;
+	}
 	
 }
 

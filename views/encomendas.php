@@ -4,16 +4,11 @@
         <div class="col-lg-4">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5><?php echo($encomendas['apartamentos']); ?> -
-                        Bloco <?php echo($encomendas['blocos']); ?> - 
+                    <h5>Apto <?php echo($encomendas['apartamentos']); ?> - 
                         <?php echo($encomendas['condominios']); ?></h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
-                        </a>
-
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
                         </a>
                     </div>
                 </div>
@@ -31,6 +26,11 @@
                         <strong>Celular:</strong> <?php echo($encomendas['celular']); ?><br>
                         <strong>E-mail:</strong> <?php echo($encomendas['moradores']); ?>
                     </address>
+                    <div style="width: 100%;">
+                        <div style="width: 50%; margin: auto;">
+                            <a class="btn btn-primary " href="#" style="margin: auto;"><i class="fa fa-floppy-o"></i> Arquivar</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

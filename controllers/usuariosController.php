@@ -4,7 +4,7 @@ class usuariosController extends controller {
 	public function __construct() {
 		$usuario = new usuarios();
 		if (!$usuario->logado()) { //valida o retorno do método se ele é true ou false.
-			echo "<script>document.location='http://sistemaskadu.com.br/Cs/login'</script>";
+			header('Location: '.URL.'/login');
 		}
 	}
 
@@ -15,13 +15,15 @@ class usuariosController extends controller {
 
 		$dados['lista_usuarios'] = $usuario->getLista();
 
-		$this->loadTemplate('usuario', $dados);
+		$this->loadTemplate('usuarios', $dados);
 	}
 
 	public function add() {
 		$dados = array();
 
-		if ($this->usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+		$usuario = new usuarios();
+
+		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
 
@@ -33,7 +35,7 @@ class usuariosController extends controller {
 
 			$this->usuario->add($nome, $cpf, $login, $senha);
 
-			header('Location: '.URL.'/usuarios');
+			header('Location: '.URL.'/usuarios_add');
 
 		}
 

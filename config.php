@@ -1,8 +1,8 @@
 <?php
 
-define('versao', 'prd'); // Alterar para 'prd' quando for colocar em produção.
+define('versao', 'dsv'); // Alterar para 'prd' quando for colocar em produção.
 
-define('URL', 'http://sistemaskadu.com.br/Cs'); // Sempre alterar quando iniciar novo projeto.
+define('URL', 'http://localhost/Cs'); // Sempre alterar quando iniciar novo projeto.
 
 global $config;
 
@@ -10,10 +10,10 @@ global $config;
 
 	if (versao == 'dsv') {
 		$config['versao'] = 'dsv';
-		$config['dbname'] = 'sistem14_cs';
+		$config['dbname'] = 'cs';
 		$config['host']   = 'localhost';
-		$config['user']   = 'sistem14_eduardo';
-		$config['pass']   = 'Eduard@2017';
+		$config['user']   = 'root';
+		$config['pass']   = '';
 	} 
 
 	if (versao == 'prd') {

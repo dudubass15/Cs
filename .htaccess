@@ -3,7 +3,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # Descomentar quando for colocar em produção(prd)
-RewriteRule ^(.*)$ /Cs/index.php?q=$1 [QSA,L]
+#RewriteRule ^(.*)$ /Cs/index.php?q=$1 [QSA,L]
 
 # Comentar quando for colocar em produção(prd)
-#RewriteRule ^(.*)$ /Cs/index.php/$1 [L]
+RewriteRule ^(.*)$ /Cs/index.php/$1 [L]

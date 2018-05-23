@@ -13,7 +13,7 @@ class loginController extends controller {
 			$usuario = new usuarios();
 						
 			if ($usuario->validaLogin($login, $senha)) { // Se a condição for verdadeira, ele entra no IF e redireciona para Home.
-				echo "<script>document.location='http://sistemaskadu.com.br/Cs/home'</script>";
+				header('Location: '.URL.'/home');
 			}
 			
 		}
