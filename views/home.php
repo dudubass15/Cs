@@ -1,5 +1,5 @@
 <br>
-<?php foreach ($quantidade_encomendas as $g): ?>
+<?php foreach ($encomendas_dia as $d): ?>
     <div class="row">
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
@@ -8,12 +8,15 @@
                     <h5>Encomendas</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins"><?php echo $g[0]; ?></h1>
+                    <h1 class="no-margins"><?php echo $d[0]; ?></h1>
                     <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
                     <small>Total por dia</small>
                 </div>
             </div>
         </div>
+<?php endforeach; ?>
+
+<?php foreach ($encomendas_semana as $s): ?>
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
@@ -21,12 +24,14 @@
                     <h5>Encomendas</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">275,800</h1>
+                    <h1 class="no-margins"><?php echo $s[0]; ?></h1>
                     <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
                     <small>Total por Semana</small>
                 </div>
             </div>
         </div>
+<?php endforeach; ?>
+
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
@@ -54,5 +59,4 @@
             </div>
         </div>
     </div>
-<?php endforeach; ?>
     

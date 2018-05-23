@@ -32,7 +32,7 @@ class home extends model {
 		return $array;
 	}
 
-	public function getListaQuantidade() {
+	public function getRelatórioDia() {
 		$array = array();
 
 		$data = date("Y-m-d");
@@ -40,6 +40,21 @@ class home extends model {
 		$sql = "SELECT COUNT(*) FROM encomendas WHERE data_postagem = '$data'"; // Filtra por dia
 		// $sql = "SELECT COUNT(*) FROM encomendas WHERE MONTH(data_postagem) = '05'"; Filtrar por Mês.
 		// $sql = "SELECT COUNT(*) FROM encomendas WHERE MONTH(data_postagem) = '05' and day(data_postagem) = '20'"; Filtrar por dia.
+		$qry = $this->db->query($sql);
+
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetchAll();
+		}
+
+		return $array;
+	}
+
+	public function getRelatórioSemana() {
+		$array = array();
+
+		$data = date("Y-m-d");
+
+		$sql = "SELECT COUNT(*) FROM encomendas WHERE data_postagem = '$data' and day(data_postagem) = '7'";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
