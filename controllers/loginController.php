@@ -1,5 +1,4 @@
 <?php
-
 class loginController extends controller {
 
 	public function index() {
@@ -29,7 +28,4 @@ class loginController extends controller {
 		header('Location: '.URL.'/login');	
 
 	}
-
 }
-
-?>
