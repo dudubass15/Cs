@@ -15,7 +15,7 @@ class moradores extends model {
 		$sql = "SELECT condominios.id, condominios.nome AS condominios,
 				blocos.id, blocos.numero AS blocos,
 				apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
-				moradores.nome_morador, moradores.celular, moradores.celular2, moradores.cpf,
+				moradores.id, moradores.nome_morador, moradores.celular, moradores.celular2, moradores.cpf,
 				moradores.email AS moradores
 				FROM moradores
 				INNER JOIN condominios ON condominios.id = moradores.condominios_id
@@ -72,7 +72,7 @@ class moradores extends model {
 		return $array;
 	}
 
-	public function getMoradores($id) {
+	public function getListaMoradores($id) {
 		$array = array();
 
 		$sql = "SELECT * FROM moradores WHERE id = $id";
