@@ -49,11 +49,10 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="nome">Morador(a)</label>
-                        <div class="col-sm-8"><input type="text" name="nome" class="form-control"></div>
+                        <div class="col-sm-8"><input type="text" name="nome" class="form-control" value="<?php echo $moradores_info['nome_morador']; ?>"></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>

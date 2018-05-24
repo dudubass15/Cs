@@ -68,6 +68,8 @@ class moradorController extends controller {
 
 		$dados['lista_apartamento'] = $morador->getListaApartamentos();
 
+		$dados['moradores_info'] = $morador->getMoradores($id);
+
 		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
 			$apartamento = addslashes($_POST['apartamento']);
@@ -84,10 +86,6 @@ class moradorController extends controller {
 
 			header('Location: '.URL.'/morador');
 		}
-
-		$morador = new moradores();
-
-		$dados['moradores_info'] = $morador->getMoradores($id);
 
 		$this->loadTemplate('morador_edit', $dados);
 	}
