@@ -17,7 +17,6 @@
                                 <tr>
                                     <th style="text-align: center;">Condomínio</th>
                                     <th style="text-align: center;">Número</th>
-                                    <th style="text-align: center;">Nome</th>
                                     <th style="text-align: center;">Ações</th>
                                 </tr>
                             </thead>
@@ -26,7 +25,6 @@
                                     <tr class="gradeX">
                                         <td class="center"><?php echo $b['condominio']; ?></td>
                                         <td class="center"><?php echo $b['numero']; ?></td>
-                                        <td class="center"><?php echo $b['bloco']; ?></td>
                                         <td>
                                             <button class="btn btn-info btn-circle" type="button">
                                                 <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/bloco/edit/<?php echo $b['id']; ?>">
