@@ -92,7 +92,7 @@ class moradores extends model {
 	}
 
 	public function edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email) {
-		$sql = "UPDATE moradores SET condominio = '$condominio', apartamento = '$apartamento', bloco = '$bloco', nome = '$nome', celular = '$celular', celular2 = '$celular2', cpf = '$cpf', email = '$email' WHERE id = $id";
+		$sql = "UPDATE moradores SET condominios_id = '$condominio', apartamentos_id = '$apartamento', blocos_id = '$bloco', nome_morador = '$nome', celular = '$celular', celular2 = '$celular2', cpf = '$cpf', email = '$email' WHERE id = $id";
 		$this->db->query($sql);
 	}
 
