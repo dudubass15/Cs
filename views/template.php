@@ -8,26 +8,18 @@ $_SESSION['login'];
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<title>CS</title>
-
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>/assets/css/template.css">
-
 	<link href="<?php echo URL; ?>/assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo URL; ?>/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-
 	<link href="<?php echo URL; ?>/assets/css/animate.css" rel="stylesheet">
 	<link href="<?php echo URL; ?>/assets/css/style.css" rel="stylesheet">
 	<link href="<?php echo URL; ?>/assets/css/cs.css" rel="stylesheet">
 	<link href="<?php echo URL; ?>/assets/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
-
 	<link href="<?php echo URL; ?>/assets/css/plugins/select2/select2.min.css" rel="stylesheet">
-
 	<link href="<?php echo URL; ?>/assets/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
-
 	<!-- Toastr style -->
 	<link href="<?php echo URL; ?>/assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
 </head>
 <body>
 
@@ -154,8 +146,6 @@ $_SESSION['login'];
 			</div>
 		</div>
 
-
-
 		<!-- Mainly scripts -->
 		<script src="<?php echo URL; ?>/assets/js/jquery-3.1.1.min.js"></script>
 		<script src="<?php echo URL; ?>/assets/js/bootstrap.min.js"></script>
@@ -165,7 +155,6 @@ $_SESSION['login'];
 		<!-- Custom and plugin javascript -->
 		<script src="<?php echo URL; ?>/assets/js/inspinia.js"></script>
 		<script src="<?php echo URL; ?>/assets/js/plugins/pace/pace.min.js"></script>
-
 		<script src="<?php echo URL; ?>/assets/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
 
 		<!-- Select2 -->
@@ -173,7 +162,6 @@ $_SESSION['login'];
 
 		<!-- Mascaras para inputs -->
 		<script src="<?php echo URL; ?>/assets/js/jquery.mask.js"></script>
-
 		<script src="<?php echo URL; ?>/assets/js/plugins/dataTables/datatables.min.js"></script>
 
 		<!-- Toastr -->
