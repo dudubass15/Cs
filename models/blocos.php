@@ -60,13 +60,13 @@ class blocos extends model {
 	}
 
 	public function add($condominio, $numero, $nome) {
-		$sql = "INSERT INTO blocos (condominios_id, numero, nome_bloco)";
+		$sql = "INSERT INTO blocos (condominios_id, numero, nome)";
 		$sql.= "VALUE ('$condominio', '$numero', '$nome')";
 		$this->db->query($sql);
 	}
 
 	public function edit($id, $numero, $nome) {
-		$sql = "UPDATE blocos SET numero = '$numero', nome_bloco = '$nome' WHERE id = $id";
+		$sql = "UPDATE blocos SET numero = '$numero', nome = '$nome' WHERE id = $id";
 		$this->db->query($sql);
 	}
 

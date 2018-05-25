@@ -49,6 +49,39 @@ class encomendaController extends controller {
 		$this->loadTemplate('encomendas_add', $dados);
 	}
 
+	public function edit($id) {
+		$dados = array();
+
+		$encomenda = new encomendas();
+
+		$dados['lista_condominio'] = $encomenda->getListaCondominio();
+
+		$dados['lista_bloco'] = $encomenda->getListaBloco();
+
+		$dados['lista_apartamento'] = $encomenda->getListaApto();
+
+		$dados['lista_morador'] = $encomenda->getListaMorador();
+
+		$dados['lista_info'] = $encomenda->getEditEncomendas($id);
+
+		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
+			$condominio = addslashes($_POST['condominio']);
+			$bloco = addslashes($_POST['bloco']);
+			$apartamentos = addslashes($_POST['apartamento']);
+			$morador = addslashes($_POST['morador']);
+			$nome_produto = addslashes($_POST['nome_produto']);
+			$empresa = addslashes($_POST['empresa']);
+			$observacao = addslashes($_POST['observacao']);
+
+			$encomenda = new encomendas();
+
+			$encomenda->edit($id, $condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao);
+
+			header('Location: '.URL.'/encomenda');
+		}
+		
+		$this->loadTemplate('encomendas_edit', $dados);
+	}
 }
 
 ?>

@@ -14,8 +14,8 @@ class apartamentos extends model {
 
 		$sql = "SELECT apartamentos.id, apartamentos.numero_apartamento, apartamentos.telefone AS apartamentos, condominios.id, condominios.nome AS condominios, blocos.id, blocos.numero AS blocos
 				FROM apartamentos 
-				INNER JOIN condominios ON condominios.id = apartamentos.condominios_id
-				INNER JOIN blocos ON blocos.id = apartamentos.blocos_id";
+				LEFT JOIN condominios ON condominios.id = apartamentos.condominios_id
+				LEFT JOIN blocos ON blocos.id = apartamentos.blocos_id";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {

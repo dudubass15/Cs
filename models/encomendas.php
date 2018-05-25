@@ -104,9 +104,27 @@ class encomendas extends model {
 		return $array;
 	}
 
+	public function getEditEncomendas($id) {
+		$array = array();
+
+		$sql = "SELECT * FROM encomendas WHERE id = $id";
+		$qry = $this->db->query($sql);
+
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetch();
+		}
+
+		return $array;
+	}
+
 	public function add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao) {
 		$sql = "INSERT INTO encomendas (condominios_id, blocos_id, apartamentos_id, moradores_id, nome_produto, empresa, observacao, data_postagem)";
 		$sql.= "VALUE ('$condominio', '$bloco', '$apartamentos', '$morador', '$nome_produto', '$empresa', '$observacao', NOW())";
+		$this->db->query($sql);
+	}
+
+	public function edit($id, $condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao) {
+		$sql = "UPDATE encomendas SET condominios_id = '$condominio', blocos_id = '$bloco', apartamentos_id = '$apartamentos', moradores_id = '$morador', nome_produto = '$nome_produto', empresa = '$empresa', observacao = '$observacao' WHERE id = $id";
 		$this->db->query($sql);
 	}
 
