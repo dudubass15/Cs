@@ -16,7 +16,7 @@ class encomendas extends model {
 				blocos.id, blocos.numero AS blocos,
 				apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
 				modores.id, moradores.nome_morador AS moradores,
-				encomendas.id, encomendas.entregador, encomendas.empresa AS encomendas
+				encomendas.id, encomendas.entregador, encomendas.empresa, encomendas.status AS encomendas
 				FROM encomendas
 				INNER JOIN condominios ON condominios.id = encomendas.condominios_id
 				INNER JOIN blocos ON blocos.id = encomendas.blocos_id
@@ -85,16 +85,19 @@ class encomendas extends model {
 	public function getListaEncomendas() {
 		$array = array();
 
-		$sql = "SELECT condominios.id, condominios.nome AS condominios,
+		$sql = "SELECT 
+				condominios.id, condominios.nome AS condominios,
 				blocos.id, blocos.numero AS blocos,
 				apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
 				moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
-				encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, encomendas.data_postagem AS encomendas
+				encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
+				encomendas.status, encomendas.data_postagem AS encomendas
 				FROM encomendas
 				INNER JOIN condominios ON condominios.id = encomendas.condominios_id
 				INNER JOIN blocos ON blocos.id = encomendas.blocos_id
 				INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
 				INNER JOIN moradores ON moradores.id = encomendas.moradores_id";
+
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
@@ -117,14 +120,27 @@ class encomendas extends model {
 		return $array;
 	}
 
-	public function add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao) {
-		$sql = "INSERT INTO encomendas (condominios_id, blocos_id, apartamentos_id, moradores_id, nome_produto, empresa, observacao, data_postagem)";
-		$sql.= "VALUE ('$condominio', '$bloco', '$apartamentos', '$morador', '$nome_produto', '$empresa', '$observacao', NOW())";
+	// public function view_pendentes(){
+	// 	$array = array();
+
+	// 	$sql = "SELECT * FROM encomendas WHERE status = '0'";
+	// 	$qry = $this->db->query($sql);
+
+	// 	if ($qry->rowCount() > 0) {
+	// 		$array = $qry->fetch();
+	// 	}
+
+	// 	return $array;
+	// }
+
+	public function add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status) {
+		$sql = "INSERT INTO encomendas (condominios_id, blocos_id, apartamentos_id, moradores_id, nome_produto, empresa, observacao, status, data_postagem)";
+		$sql.= "VALUE ('$condominio', '$bloco', '$apartamentos', '$morador', '$nome_produto', '$empresa', '$observacao', '$status', NOW())";
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao) {
-		$sql = "UPDATE encomendas SET condominios_id = '$condominio', blocos_id = '$bloco', apartamentos_id = '$apartamentos', moradores_id = '$morador', nome_produto = '$nome_produto', empresa = '$empresa', observacao = '$observacao' WHERE id = $id";
+	public function edit($id, $condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status) {
+		$sql = "UPDATE encomendas SET condominios_id = '$condominio', blocos_id = '$bloco', apartamentos_id = '$apartamentos', moradores_id = '$morador', nome_produto = '$nome_produto', empresa = '$empresa', observacao = '$observacao', status = '$status' WHERE id = $id";
 		$this->db->query($sql);
 	}
 

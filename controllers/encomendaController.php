@@ -8,15 +8,25 @@ class encomendaController extends controller {
 		}
 	}
 
-	public function index(){
+	public function view1(){
 		$dados = array();
 
 		$encomendas = new encomendas();
 
 		$dados['encomendas_registradas'] = $encomendas->getListaEncomendas();
 
-		$this->loadTemplate('encomendas', $dados);
+		$this->loadTemplate('encomendas_view_pendentes', $dados);
 	}
+
+	// public function view2(){
+	// 	$dados = array();
+
+	// 	$encomendas = new encomendas();
+
+	// 	$dados['encomendas_registradas'] = $encomendas->view_pendentes();
+
+	// 	$this->loadTemplate('encomendas_view_concluidas', $dados);
+	// }
 
 	public function add() {
 		$dados = array();
@@ -39,10 +49,11 @@ class encomendaController extends controller {
 			$nome_produto = addslashes($_POST['nome_produto']);
 			$empresa = addslashes($_POST['empresa']);
 			$observacao = addslashes($_POST['observacao']);
+			$status = addslashes($_POST['status']);
 
 			$encomendas = new encomendas();
 
-			$encomendas->add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao);
+			$encomendas->add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status);
 			header('Location: '.URL.'/encomenda');
 		}
 		
@@ -72,10 +83,11 @@ class encomendaController extends controller {
 			$nome_produto = addslashes($_POST['nome_produto']);
 			$empresa = addslashes($_POST['empresa']);
 			$observacao = addslashes($_POST['observacao']);
+			$status = addslashes($_POST['status']);
 
 			$encomenda = new encomendas();
 
-			$encomenda->edit($id, $condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao);
+			$encomenda->edit($id, $condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status);
 
 			header('Location: '.URL.'/encomenda');
 		}

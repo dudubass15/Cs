@@ -81,6 +81,18 @@
                         <div class="col-sm-8"><textarea class="form-control" rows="3" name="observacao"></textarea></div>
                     </div>
 
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" name="status" for="status">Status</label>
+                        <div class="col-sm-8">
+                            <select class="select2_demo_3 form-control form-control" name="status">
+                                <option></option>
+                                <option value="1">Pendente</option>
+                                <option value="0">Concluído</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="form1">
                         <div class="form-button">
                             <button class="btn btn-primary" type="submit">Salvar</button>
