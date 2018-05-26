@@ -34,7 +34,7 @@
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="senha">Senha</label>
-                        <div class="col-sm-8"><input type="text" name="senha" class="form-control" value="<?php echo base64_decode($usuarios_edit['senha']); ?>"></div>
+                        <div class="col-sm-8"><input type="text" name="senha" class="form-control"></div>
                     </div>
 
                     <div class="form1">

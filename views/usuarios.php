@@ -15,17 +15,23 @@
                         <table class="table table-striped table-bordered table-hover" style="text-align: center;">
                             <thead>
                                 <tr>
+                                    <th style="text-align: center;">Nome</th>
                                     <th style="text-align: center;">E-mail</th>
-                                    <th style="text-align: center;">Senha</th>
                                     <th style="text-align: center;">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach($lista_usuarios as $b): ?>
                                     <tr class="gradeX">
+                                        <td class="center"><?php echo $b['nome']; ?></td>
                                         <td class="center"><?php echo $b['login']; ?></td>
-                                        <td class="center"><?php echo base64_decode($b['senha']); ?></td>
                                         <td>
+                                            <button class="btn btn-success btn-circle" type="button">
+                                                <a style="text-decoration: none; color: white;" href="#">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </button>
+
                                             <button class="btn btn-info btn-circle" type="button">
                                                 <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/usuarios/edit/<?php echo $b['id']; ?>">
                                                     <i class="fa fa-paste"></i>

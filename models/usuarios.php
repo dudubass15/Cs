@@ -73,7 +73,11 @@ class usuarios extends model {
 	}
 
 	public function edit($id, $nome, $cpf, $login, $senha) {
-		$sql = "UPDATE usuarios SET nome = '$nome', cpf = '$cpf', login = '$login', senha = '$senha' WHERE id = $id";
+		$sql = "UPDATE usuarios SET nome = '$nome', cpf = '$cpf', login = '$login' ";
+		if (!empty($senha)) {
+			$sql.= "senha = '$senha' ";
+		}
+		$sql.= "WHERE id = $id";
 		$this->db->query($sql);
 
 		if (!empty($senha)) {
@@ -83,8 +87,13 @@ class usuarios extends model {
 	}
 
 	public function del($id) {
-		$sql = "DELETE FROM usuarios WHERE id = $id";
-		$this->db->query($sql);
+		try {
+			$sql = "DELETE FROM usuarios WHERE id = $id";
+			$this->db->query($sql);
+		} catch (PDOException $e) {
+			exit('Erro ao excluir o Usuário: '.$e->getMessage());
+		}
+		
 	}	
 
 }

@@ -45,7 +45,9 @@ class usuariosController extends controller {
 	public function edit($id) {
 		$dados = array();
 
-		if ($this->usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+		$usuario = new usuarios();
+
+		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
 
