@@ -28,7 +28,7 @@
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="login">Login</label>
-                        <div class="col-sm-8"><input type="text" name="login" class="form-control" value="<?php echo $usuarios_edit['login']; ?>"></div>
+                        <div class="col-sm-8"><input type="text" name="login" class="form-control" value="<?php echo $usuarios_edit['login']; ?>" placeholder="fulano@cs.com.br"></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>

@@ -54,7 +54,7 @@ class encomendaController extends controller {
 			$encomendas = new encomendas();
 
 			$encomendas->add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status);
-			header('Location: '.URL.'/encomenda');
+			header('Location: '.URL.'/encomenda/view1');
 		}
 		
 		$this->loadTemplate('encomendas_add', $dados);

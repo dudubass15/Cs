@@ -33,9 +33,9 @@ class usuariosController extends controller {
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
 
-			$this->usuario->add($nome, $cpf, $login, $senha);
+			$usuario->add($nome, $cpf, $login, $senha);
 
-			header('Location: '.URL.'/usuarios_add');
+			header('Location: '.URL.'/usuarios');
 
 		}
 
@@ -57,9 +57,9 @@ class usuariosController extends controller {
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
 
-			$this->usuario = new usuarios();
+			$usuario = new usuarios();
 
-			$this->usuario->edit($id, $nome, $cpf, $login, $senha);
+			$usuario->edit($id, $nome, $cpf, $login, $senha);
 
 			header('Location: '.URL.'/usuarios');
 
@@ -74,11 +74,13 @@ class usuariosController extends controller {
 
 	public function del($id) {
 
-		if ($this->usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+		$usuario = new usuarios();
+
+		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
 		
-		$this->usuario->del($id);
+		$usuario->del($id);
 
 		header('Location: '.URL.'/usuarios');
 	}
