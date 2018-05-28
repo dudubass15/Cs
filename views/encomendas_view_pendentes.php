@@ -28,9 +28,6 @@
                     </address>
                     <div class="contact-box-footer">
                         <div class="m-t-xs btn-group">
-                            <a class="btn btn-white btn-bitbucket" title="Arquivar" href="#">
-                                <i class="fa fa-check-circle-o"></i>
-                            </a>
                             <a class="btn btn-default" title="Editar" href="<?php echo URL; ?>/encomenda/edit/<?php echo $encomendas['id']; ?>">
                                 <i class="fa fa-pencil"></i>
                             </a>
