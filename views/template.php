@@ -18,8 +18,10 @@ $_SESSION['login'];
 	<link href="<?php echo URL; ?>/assets/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
 	<link href="<?php echo URL; ?>/assets/css/plugins/select2/select2.min.css" rel="stylesheet">
 	<link href="<?php echo URL; ?>/assets/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+
 	<!-- Toastr style -->
 	<link href="<?php echo URL; ?>/assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
 </head>
 <body>
 

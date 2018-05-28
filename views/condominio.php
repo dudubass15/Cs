@@ -32,12 +32,12 @@
                                     <td class="center"><?php echo($condominio[5]); ?></td>
                                     <td class="center"><?php echo($condominio[6]); ?></td>
                                     <td>
-                                        <button class="btn btn-info btn-circle" type="button">
+                                        <button class="btn btn-info btn-circle" type="button" title="Editar">
                                             <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/condominios/edit/<?php echo($condominio[0]); ?>">
                                             <i class="fa fa-paste"></i>
                                         </button>
 
-                                        <button class="btn btn-warning btn-circle" type="button">
+                                        <button class="btn btn-warning btn-circle" type="button" title="Deletar">
                                         <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/condominios/del/<?php echo($condominio[0]); ?>">
                                             <i class="fa fa-times"></i>
                                         </button>

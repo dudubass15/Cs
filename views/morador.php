@@ -34,13 +34,13 @@
                                     <td class="center"><?php echo $morador['moradores']; ?></td>
                                     <td class="center"><?php echo $morador['celular']; ?></td>
                                     <td>
-                                        <button class="btn btn-info btn-circle" type="button">
+                                        <button class="btn btn-info btn-circle" type="button" title="Editar">
                                             <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/morador/edit/<?php echo $morador['id']; ?>">
                                                 <i class="fa fa-paste"></i>
                                             </a>
                                         </button>
 
-                                        <button class="btn btn-warning btn-circle" type="button">
+                                        <button class="btn btn-warning btn-circle" type="button" title="Deletar">
                                             <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/morador/del/<?php echo $morador['id']; ?>">
                                                 <i class="fa fa-times"></i>
                                             </a>

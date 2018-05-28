@@ -26,13 +26,13 @@
                                         <td class="center"><?php echo $b['condominio']; ?></td>
                                         <td class="center"><?php echo $b['numero']; ?></td>
                                         <td>
-                                            <button class="btn btn-info btn-circle" type="button">
+                                            <button class="btn btn-info btn-circle" type="button" title="Editar">
                                                 <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/bloco/edit/<?php echo $b['id']; ?>">
                                                     <i class="fa fa-paste"></i>
                                                 </a>
                                             </button>
 
-                                            <button class="btn btn-warning btn-circle" type="button">
+                                            <button class="btn btn-warning btn-circle" type="button" title="Deletar">
                                                 <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/bloco/del/<?php echo $b['id']; ?>">
                                                     <i class="fa fa-times"></i>
                                                 </a>
