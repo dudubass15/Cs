@@ -17,7 +17,7 @@ class encomendas extends model {
 				apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
 				modores.id, moradores.nome_morador AS moradores,
 				encomendas.id, encomendas.entregador, encomendas.empresa, encomendas.status AS encomendas
-				FROM encomendas
+				FROM encomendas WHERE status = '1'
 				INNER JOIN condominios ON condominios.id = encomendas.condominios_id
 				INNER JOIN blocos ON blocos.id = encomendas.blocos_id
 				INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id";
@@ -96,7 +96,8 @@ class encomendas extends model {
 				INNER JOIN condominios ON condominios.id = encomendas.condominios_id
 				INNER JOIN blocos ON blocos.id = encomendas.blocos_id
 				INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
-				INNER JOIN moradores ON moradores.id = encomendas.moradores_id";
+				INNER JOIN moradores ON moradores.id = encomendas.moradores_id
+				WHERE encomendas.status = '1'";
 
 		$qry = $this->db->query($sql);
 
@@ -120,18 +121,31 @@ class encomendas extends model {
 		return $array;
 	}
 
-	// public function view_pendentes(){
-	// 	$array = array();
+	public function view_concluidas(){
+		$array = array();
 
-	// 	$sql = "SELECT * FROM encomendas WHERE status = '0'";
-	// 	$qry = $this->db->query($sql);
+		$sql = "SELECT 
+				condominios.id, condominios.nome AS condominios,
+				blocos.id, blocos.numero AS blocos,
+				apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
+				moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
+				encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
+				encomendas.status, encomendas.data_postagem AS encomendas
+				FROM encomendas
+				INNER JOIN condominios ON condominios.id = encomendas.condominios_id
+				INNER JOIN blocos ON blocos.id = encomendas.blocos_id
+				INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
+				INNER JOIN moradores ON moradores.id = encomendas.moradores_id
+				WHERE encomendas.status = '0'";
 
-	// 	if ($qry->rowCount() > 0) {
-	// 		$array = $qry->fetch();
-	// 	}
+		$qry = $this->db->query($sql);
 
-	// 	return $array;
-	// }
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetchAll();
+		}
+
+		return $array;
+	}
 
 	public function add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status) {
 		$sql = "INSERT INTO encomendas (condominios_id, blocos_id, apartamentos_id, moradores_id, nome_produto, empresa, observacao, status, data_postagem)";

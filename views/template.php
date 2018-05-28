@@ -52,7 +52,7 @@ $_SESSION['login'];
 
 								<li><a href="<?php echo URL; ?>/encomenda/view1"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Pendentes</span> </a></li>
 
-								<li><a href="#"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Concluídas</span> </a></li>
+								<li><a href="<?php echo URL; ?>/encomenda/view2"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Concluídas</span> </a></li>
 							</ul>
 						</li>
 

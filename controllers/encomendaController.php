@@ -18,15 +18,17 @@ class encomendaController extends controller {
 		$this->loadTemplate('encomendas_view_pendentes', $dados);
 	}
 
-	// public function view2(){
-	// 	$dados = array();
+	public function view2(){
+		$dados = array();
 
-	// 	$encomendas = new encomendas();
+		$encomendas = new encomendas();
 
-	// 	$dados['encomendas_registradas'] = $encomendas->view_pendentes();
+		$dados['encomendas_concluidas'] = $encomendas->view_concluidas();
 
-	// 	$this->loadTemplate('encomendas_view_concluidas', $dados);
-	// }
+		
+
+		$this->loadTemplate('encomendas_view_concluidas', $dados);
+	}
 
 	public function add() {
 		$dados = array();
