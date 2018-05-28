@@ -25,8 +25,6 @@ class encomendaController extends controller {
 
 		$dados['encomendas_concluidas'] = $encomendas->view_concluidas();
 
-		
-
 		$this->loadTemplate('encomendas_view_concluidas', $dados);
 	}
 
@@ -91,7 +89,7 @@ class encomendaController extends controller {
 
 			$encomenda->edit($id, $condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status);
 
-			header('Location: '.URL.'/encomenda');
+			header('Location: '.URL.'/encomenda/view1');
 		}
 		
 		$this->loadTemplate('encomendas_edit', $dados);
