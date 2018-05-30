@@ -20,6 +20,7 @@ class usuarios extends model {
 			$_SESSION['nome'] = $row['nome'];
 			$_SESSION['login'] = $row['login'];
 			$_SESSION['senha'] = $row['senha'];
+			$_SESSION['tipo'] = $row['tipo'];
 
 			return true;
 		}
@@ -66,14 +67,14 @@ class usuarios extends model {
 		return $array;
 	}
 
-	public function add($nome, $cpf, $login, $senha) {
-		$sql = "INSERT INTO usuarios (nome, cpf, login, senha)";
-		$sql.= "VALUE ('$nome', '$cpf', '$login', '$senha')";
+	public function add($nome, $cpf, $login, $senha, $tipo) {
+		$sql = "INSERT INTO usuarios (nome, cpf, login, senha, tipo)";
+		$sql.= "VALUE ('$nome', '$cpf', '$login', '$senha', '$tipo')";
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $nome, $cpf, $login, $senha) {
-		$sql = "UPDATE usuarios SET nome = '$nome', cpf = '$cpf', login = '$login' ";
+	public function edit($id, $nome, $cpf, $login, $senha, $tipo) {
+		$sql = "UPDATE usuarios SET nome = '$nome', cpf = '$cpf', login = '$login', tipo = '$tipo'";
 		if (!empty($senha)) {
 			$sql.= "senha = '$senha' ";
 		}

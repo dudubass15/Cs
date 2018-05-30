@@ -75,7 +75,7 @@ class encomendaController extends controller {
 
 		$dados['lista_info'] = $encomenda->getEditEncomendas($id);
 
-		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
+		if (isset($_POST['nome_produto']) && !empty($_POST['nome_produto'])) {
 			$condominio = addslashes($_POST['condominio']);
 			$bloco = addslashes($_POST['bloco']);
 			$apartamentos = addslashes($_POST['apartamento']);

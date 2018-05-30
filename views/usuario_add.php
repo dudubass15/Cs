@@ -32,6 +32,18 @@
                         <div class="col-sm-8"><input type="password" name="senha" class="form-control" name="password"></div>
                     </div>
 
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="tipo">Tipo</label>
+                            <div class="col-sm-8">
+                                <select class="select2_demo_3 form-control form-control" name="tipo">
+                                    <option></option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Usuário</option>
+                                </select>
+                            </div>
+                    </div>
+
                     <div class="form1">
                         <div class="form-button">
                             <button class="btn btn-primary" type="submit">Salvar</button>
