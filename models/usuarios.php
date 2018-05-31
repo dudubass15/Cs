@@ -14,7 +14,7 @@ class usuarios extends model {
 		$sql = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha' ";
 		$qry = $this->db->query($sql);
 
-		if ($qry->rowCount() > 0) {// Se a quantidade for maior que 0
+		if ($qry->rowCount() > 0) { // Se a quantidade for maior que 0
 			$row = $qry->fetch();
 			$_SESSION['id'] = $row['id'];
 			$_SESSION['nome'] = $row['nome'];
@@ -30,8 +30,24 @@ class usuarios extends model {
 
 	public function getLista() {
 		$array = array();
+		$sql = "SELECT moradores.id, moradores.nome_morador AS moradores,
+		usuarios.id, usuarios.nome, usuarios.login, usuarios.tipo AS usuarios
+		FROM usuarios
+		INNER JOIN moradores ON moradores.id = usuarios.moradores_id";
+		// $sql = "SELECT * FROM usuarios";
+		$qry = $this->db->query($sql);
 
-		$sql = "SELECT * FROM usuarios";
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetchAll();
+		}
+
+		return $array;
+	}
+
+	public function getMoradores() {
+		$array = array();
+
+		$sql = "SELECT id, nome_morador FROM moradores";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
@@ -67,14 +83,14 @@ class usuarios extends model {
 		return $array;
 	}
 
-	public function add($nome, $cpf, $login, $senha, $tipo) {
-		$sql = "INSERT INTO usuarios (nome, cpf, login, senha, tipo)";
-		$sql.= "VALUE ('$nome', '$cpf', '$login', '$senha', '$tipo')";
+	public function add($morador, $cpf, $login, $senha, $tipo) {
+		$sql = "INSERT INTO usuarios (nome_morador, cpf, login, senha, tipo)";
+		$sql.= "VALUE ('$morador', '$cpf', '$login', '$senha', '$tipo')";
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $nome, $cpf, $login, $senha, $tipo) {
-		$sql = "UPDATE usuarios SET nome = '$nome', cpf = '$cpf', login = '$login', tipo = '$tipo'";
+	public function edit($id, $morador, $cpf, $login, $senha, $tipo) {
+		$sql = "UPDATE usuarios SET morador = '$morador', cpf = '$cpf', login = '$login', tipo = '$tipo'";
 		if (!empty($senha)) {
 			$sql.= "senha = '$senha' ";
 		}

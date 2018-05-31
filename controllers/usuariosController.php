@@ -23,18 +23,20 @@ class usuariosController extends controller {
 
 		$usuario = new usuarios();
 
+		$dados['lista_moradores'] = $usuario->getMoradores();
+
 		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
 
-		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
-			$nome = addslashes($_POST['nome']);
+		if (isset($_POST['morador']) && !empty($_POST['morador'])) {
+			$morador = addslashes($_POST['morador']);
 			$cpf = addslashes($_POST['cpf']);
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
 			$tipo = addslashes($_POST['tipo']);
 
-			$usuario->add($nome, $cpf, $login, $senha, $tipo);
+			$usuario->add($morador, $cpf, $login, $senha, $tipo);
 
 			header('Location: '.URL.'/usuarios');
 
@@ -52,8 +54,8 @@ class usuariosController extends controller {
 			header('Location: '.URL.'/login');
 		}
 
-		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
-			$nome = addslashes($_POST['nome']);
+		if (isset($_POST['morador']) && !empty($_POST['morador'])) {
+			$morador = addslashes($_POST['morador']);
 			$cpf = addslashes($_POST['cpf']);
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
@@ -61,7 +63,7 @@ class usuariosController extends controller {
 
 			$usuario = new usuarios();
 
-			$usuario->edit($id, $nome, $cpf, $login, $senha, $tipo);
+			$usuario->edit($id, $morador, $cpf, $login, $senha, $tipo);
 
 			header('Location: '.URL.'/usuarios');
 

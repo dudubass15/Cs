@@ -23,7 +23,7 @@
                             <tbody>
                                 <?php foreach($lista_usuarios as $b): ?>
                                     <tr class="gradeX">
-                                        <td class="center"><?php echo $b['nome']; ?></td>
+                                        <td class="center"><?php echo $b['moradores']; ?></td>
                                         <td class="center"><?php echo $b['login']; ?></td>
                                         <td>
                                             <button class="btn btn-info btn-circle" type="button" title="Editar">
