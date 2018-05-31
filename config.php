@@ -1,8 +1,12 @@
 <?php
 
+$url_local = 'http://localhost/Cs'; // Define a URL para acesso a aplicação local.
+
+$url_hospedagem = 'http://sistemaskadu.com.br/Cs'; // Define a URL para acesso a aplicação remotamente.
+
 define('versao', 'dsv'); // Alterar para 'prd' quando for colocar em produção.
 
-define('URL', 'http://localhost/Cs'); // Sempre alterar quando iniciar novo projeto.
+define('URL', $url_local); // Sempre alterar quando iniciar novo projeto.
 
 global $config;
 
