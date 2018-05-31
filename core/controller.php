@@ -14,7 +14,6 @@ class controller {
 		extract($viewData); // Transforma a chave do array em variavel.
 		include 'views/'.$viewName.'.php';
 	}
-
 }
 
 ?>

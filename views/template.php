@@ -3,7 +3,6 @@
 $_SESSION['login'];
 
 ?>
-
 <html>
 <head>
 	<meta charset="utf-8">
@@ -21,7 +20,6 @@ $_SESSION['login'];
 
 	<!-- Toastr style -->
 	<link href="<?php echo URL; ?>/assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
 </head>
 <body class="pace-done body-small">
 
@@ -48,73 +46,7 @@ $_SESSION['login'];
 						</li>
 
 						<li>
-							<a href="#"><i class="fa fa-bell"></i> <span class="nav-label">Encomendas</span><span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li><a href="<?php echo URL; ?>/encomenda/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
-
-								<li><a href="<?php echo URL; ?>/encomenda/view1"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Pendentes</span> </a></li>
-
-								<li><a href="<?php echo URL; ?>/encomenda/view2"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Concluídas</span> </a></li>
-							</ul>
-						</li>
-
-						<li>
-							<a href="index.html"><i class="fa fa-cogs"></i> <span class="nav-label">Configurações</span> <span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li>
-									<a href="#"><i class="fa fa-building-o"></i> <span class="nav-label">Condomínios</span> <span class="fa arrow"></span></a>
-									<ul class="nav nav-second-level">
-
-										<li><a href="<?php echo URL; ?>/condominios/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
-
-										<li><a href="<?php echo URL; ?>/condominios"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
-
-									</ul>
-								</li>
-
-								<li>
-									<a href="#"><i class="fa fa-users"></i> <span class="nav-label">Blocos</span> <span class="fa arrow"></span></a>
-									<ul class="nav nav-second-level">
-
-										<li><a href="<?php echo URL; ?>/bloco/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
-
-										<li><a href="<?php echo URL; ?>/bloco/"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
-
-									</ul>
-								</li>
-
-								<li>
-									<a href="#"><i class="fa fa-plus-square-o"></i> <span class="nav-label">Apartamentos</span> <span class="fa arrow"></span></a>
-									<ul class="nav nav-second-level">
-
-										<li><a href="<?php echo URL; ?>/apartamento/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
-
-										<li><a href="<?php echo URL; ?>/apartamento"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
-
-									</ul>
-								</li>
-
-								<li>
-									<a href="#"><i class="fa fa-male"></i> <span class="nav-label">Moradores</span> <span class="fa arrow"></span></a>
-									<ul class="nav nav-second-level">
-
-										<li><a href="<?php echo URL; ?>/morador/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
-
-										<li><a href="<?php echo URL; ?>/morador"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
-
-									</ul>
-								</li>
-
-								<li>
-									<a href="#"><i class="fa fa-user-o"></i> <span class="nav-label">Usuarios Sistema</span> <span class="fa arrow"></span></a>
-									<ul class="nav nav-second-level">
-
-										<li><a href="<?php echo URL; ?>/usuarios/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
-
-										<li><a href="<?php echo URL; ?>/usuarios"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
-									</ul>
-								</li>
-							</ul>
+							<a href="<?php echo URL; ?>/encomenda"><i class="fa fa-gift"></i> <span class="nav-label">Registro Geral</span></a>
 						</li>
 					</li>
 				</ul>
@@ -140,7 +72,7 @@ $_SESSION['login'];
 					</ul>
 				</nav>
 			</div>
-
+			
 			<?php $this->loadViewInTemplate($viewName, $viewData); ?>
 
 			<div class="footer">
@@ -150,166 +82,16 @@ $_SESSION['login'];
 			</div>
 		</div>
 
-		<!-- Mainly scripts -->
-		<script src="<?php echo URL; ?>/assets/js/jquery-3.1.1.min.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/bootstrap.min.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<!-- Mainly scripts -->
+	<script src="<?php echo URL; ?>/assets/js/jquery-3.1.1.min.js"></script>
+	<script src="<?php echo URL; ?>/assets/js/bootstrap.min.js"></script>
+	<script src="<?php echo URL; ?>/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="<?php echo URL; ?>/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-		<!-- Custom and plugin javascript -->
-		<script src="<?php echo URL; ?>/assets/js/inspinia.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/plugins/pace/pace.min.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
+	<!-- Custom and plugin javascript -->
+	<script src="<?php echo URL; ?>/assets/js/inspinia.js"></script>
+	<script src="<?php echo URL; ?>/assets/js/plugins/pace/pace.min.js"></script>
+	<script src="<?php echo URL; ?>/assets/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
 
-		<!-- Select2 -->
-		<script src="<?php echo URL; ?>/assets/js/plugins/select2/select2.full.min.js"></script>
-
-		<!-- Mascaras para inputs -->
-		<script src="<?php echo URL; ?>/assets/js/jquery.mask.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/plugins/dataTables/datatables.min.js"></script>
-
-		<!-- Toastr -->
-		<script src="<?php echo URL; ?>/assets/js/plugins/toastr/toastr.min.js"></script>
-
-	</body>
-
-			<!-- <script>
-				$(document).ready(function() {
-					setTimeout(function() {
-						toastr.options = {
-							closeButton: true,
-							progressBar: true,
-							showMethod: 'slideDown',
-							timeOut: 4000
-						};
-						toastr.success('Olá, Seja bem vindo ...', 'Sitema CS');
-
-					}, 1300);
-
-
-					var data1 = [
-					[0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,30],[11,10],[12,13],[13,4],[14,3],[15,3],[16,6]
-					];
-					var data2 = [
-					[0,1],[1,0],[2,2],[3,0],[4,1],[5,3],[6,1],[7,5],[8,2],[9,3],[10,2],[11,1],[12,0],[13,2],[14,8],[15,0],[16,0]
-					];
-					$("#flot-dashboard-chart").length && $.plot($("#flot-dashboard-chart"), [
-						data1, data2
-						],
-						{
-							series: {
-								lines: {
-									show: false,
-									fill: true
-								},
-								splines: {
-									show: true,
-									tension: 0.4,
-									lineWidth: 1,
-									fill: 0.4
-								},
-								points: {
-									radius: 0,
-									show: true
-								},
-								shadowSize: 2
-							},
-							grid: {
-								hoverable: true,
-								clickable: true,
-								tickColor: "#d5d5d5",
-								borderWidth: 1,
-								color: '#d5d5d5'
-							},
-							colors: ["#1ab394", "#1C84C6"],
-							xaxis:{
-							},
-							yaxis: {
-								ticks: 4
-							},
-							tooltip: false
-						}
-						);
-
-					var doughnutData = {
-						labels: ["App","Software","Laptop" ],
-						datasets: [{
-							data: [300,50,100],
-							backgroundColor: ["#a3e1d4","#dedede","#9CC3DA"]
-						}]
-					} ;
-
-
-					var doughnutOptions = {
-						responsive: false,
-						legend: {
-							display: false
-						}
-					};
-
-
-					var ctx4 = document.getElementById("doughnutChart").getContext("2d");
-					new Chart(ctx4, {type: 'doughnut', data: doughnutData, options:doughnutOptions});
-
-					var doughnutData = {
-						labels: ["App","Software","Laptop" ],
-						datasets: [{
-							data: [70,27,85],
-							backgroundColor: ["#a3e1d4","#dedede","#9CC3DA"]
-						}]
-					} ;
-
-
-					var doughnutOptions = {
-						responsive: false,
-						legend: {
-							display: false
-						}
-					};
-
-
-					var ctx4 = document.getElementById("doughnutChart2").getContext("2d");
-					new Chart(ctx4, {type: 'doughnut', data: doughnutData, options:doughnutOptions});
-
-					$(".select2_demo_1").select2();
-					$(".select2_demo_2").select2();
-					$(".select2_demo_3").select2({
-						placeholder: "Select a state",
-						allowClear: true
-					});
-
-
-				});
-			</script>
-		-->
-
-		<script>
-			$(document).ready(function(){
-				$('.dataTables-example').DataTable({
-					pageLength: 25,
-					responsive: true,
-					dom: '<"html5buttons"B>lTfgitp',
-					buttons: [
-					//{ extend: 'copy'},
-					//{extend: 'csv'},
-					//{extend: 'excel', title: 'ExampleFile'},
-					{extend: 'pdf', title: 'Encomendas Concluídas'},
-
-				// 	{extend: 'print',
-				// 	customize: function (win){
-				// 		$(win.document.body).addClass('white-bg');
-				// 		$(win.document.body).css('font-size', '10px');
-
-				// 		$(win.document.body).find('table')
-				// 		.addClass('compact')
-				// 		.css('font-size', 'inherit');
-				// 	}
-				// }
-				]
-
-			});
-
-			});
-
-		</script>
-		</html>
+</body>
+</html>

@@ -19,6 +19,22 @@ class home extends model {
 		return $array;
 	}*/
 
+	public function getListaEncomendas() {
+		$array = array();
+
+		$user = $_SESSION['id'];
+
+		$sql = "SELECT * FROM encomendas WHERE moradores_id = $user";
+
+		$qry = $this->db->query($sql);
+
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetchAll();
+		}
+
+		return $array;
+	}
+
 	public function getListaCondominio() {
 		$array = array();
 

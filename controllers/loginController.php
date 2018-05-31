@@ -14,18 +14,19 @@ class loginController extends controller {
 			if ($usuario->validaLogin($login, $senha)) { // Se a condição for verdadeira, ele entra no IF e redireciona para Home.
 				header('Location: '.URL.'/home');
 			}
-			
 		}
 
 		$this->loadView('login', $dados);
 	}
 
 	public function logout() {
+		
 		unset($_SESSION['id']); //Destroi a SESSION ID.
 		unset($_SESSION['login']); //Destroi a SESSION.
 		unset($_SESSION['senha']); //Destroi a SESSION.
+		unset($_SESSION['tipo']); //Destroi a SESSION.
 		session_destroy();
-		header('Location: '.URL.'/login');	
+		header('Location: '.URL.'/login');
 
 	}
 }

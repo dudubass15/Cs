@@ -35,12 +35,11 @@ class core {
 
 		} else { // Caso o usuário não acessa nada.
 			$currentController = 'homeController';
-			$currentAction = 'index';//metodo padrão.
+			$currentAction = 'index';
 		}
 		
 		$c = new $currentController(); // Instancia a classe Controller.
 		call_user_func_array(array($c, $currentAction), $params); // Carrega o Controller com as Actions e os params.
 	}
-
 }
 ?>

@@ -11,7 +11,7 @@ class usuarios extends model {
 
 	public function validaLogin($login, $senha) {
 		
-		$sql = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha' ";
+		$sql = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha' AND tipo = '2' ";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) { // Se a quantidade for maior que 0
@@ -30,11 +30,8 @@ class usuarios extends model {
 
 	public function getLista() {
 		$array = array();
-		$sql = "SELECT moradores.id, moradores.nome_morador AS moradores,
-		usuarios.id, usuarios.nome, usuarios.login, usuarios.tipo AS usuarios
-		FROM usuarios
-		INNER JOIN moradores ON moradores.id = usuarios.moradores_id";
-		// $sql = "SELECT * FROM usuarios";
+
+		$sql = "SELECT * FROM usuarios";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
@@ -43,76 +40,6 @@ class usuarios extends model {
 
 		return $array;
 	}
-
-	public function getMoradores() {
-		$array = array();
-
-		$sql = "SELECT id, nome_morador FROM moradores";
-		$qry = $this->db->query($sql);
-
-		if ($qry->rowCount() > 0) {
-			$array = $qry->fetchAll();
-		}
-
-		return $array;
-	}
-
-	public function getUsuariosInfo($id) {
-		$array = array();
-
-		$sql = "SELECT * FROM usuarios WHERE id = $id";
-		$qry = $this->db->query($sql);
-
-		if ($qry->rowCount() > 0) {
-			$array = $qry->fetch();
-		}
-
-		return $array;
-	}
-
-	public function getListaCargos() {
-		$array = array();
-
-		$sql = "SELECT * FROM cargos";
-		$qry = $this->db->query($sql);
-
-		if ($qry->rowCount() > 0) {
-			$array = $qry->fetchAll();
-		}
-
-		return $array;
-	}
-
-	public function add($morador, $cpf, $login, $senha, $tipo) {
-		$sql = "INSERT INTO usuarios (nome_morador, cpf, login, senha, tipo)";
-		$sql.= "VALUE ('$morador', '$cpf', '$login', '$senha', '$tipo')";
-		$this->db->query($sql);
-	}
-
-	public function edit($id, $morador, $cpf, $login, $senha, $tipo) {
-		$sql = "UPDATE usuarios SET morador = '$morador', cpf = '$cpf', login = '$login', tipo = '$tipo'";
-		if (!empty($senha)) {
-			$sql.= "senha = '$senha' ";
-		}
-		$sql.= "WHERE id = $id";
-		$this->db->query($sql);
-
-		if (!empty($senha)) {
-			$sql = "UPDATE usuarios SET senha = '$senha' WHERE id = $id";
-			$this->db->query($sql);
-		}
-	}
-
-	public function del($id) {
-		try {
-			$sql = "DELETE FROM usuarios WHERE id = $id";
-			$this->db->query($sql);
-		} catch (PDOException $e) {
-			exit('Erro ao excluir o Usuário: '.$e->getMessage());
-		}
-		
-	}	
-
 }
 
 ?> 
