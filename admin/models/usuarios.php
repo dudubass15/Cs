@@ -11,7 +11,7 @@ class usuarios extends model {
 
 	public function validaLogin($login, $senha) {
 		
-		$sql = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha' ";
+		$sql = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha' AND tipo = '1' ";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) { // Se a quantidade for maior que 0
