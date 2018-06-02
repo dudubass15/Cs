@@ -45,20 +45,21 @@ class blocoController extends controller {
 
 		$usuario = new usuarios();
 
+		$bloco = new blocos();
+
+		$dados['lista_condominio'] = $bloco->getListaBloco();
+
+		$dados['bloco_info'] = $bloco->ListarBloco($id);
+
 		if (isset($_POST['numero']) && !empty($_POST['numero'])) {
+			$condominio = addslashes($_POST['condominio']);
 			$numero = addslashes($_POST['numero']);
 			$nome = addslashes($_POST['nome_bloco']);
-			
-			$bloco = new blocos();
 
-			$bloco->edit($id, $numero, $nome);
+			$bloco->edit($id, $condominio, $numero, $nome);
 
 			header('Location: '.URL.'/bloco');
 		}
-
-		$bloco = new blocos();
-
-		$dados['bloco_info'] = $bloco->ListarBloco($id);
 
 		$this->loadTemplate('bloco_edit', $dados);
 	}

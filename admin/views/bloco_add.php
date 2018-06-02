@@ -19,7 +19,7 @@
                             <select class="select2_demo_3 form-control form-control" name="condominio">
                                 <option></option>
                                 <?php foreach($lista_condominio as $condominio): ?>
-                                    <option value="<?php echo($condominio[0]); ?>"><?php echo($condominio[1]); ?></option>
+                                    <option value="<?php echo($condominio['id']); ?>"><?php echo($condominio['nome']); ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

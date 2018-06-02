@@ -15,10 +15,13 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="condominio" for="condominio">Condomínio</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="condominio" value="<?php echo $bloco_info['condominios']; ?>">
-                                <option>
-                                    <?php echo $bloco_info['condominios']; ?>
-                                </option>
+                            <select class="select2_demo_3 form-control form-control" name="condominio">
+                                <option><?php echo $bloco_info['condominios']; ?></option>
+                                <?php foreach($lista_condominio as $condominio): ?>
+                                    <option value="<?php echo($condominio['id']); ?>">
+                                        <?php echo($condominio['nome']); ?>
+                                    </option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>

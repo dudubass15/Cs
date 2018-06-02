@@ -65,8 +65,8 @@ class blocos extends model {
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $numero, $nome) {
-		$sql = "UPDATE blocos SET numero = '$numero', nome = '$nome' WHERE id = $id";
+	public function edit($id, $condominio, $numero, $nome) {
+		$sql = "UPDATE blocos SET condominios_id = '$condominio', numero = '$numero', nome = '$nome' WHERE id = $id";
 		$this->db->query($sql);
 	}
 
