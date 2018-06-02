@@ -18,9 +18,9 @@ class encomendas extends model {
 				modores.id, moradores.nome_morador AS moradores,
 				encomendas.id, encomendas.entregador, encomendas.empresa, encomendas.status AS encomendas
 				FROM encomendas WHERE status = '1'
-				INNER JOIN condominios ON condominios.id = encomendas.condominios_id
-				INNER JOIN blocos ON blocos.id = encomendas.blocos_id
-				INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id";
+				LEFT JOIN condominios ON condominios.id = encomendas.condominios_id
+				LEFT JOIN blocos ON blocos.id = encomendas.blocos_id
+				LEFT JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {

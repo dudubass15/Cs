@@ -12,10 +12,14 @@ class apartamentos extends model {
 	public function getLista() {
 		$array = array();
 
-		$sql = "SELECT apartamentos.id, apartamentos.numero_apartamento, apartamentos.telefone AS apartamentos, condominios.id, condominios.nome AS condominios, blocos.id, blocos.numero AS blocos
-				FROM apartamentos 
+		$sql = "SELECT condominios.id, condominios.nome AS condominios,
+				blocos.id, blocos.numero AS blocos,
+				apartamentos.id, apartamentos.numero_apartamento, apartamentos.telefone
+				AS apartamentos
+				FROM apartamentos
 				LEFT JOIN condominios ON condominios.id = apartamentos.condominios_id
 				LEFT JOIN blocos ON blocos.id = apartamentos.blocos_id";
+				
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {

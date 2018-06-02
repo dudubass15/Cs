@@ -47,21 +47,19 @@ class apartamentoController extends controller {
 
 		$usuario = new usuarios();
 
+		$apartamento = new apartamentos();
+
+		$dados['apto_edit'] = $apartamento->getAptoInfo($id);
+
 		if (isset($_POST['apartamento']) && !empty($_POST['apartamento'])) {
 			$apartamentos = addslashes($_POST['apartamento']);
 			$telefone = addslashes($_POST['telefone']);
 			$senha = addslashes($_POST['senha']);
 
-			$apartamento = new apartamentos();
-
 			$apartamento->edit($id, $apartamentos, $telefone, $senha);
 
 			header('Location: '.URL.'/apartamento');
 		}
-
-		$apartamento = new apartamentos();
-
-		$dados['apto_edit'] = $apartamento->getAptoInfo($id);
 
 		$this->loadTemplate('apartamento_edit', $dados);
 	}
