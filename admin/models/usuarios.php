@@ -83,14 +83,14 @@ class usuarios extends model {
 		return $array;
 	}
 
-	public function add($morador, $cpf, $login, $senha, $tipo) {
-		$sql = "INSERT INTO usuarios (moradores_id, cpf, login, senha, tipo)";
-		$sql.= "VALUE ('$morador', '$cpf', '$login', '$senha', '$tipo')";
+	public function add($morador, $nome, $cpf, $login, $senha, $tipo) {
+		$sql = "INSERT INTO usuarios (moradores_id, nome, cpf, login, senha, tipo)";
+		$sql.= "VALUE ('$morador', '$nome', '$cpf', '$login', '$senha', '$tipo')";
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $morador, $cpf, $login, $senha, $tipo) {
-		$sql = "UPDATE usuarios SET morador = '$morador', cpf = '$cpf', login = '$login', tipo = '$tipo'";
+	public function edit($id, $morador, $nome, $cpf, $login, $senha, $tipo) {
+		$sql = "UPDATE usuarios SET morador = '$morador', nome = '$nome', cpf = '$cpf', login = '$login', tipo = '$tipo'";
 		if (!empty($senha)) {
 			$sql.= "senha = '$senha' ";
 		}
