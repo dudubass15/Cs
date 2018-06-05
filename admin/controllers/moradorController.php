@@ -70,7 +70,103 @@ class moradorController extends controller {
 
 		$dados['moradores_info'] = $morador->getListaMoradores($id);
 
-		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
+		if (isset($_POST['condominio']) && !empty($_POST['apartamento'])) {
+			$condominio = addslashes($_POST['condominio']);
+			$apartamento = addslashes($_POST['apartamento']);
+			$bloco = addslashes($_POST['bloco']);
+			$nome = addslashes($_POST['nome']);
+			$celular = addslashes($_POST['celular']);
+			$celular2 = addslashes($_POST['celular2']);
+			$cpf = addslashes($_POST['cpf']);
+			$email = addslashes($_POST['email']);
+
+			$morador = new moradores();
+
+			$morador->edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email);
+
+			header('Location: '.URL.'/morador');
+
+		}if (isset($_POST['apartamento']) && !empty($_POST['apartamento'])) {
+			$condominio = addslashes($_POST['condominio']);
+			$apartamento = addslashes($_POST['apartamento']);
+			$bloco = addslashes($_POST['bloco']);
+			$nome = addslashes($_POST['nome']);
+			$celular = addslashes($_POST['celular']);
+			$celular2 = addslashes($_POST['celular2']);
+			$cpf = addslashes($_POST['cpf']);
+			$email = addslashes($_POST['email']);
+
+			$morador = new moradores();
+
+			$morador->edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email);
+
+			header('Location: '.URL.'/morador');
+
+		}if (isset($_POST['bloco']) && !empty($_POST['bloco'])) {
+			$condominio = addslashes($_POST['condominio']);
+			$apartamento = addslashes($_POST['apartamento']);
+			$bloco = addslashes($_POST['bloco']);
+			$nome = addslashes($_POST['nome']);
+			$celular = addslashes($_POST['celular']);
+			$celular2 = addslashes($_POST['celular2']);
+			$cpf = addslashes($_POST['cpf']);
+			$email = addslashes($_POST['email']);
+
+			$morador = new moradores();
+
+			$morador->edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email);
+
+			header('Location: '.URL.'/morador');
+
+		}if (isset($_POST['nome']) && !empty($_POST['nome'])) {
+			$condominio = addslashes($_POST['condominio']);
+			$apartamento = addslashes($_POST['apartamento']);
+			$bloco = addslashes($_POST['bloco']);
+			$nome = addslashes($_POST['nome']);
+			$celular = addslashes($_POST['celular']);
+			$celular2 = addslashes($_POST['celular2']);
+			$cpf = addslashes($_POST['cpf']);
+			$email = addslashes($_POST['email']);
+
+			$morador = new moradores();
+
+			$morador->edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email);
+
+			header('Location: '.URL.'/morador');
+
+		}if (isset($_POST['celular']) && !empty($_POST['celular'])) {
+			$condominio = addslashes($_POST['condominio']);
+			$apartamento = addslashes($_POST['apartamento']);
+			$bloco = addslashes($_POST['bloco']);
+			$nome = addslashes($_POST['nome']);
+			$celular = addslashes($_POST['celular']);
+			$celular2 = addslashes($_POST['celular2']);
+			$cpf = addslashes($_POST['cpf']);
+			$email = addslashes($_POST['email']);
+
+			$morador = new moradores();
+
+			$morador->edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email);
+
+			header('Location: '.URL.'/morador');
+
+		}if (isset($_POST['cpf']) && !empty($_POST['cpf'])) {
+			$condominio = addslashes($_POST['condominio']);
+			$apartamento = addslashes($_POST['apartamento']);
+			$bloco = addslashes($_POST['bloco']);
+			$nome = addslashes($_POST['nome']);
+			$celular = addslashes($_POST['celular']);
+			$celular2 = addslashes($_POST['celular2']);
+			$cpf = addslashes($_POST['cpf']);
+			$email = addslashes($_POST['email']);
+
+			$morador = new moradores();
+
+			$morador->edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email);
+
+			header('Location: '.URL.'/morador');
+
+		}if (isset($_POST['email']) && !empty($_POST['email'])) {
 			$condominio = addslashes($_POST['condominio']);
 			$apartamento = addslashes($_POST['apartamento']);
 			$bloco = addslashes($_POST['bloco']);
@@ -88,6 +184,20 @@ class moradorController extends controller {
 		}
 
 		$this->loadTemplate('morador_edit', $dados);
+	}
+
+	public function del($id) {
+		$usuario = new usuarios();
+
+		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+			header('Location: '.URL.'/login');
+		}
+		
+		$morador = new moradores();;
+
+		$morador->del($id);
+
+		header('Location: '.URL.'/morador');
 	}
 
 }

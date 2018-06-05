@@ -18,9 +18,9 @@ class moradores extends model {
 				moradores.id, moradores.nome_morador, moradores.celular, moradores.celular2, moradores.cpf,
 				moradores.email AS moradores
 				FROM moradores
-				INNER JOIN condominios ON condominios.id = moradores.condominios_id
-				INNER JOIN blocos ON blocos.id = moradores.blocos_id
-				INNER JOIN apartamentos ON apartamentos.id = moradores.apartamentos_id";
+				LEFT JOIN condominios ON condominios.id = moradores.condominios_id
+				LEFT JOIN blocos ON blocos.id = moradores.blocos_id
+				LEFT JOIN apartamentos ON apartamentos.id = moradores.apartamentos_id";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
