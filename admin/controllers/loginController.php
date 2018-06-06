@@ -13,6 +13,8 @@ class loginController extends controller {
 						
 			if ($usuario->validaLogin($login, $senha)) { // Se a condição for verdadeira, ele entra no IF e redireciona para Home.
 				header('Location: '.URL.'/home');
+			} else{
+				echo "Usuario ou Senha inválido !";
 			}
 			
 		}
