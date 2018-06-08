@@ -15,7 +15,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="condominio" for="condominio">Condomínio</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="condominio" value="<?php echo $lista_condominio['condominios']; ?>">
+                            <select class="select2_demo_3 form-control form-control" name="condominio">
                                 <option></option>
                                 <?php foreach($lista_condominio as $condominio): ?>
                                     <option value="<?php print_r($condominio['id']); ?>"><?php print_r($condominio['nome']); ?></option>
@@ -31,12 +31,12 @@
                             <select class="select2_demo_3 form-control form-control" name="bloco">
                                 <option></option>
                                 <?php foreach($lista_bloco as $bloco): ?>
-                                    <option value="<?php print_r($bloco['id']); ?>">Bloco - <?php print_r($bloco[2]); ?></option>
+                                    <option value="<?php print_r($bloco['id']); ?>">Bloco - <?php print_r($bloco['numero']); ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
-
+                    
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="apartamento" for="apartamento">Apartamento</label>
@@ -49,6 +49,7 @@
                             </select>
                         </div>
                     </div>
+
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="nome">Morador(a)</label>
@@ -76,7 +77,7 @@
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="email">E-mail</label>
-                        <div class="col-sm-8"><input type="email" name="email" class="form-control" value="<?php echo $moradores_info['email']; ?>"></div>
+                        <div class="col-sm-8"><input type="email" name="email" class="form-control" value="<?php echo $moradores_info['moradores']; ?>"></div>
                     </div>
 
                     <div class="form1">

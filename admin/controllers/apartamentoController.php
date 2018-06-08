@@ -49,9 +49,31 @@ class apartamentoController extends controller {
 
 		$apartamento = new apartamentos();
 
+		$dados['lista_apartamento'] = $apartamento->getLista();
+
+		$dados['lista_bloco'] = $apartamento->getListaBL();
+
 		$dados['apto_edit'] = $apartamento->getAptoInfo($id);
 
 		if (isset($_POST['apartamento']) && !empty($_POST['apartamento'])) {
+			$apartamentos = addslashes($_POST['apartamento']);
+			$telefone = addslashes($_POST['telefone']);
+			$senha = addslashes($_POST['senha']);
+
+			$apartamento->edit($id, $apartamentos, $telefone, $senha);
+
+			header('Location: '.URL.'/apartamento');
+
+		}if (isset($_POST['telefone']) && !empty($_POST['telefone'])) {
+			$apartamentos = addslashes($_POST['apartamento']);
+			$telefone = addslashes($_POST['telefone']);
+			$senha = addslashes($_POST['senha']);
+
+			$apartamento->edit($id, $apartamentos, $telefone, $senha);
+
+			header('Location: '.URL.'/apartamento');
+			
+		}if (isset($_POST['senha']) && !empty($_POST['senha'])) {
 			$apartamentos = addslashes($_POST['apartamento']);
 			$telefone = addslashes($_POST['telefone']);
 			$senha = addslashes($_POST['senha']);

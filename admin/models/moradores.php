@@ -75,7 +75,15 @@ class moradores extends model {
 	public function getListaMoradores($id) {
 		$array = array();
 
-		$sql = "SELECT * FROM moradores WHERE id = $id";
+		$sql = "SELECT condominios.nome AS condominios, 
+				blocos.numero, blocos.nome AS blocos,
+				apartamentos.numero_apartamento, apartamentos.telefone AS apartamentos,
+				moradores.nome_morador, moradores.celular, moradores.celular2, moradores.cpf, moradores.celular, moradores.email AS moradores
+				FROM moradores
+				INNER JOIN condominios ON condominios.id = moradores.condominios_id
+				INNER JOIN blocos ON blocos.id = moradores.blocos_id
+				INNER JOIN apartamentos ON apartamentos.id = moradores.apartamentos_id
+				WHERE moradores.id = $id";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
