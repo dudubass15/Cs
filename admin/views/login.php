@@ -20,7 +20,7 @@
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
-                <h1 class="logo-name">CS</h1>
+                <h1 class="logo-name">CS</h1><small>Admin</small>
             </div>
 
             <form class="m-t" method="POST" role="form">

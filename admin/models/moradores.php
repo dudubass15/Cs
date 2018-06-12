@@ -12,9 +12,9 @@ class moradores extends model {
 	public function index() {
 		$array = array();
 
-		$sql = "SELECT condominios.id, condominios.nome AS condominios,
-				blocos.id, blocos.numero AS blocos,
-				apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
+		$sql = "SELECT condominios.id, condominios.id, condominios.nome AS condominios,
+				blocos.id, blocos.id, blocos.numero AS blocos,
+				apartamentos.id, apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
 				moradores.id, moradores.nome_morador, moradores.celular, moradores.celular2, moradores.cpf,
 				moradores.email AS moradores
 				FROM moradores
