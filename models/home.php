@@ -1,6 +1,6 @@
 <?php
 class home extends model {
-	
+
 	/*public function getLista($nome) {
 		$array = array();
 
@@ -24,7 +24,10 @@ class home extends model {
 
 		$user = $_SESSION['id'];
 
+		// $teste = "SELECT usuarios.nome, (select moradores.id from moradores WHERE moradores.id = usuarios.moradores_id) as moradores FROM usuarios";
+
 		$sql = "SELECT * FROM encomendas WHERE moradores_id = $user";
+
 
 		$qry = $this->db->query($sql);
 
