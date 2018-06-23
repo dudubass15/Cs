@@ -9,7 +9,7 @@
                             <small>12:03:28 12-04-2014</small><br><br>
 
                             <h4 style="text-align: center;">
-                                <?php echo($e['empresa']); ?>
+                                <?php echo($e['encomendas']); ?>
                             </h4>
 
                             <h4 style="text-align: center;">

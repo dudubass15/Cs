@@ -1,32 +1,17 @@
 <?php
 class home extends model {
 
-	/*public function getLista($nome) {
-		$array = array();
-
-		$sql = "SELECT * FROM condominio ";
-
-		if (!empty($nome)) {
-			$sql.= "WHERE nome LIKE '%$nome%' ";
-		}
-
-		$qry = $this->db->query($sql);
-
-		if ($qry->rowCount() > 0) {
-			$array = $qry->fetchAll();
-		}
-
-		return $array;
-	}*/
-
 	public function getListaEncomendas() {
 		$array = array();
 
 		$user = $_SESSION['id'];
 
-		// $teste = "SELECT usuarios.nome, (select moradores.id from moradores WHERE moradores.id = usuarios.moradores_id) as moradores FROM usuarios";
-
-		$sql = "SELECT * FROM encomendas WHERE moradores_id = $user";
+		$sql = "SELECT encomendas.id, encomendas.nome_produto, encomendas.empresa AS encomendas,
+		moradores.id, moradores.nome_morador AS moradores,
+		usuarios.id, usuarios.login, usuarios.senha AS usuarios
+		FROM encomendas
+		INNER JOIN moradores ON moradores.id = encomendas.moradores_id
+		INNER JOIN usuarios ON usuarios.id = moradores.usuarios_id WHERE usuarios.id = $user";
 
 		$qry = $this->db->query($sql);
 
