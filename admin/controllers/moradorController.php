@@ -36,19 +36,21 @@ class moradorController extends controller {
 
 		$dados['lista_apartamento'] = $morador->getListaApartamentos();
 
+		$dados['lista_usuarios'] = $morador->getListaUser();
+
 		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
-			$apartamento = addslashes($_POST['apartamento']);
 			$bloco = addslashes($_POST['bloco']);
+			$apartamento = addslashes($_POST['apartamento']);
 			$nome = addslashes($_POST['nome']);
 			$celular = addslashes($_POST['celular']);
-			$celular2 = addslashes($_POST['celular2']);
 			$cpf = addslashes($_POST['cpf']);
 			$email = addslashes($_POST['email']);
+			$usuario = addslashes($_POST['usuario']);
 
 			$morador = new moradores();
 
-			$morador->add($condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email);
+			$morador->add($condominio, $bloco, $apartamento, $nome, $celular, $cpf, $email, $usuario);
 
 			header('Location: '.URL.'/morador');
 
@@ -72,35 +74,37 @@ class moradorController extends controller {
 		
 		$dados['lista_moradores'] = $morador->index();
 
+		$dados['lista_usuarios'] = $morador->getListaUser();
+
 		if (isset($_POST['condominio']) && !empty($_POST['apartamento'])) {
 			$condominio = addslashes($_POST['condominio']);
-			$apartamento = addslashes($_POST['apartamento']);
 			$bloco = addslashes($_POST['bloco']);
+			$apartamento = addslashes($_POST['apartamento']);
 			$nome = addslashes($_POST['nome']);
 			$celular = addslashes($_POST['celular']);
-			$celular2 = addslashes($_POST['celular2']);
 			$cpf = addslashes($_POST['cpf']);
 			$email = addslashes($_POST['email']);
+			$usuario = addslashes($_POST['usuario']);
 
 			$morador = new moradores();
 
-			$morador->edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email);
+			$morador->edit($id, $condominio, $bloco, $apartamento, $nome, $celular, $cpf, $email, $usuario);
 
 			header('Location: '.URL.'/morador');
 
 		}if (isset($_POST['apartamento']) && !empty($_POST['apartamento'])) {
 			$condominio = addslashes($_POST['condominio']);
-			$apartamento = addslashes($_POST['apartamento']);
 			$bloco = addslashes($_POST['bloco']);
+			$apartamento = addslashes($_POST['apartamento']);
 			$nome = addslashes($_POST['nome']);
 			$celular = addslashes($_POST['celular']);
-			$celular2 = addslashes($_POST['celular2']);
 			$cpf = addslashes($_POST['cpf']);
 			$email = addslashes($_POST['email']);
+			$usuario = addslashes($_POST['usuario']);
 
 			$morador = new moradores();
 
-			$morador->edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email);
+			$morador->edit($id, $condominio, $bloco, $apartamento, $nome, $celular, $cpf, $email, $usuario);
 
 			header('Location: '.URL.'/morador');
 

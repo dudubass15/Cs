@@ -28,7 +28,6 @@ class home extends model {
 
 		$sql = "SELECT * FROM encomendas WHERE moradores_id = $user";
 
-
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {

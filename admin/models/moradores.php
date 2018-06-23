@@ -15,7 +15,7 @@ class moradores extends model {
 		$sql = "SELECT condominios.id, condominios.id, condominios.nome AS condominios,
 				blocos.id, blocos.id, blocos.numero AS blocos,
 				apartamentos.id, apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
-				moradores.id, moradores.nome_morador, moradores.celular, moradores.celular2, moradores.cpf,
+				moradores.id, moradores.nome_morador, moradores.celular, moradores.cpf,
 				moradores.email AS moradores
 				FROM moradores
 				LEFT JOIN condominios ON condominios.id = moradores.condominios_id
@@ -78,11 +78,11 @@ class moradores extends model {
 		$sql = "SELECT condominios.nome AS condominios, 
 				blocos.numero, blocos.nome AS blocos,
 				apartamentos.numero_apartamento, apartamentos.telefone AS apartamentos,
-				moradores.nome_morador, moradores.celular, moradores.celular2, moradores.cpf, moradores.celular, moradores.email AS moradores
+				moradores.nome_morador, moradores.celular, moradores.cpf, moradores.celular, moradores.email AS moradores
 				FROM moradores
-				INNER JOIN condominios ON condominios.id = moradores.condominios_id
-				INNER JOIN blocos ON blocos.id = moradores.blocos_id
-				INNER JOIN apartamentos ON apartamentos.id = moradores.apartamentos_id
+				LEFT JOIN condominios ON condominios.id = moradores.condominios_id
+				LEFT JOIN blocos ON blocos.id = moradores.blocos_id
+				LEFT JOIN apartamentos ON apartamentos.id = moradores.apartamentos_id
 				WHERE moradores.id = $id";
 		$qry = $this->db->query($sql);
 
@@ -93,14 +93,28 @@ class moradores extends model {
 		return $array;
 	}
 
-	public function add($condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email) {
-		$sql = "INSERT INTO moradores (condominios_id, apartamentos_id, blocos_id, nome_morador, celular, celular2, cpf, email)";
-		$sql.= "VALUE ('$condominio', '$apartamento', '$bloco', '$nome', '$celular', '$celular2', '$cpf', '$email')";
+	public function getListaUser(){
+		$array = array();
+
+		$sql = "SELECT * FROM usuarios WHERE tipo = 2";
+
+		$qry = $this->db->query($sql);
+
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetchAll();
+		}
+
+		return $array;
+	}
+
+	public function add($condominio, $bloco, $apartamento, $nome, $celular, $cpf, $email, $usuario) {
+		$sql = "INSERT INTO moradores (condominios_id, blocos_id, apartamentos_id, nome_morador, celular, cpf, email, usuarios_id)";
+		$sql.= "VALUE ('$condominio', '$bloco', '$apartamento', '$nome', '$celular', '$cpf', '$email', '$usuario')";
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $condominio, $apartamento, $bloco, $nome, $celular, $celular2, $cpf, $email) {
-		$sql = "UPDATE moradores SET condominios_id = '$condominio', apartamentos_id = '$apartamento', blocos_id = '$bloco', nome_morador = '$nome', celular = '$celular', celular2 = '$celular2', cpf = '$cpf', email = '$email' WHERE id = $id";
+	public function edit($id, $condominio, $bloco, $apartamento, $nome, $celular, $cpf, $email, $usuario) {
+		$sql = "UPDATE moradores SET condominios_id = '$condominio', blocos_id = '$bloco', apartamentos_id = '$apartamento', nome_morador = '$nome', celular = '$celular', cpf = '$cpf', email = '$email', usuarios_id = '$usuario' WHERE id = $id";
 		$this->db->query($sql);
 	}
 

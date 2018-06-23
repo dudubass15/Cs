@@ -12,21 +12,7 @@
             </div>
             <div class="ibox-content">
                 <form method="POST" class="form-horizontal">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" name="morador" for="morador">Morador</label>
-                        <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="morador">
-                                <option></option>
-                                <?php foreach($lista_moradores as $m): ?>
-                                <option value="<?php echo($m['id']); ?>" >
-                                    <?php echo($m['nome_morador']); ?>
-                                </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                    </div>
 
-                    <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="nome">Nome</label>
                         <div class="col-sm-8"><input type="nome" name="nome" class="form-control"></div>

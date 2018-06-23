@@ -30,24 +30,8 @@ class usuarios extends model {
 
 	public function getLista() {
 		$array = array();
-		$sql = "SELECT moradores.id, moradores.nome_morador AS moradores,
-		usuarios.id, usuarios.nome, usuarios.login, usuarios.tipo AS usuarios
-		FROM usuarios
-		INNER JOIN moradores ON moradores.id = usuarios.moradores_id";
+		$sql = "SELECT * FROM usuarios";
 		// $sql = "SELECT * FROM usuarios";
-		$qry = $this->db->query($sql);
-
-		if ($qry->rowCount() > 0) {
-			$array = $qry->fetchAll();
-		}
-
-		return $array;
-	}
-
-	public function getMoradores() {
-		$array = array();
-
-		$sql = "SELECT id, nome_morador FROM moradores";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
@@ -83,14 +67,14 @@ class usuarios extends model {
 		return $array;
 	}
 
-	public function add($morador, $nome, $cpf, $login, $senha, $tipo) {
-		$sql = "INSERT INTO usuarios (moradores_id, nome, cpf, login, senha, tipo)";
-		$sql.= "VALUE ('$morador', '$nome', '$cpf', '$login', '$senha', '$tipo')";
+	public function add($nome, $cpf, $login, $senha, $tipo) {
+		$sql = "INSERT INTO usuarios (nome, cpf, login, senha, tipo)";
+		$sql.= "VALUE ('$nome', '$cpf', '$login', '$senha', '$tipo')";
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $morador, $nome, $cpf, $login, $senha, $tipo) {
-		$sql = "UPDATE usuarios SET morador = '$morador', nome = '$nome', cpf = '$cpf', login = '$login', tipo = '$tipo'";
+	public function edit($id, $nome, $cpf, $login, $senha, $tipo) {
+		$sql = "UPDATE usuarios SET nome = '$nome', cpf = '$cpf', login = '$login', tipo = '$tipo'";
 		if (!empty($senha)) {
 			$sql.= "senha = '$senha' ";
 		}

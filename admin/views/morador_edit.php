@@ -44,7 +44,7 @@
                             <select class="select2_demo_3 form-control form-control" name="apartamento">
                                 <option></option>
                                 <?php foreach($lista_apartamento as $apartamento): ?>
-                                    <option value="<?php echo($apartamento['id']); ?>"><?php print_r($apartamento[3]); ?></option>
+                                    <option value="<?php echo($apartamento['id']); ?>"><?php print_r($apartamento['numero_apartamento']); ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -64,12 +64,6 @@
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="celular2">Celular 2</label>
-                        <div class="col-sm-8"><input type="text" name="celular2" class="form-control" data-mask="(00) 00000-0000" value="<?php echo $moradores_info['celular2']; ?>"></div>
-                    </div>
-
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
                         <label class="col-sm-2 control-label" for="cpf">CPF</label>
                         <div class="col-sm-8"><input type="text" name="cpf" class="form-control" data-mask="000.000.000-00" value="<?php echo $moradores_info['cpf']; ?>"></div>
                     </div>
@@ -79,6 +73,19 @@
                         <label class="col-sm-2 control-label" for="email">E-mail</label>
                         <div class="col-sm-8"><input type="email" name="email" class="form-control" value="<?php echo $moradores_info['moradores']; ?>"></div>
                     </div>
+
+                    <div class="hr-line-dashed"></div>
+                     <div class="form-group">
+                         <label class="col-sm-2 control-label" name="usuario" for="usuario">Usuario Sistema</label>
+                         <div class="col-sm-8">
+                             <select class="select2_demo_3 form-control form-control" name="usuario">
+                                <option></option>
+                                <?php foreach($lista_usuarios as $user): ?>
+                                    <option value="<?php echo($user['id']); ?>"><?php echo($user['login']); ?></option>
+                                <?php endforeach; ?>
+                             </select>
+                         </div>
+                     </div>
 
                     <div class="form1">
                         <div class="form-button">
