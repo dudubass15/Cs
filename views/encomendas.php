@@ -25,29 +25,25 @@
                                 <div class="table-responsive">
                                     <table class="table table-striped table-hover">
                                         <tbody>
+                                        <?php foreach ($encomendas as $e): ?>
                                         <tr>
-                                            <td><a data-toggle="tab" href="#contact-1" class="client-link">Anthony Jackson</a></td>
-                                            <td> Tellus Institute</td>
-                                            <td class="contact-type"><i class="fa fa-envelope"> </i></td>
-                                            <td> gravida@rbisit.com</td>
+                                            <td class="contact-type"><i class="fa fa-briefcase"> </i></td>
+                                            <td style="font-weight: bold;"><?php echo($e['empresa']); ?></a></td>
+                                            <td class="contact-type"><i class="fa fa-registered"> </i></td>
+                                            <td> <?php echo($e['nome_produto']); ?></td>
+                                            <td class="contact-type"><i class="fa fa-calendar"> </i></td>
+                                            <td> <?php echo($e['encomendas']); ?></td>
                                             <td class="client-status"><span class="label label-primary">Active</span></td>
                                         </tr>
-                                        <tr>
-                                            <td><a data-toggle="tab" href="#contact-2" class="client-link">Rooney Lindsay</a></td>
-                                            <td>Proin Limited</td>
-                                            <td class="contact-type"><i class="fa fa-envelope"> </i></td>
-                                            <td> rooney@proin.com</td>
-                                            <td class="client-status"><span class="label label-primary">Active</span></td>
-                                        </tr>
-                                        
+                                        <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        
-
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

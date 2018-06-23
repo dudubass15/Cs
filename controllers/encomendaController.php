@@ -13,7 +13,7 @@ class encomendaController extends controller {
 
 		$encomendas = new encomendas();
 
-		// $dados['lista_encomendas'] = $encomendas->getLista();
+		$dados['encomendas'] = $encomendas->ListarEncomendas();
 
 		$this->loadTemplate('encomendas', $dados);
 	}
