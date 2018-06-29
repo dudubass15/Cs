@@ -148,8 +148,8 @@ class encomendas extends model {
 	}
 
 	public function add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status) {
-		$sql = "INSERT INTO encomendas (condominios_id, blocos_id, apartamentos_id, moradores_id, nome_produto, empresa, observacao, status, data_postagem)";
-		$sql.= "VALUE ('$condominio', '$bloco', '$apartamentos', '$morador', '$nome_produto', '$empresa', '$observacao', '$status', NOW())";
+		$sql = "INSERT INTO encomendas (condominios_id, blocos_id, apartamentos_id, moradores_id, nome_produto, empresa, observacao, status, data_postagem, horario)";
+		$sql.= "VALUE ('$condominio', '$bloco', '$apartamentos', '$morador', '$nome_produto', '$empresa', '$observacao', '$status', NOW(), NOW())";
 		$this->db->query($sql);
 	}
 

@@ -6,7 +6,7 @@ class home extends model {
 
 		$user = $_SESSION['id'];
 
-		$sql = "SELECT encomendas.id, encomendas.nome_produto, encomendas.empresa AS encomendas,
+		$sql = "SELECT encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.data_postagem, encomendas.horario AS encomendas,
 		moradores.id, moradores.nome_morador AS moradores,
 		usuarios.id, usuarios.login, usuarios.senha AS usuarios
 		FROM encomendas
