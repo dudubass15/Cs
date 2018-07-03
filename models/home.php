@@ -6,12 +6,12 @@ class home extends model {
 
 		$user = $_SESSION['id'];
 
-		$sql = "SELECT encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.data_postagem, encomendas.horario AS encomendas,
+		$sql = "SELECT encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.data_postagem, encomendas.horario, encomendas.status AS encomendas,
 		moradores.id, moradores.nome_morador AS moradores,
 		usuarios.id, usuarios.login, usuarios.senha AS usuarios
 		FROM encomendas
 		INNER JOIN moradores ON moradores.id = encomendas.moradores_id
-		INNER JOIN usuarios ON usuarios.id = moradores.usuarios_id WHERE usuarios.id = $user";
+		INNER JOIN usuarios ON usuarios.id = moradores.usuarios_id WHERE usuarios.id = $user AND encomendas.status = '1'";
 
 		$qry = $this->db->query($sql);
 

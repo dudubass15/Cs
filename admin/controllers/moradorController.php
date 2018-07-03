@@ -85,7 +85,7 @@ class moradorController extends controller {
 
 		$dados['lista_usuarios'] = $morador->getListaUser();
 
-		if (isset($_POST['condominio']) && !empty($_POST['apartamento'])) {
+		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
 			$bloco = addslashes($_POST['bloco']);
 			$apartamento = addslashes($_POST['apartamento']);

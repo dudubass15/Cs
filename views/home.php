@@ -5,7 +5,7 @@
                 <ul class="notes">
                     <li>
                         <div>
-                            <small><?php echo($e['encomendas']); ?> <?php echo date('d-m-Y', strtotime($e['data_postagem'])); ?></small><br><br>
+                            <small>Horário: <?php echo($e['horario']); ?> Data: <?php echo date('d-m-Y', strtotime($e['data_postagem'])); ?></small><br><br>
 
                             <h4 style="text-align: center;">
                                 <?php echo($e['nome_produto']); ?>
@@ -17,7 +17,7 @@
 
                             <!-- <p><?php echo($e['observacao']); ?></p> -->
                             
-                            <a href="#"><i class="fa fa-trash-o "></i></a>
+                            <a href="#" title="Finalizado"><i class="fa fa-check-square lg"></i></a>
                         </div>
                     </li>
                 </ul>

@@ -23,6 +23,7 @@ class homeController extends controller {
 
 		$dados['encomendas_users'] = $home->getListaEncomendas();
 
+
 		$this->loadTemplate('home', $dados);
 	}
 }
