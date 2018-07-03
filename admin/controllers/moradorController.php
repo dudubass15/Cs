@@ -101,22 +101,6 @@ class moradorController extends controller {
 
 			header('Location: '.URL.'/morador');
 
-		}if (isset($_POST['apartamento']) && !empty($_POST['apartamento'])) {
-			$condominio = addslashes($_POST['condominio']);
-			$bloco = addslashes($_POST['bloco']);
-			$apartamento = addslashes($_POST['apartamento']);
-			$nome = addslashes($_POST['nome']);
-			$celular = addslashes($_POST['celular']);
-			$cpf = addslashes($_POST['cpf']);
-			$email = addslashes($_POST['email']);
-			$usuario = addslashes($_POST['usuario']);
-
-			$morador = new moradores();
-
-			$morador->edit($id, $condominio, $bloco, $apartamento, $nome, $celular, $cpf, $email, $usuario);
-
-			header('Location: '.URL.'/morador');
-
 		}
 
 		$this->loadTemplate('morador_edit', $dados);

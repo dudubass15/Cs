@@ -12,7 +12,7 @@ class encomendas extends model {
 			usuarios.id, usuarios.nome AS usuarios
 			FROM encomendas
 			INNER JOIN moradores ON moradores.id = encomendas.moradores_id
-			INNER JOIN usuarios ON usuarios.id = moradores.usuarios_id WHERE usuarios.nome = '$user_nome'";
+			INNER JOIN usuarios ON usuarios.id = moradores.usuarios_id WHERE usuarios.nome = '$user_nome' AND encomendas.status = '0'";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0 ) {
