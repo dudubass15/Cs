@@ -86,6 +86,20 @@ class home extends model {
 
 		return $array;
 	}
+
+	public function EditStats() {
+		$array = array();
+
+		$sql = "SELECT encomendas.id, encomendas.status FROM encomendas";
+
+		$qry = $this->db->query($sql);
+
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetchAll();
+		}
+
+		return $array;
+	}
 }
 
 ?>

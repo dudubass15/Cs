@@ -35,7 +35,7 @@ $_SESSION['login'];
 								<span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo $_SESSION['nome'] ?></strong>
 								</span> <span class="text-muted text-xs block"><?php echo $_SESSION['login'] ?> <b class="caret"></b></span> </span> </a>
 								<ul class="dropdown-menu animated fadeInRight m-t-xs">
-									<li><a href="<?php echo URL; ?>/login/logout">Sair</a></li>
+									<li><a href="<?php echo URL; ?>/login/logout/<?php echo $_SESSION['id'] ?>">Sair</a></li>
 								</ul>
 							</div>
 							<div class="logo-element">
@@ -128,7 +128,7 @@ $_SESSION['login'];
 					</div>
 					<ul class="nav navbar-top-links navbar-right">
 						<li>
-							<a href="<?php echo URL; ?>/login/logout">
+							<a href="<?php echo URL; ?>/login/logout/<?php echo $_SESSION['id'] ?>">
 								<i class="fa fa-sign-out"></i> Sair
 							</a>
 						</li>

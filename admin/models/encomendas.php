@@ -111,7 +111,19 @@ class encomendas extends model {
 	public function getEditEncomendas($id) {
 		$array = array();
 
-		$sql = "SELECT * FROM encomendas WHERE id = $id";
+		$sql = "SELECT 
+				condominios.id, condominios.nome AS condominios,
+				blocos.id, blocos.numero AS blocos,
+				apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
+				moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
+				encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
+				encomendas.status, encomendas.data_postagem AS encomendas
+				FROM encomendas
+				INNER JOIN condominios ON condominios.id = encomendas.condominios_id
+				INNER JOIN blocos ON blocos.id = encomendas.blocos_id
+				INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
+				INNER JOIN moradores ON moradores.id = encomendas.moradores_id
+				WHERE encomendas.id = $id";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
@@ -155,6 +167,16 @@ class encomendas extends model {
 
 	public function edit($id, $condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status) {
 		$sql = "UPDATE encomendas SET condominios_id = '$condominio', blocos_id = '$bloco', apartamentos_id = '$apartamentos', moradores_id = '$morador', nome_produto = '$nome_produto', empresa = '$empresa', observacao = '$observacao', status = '$status' WHERE id = $id";
+		$this->db->query($sql);
+	}
+
+	public function arquivo($id, $status) {
+		$sql = "UPDATE encomendas SET status = '$status', data_postagem = NOW(), horario = NOW() WHERE id = $id";
+		$this->db->query($sql);
+	}
+
+	public function del($id) {
+		$sql = "DELETE FROM encomendas WHERE id = $id";
 		$this->db->query($sql);
 	}
 

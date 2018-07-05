@@ -103,6 +103,35 @@ class encomendaController extends controller {
 		
 		$this->loadTemplate('encomendas_edit', $dados);
 	}
-}
 
+	public function arquivar($id) {
+		$usuario = new usuarios();
+
+		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+			header('Location: '.URL.'/login');
+		}
+		
+		$encomenda = new encomendas();
+
+		$status = '0';
+
+		$encomenda->arquivo($id, $status);
+
+		header('Location: '.URL.'/encomenda/view1');
+	}
+
+	public function del($id) {
+		$usuario = new usuarios();
+
+		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+			header('Location: '.URL.'/login');
+		}
+		
+		$encomenda = new encomendas();
+
+		$encomenda->del($id);
+
+		header('Location: '.URL.'/encomenda/view1');
+	}
+}
 ?>

@@ -6,7 +6,7 @@
                     <span class="text-muted small pull-right">Last modification: <i class="fa fa-clock-o"></i> 2:10 pm - 12.06.2014</span>
                     <h2>Registro de Encomendas</h2>
                     <p>
-                        Lista todas as encomendas registradas para o apartamento.
+                        Lista todas as encomendas registradas para o morador(a).
                     </p>
                     <div class="input-group">
                         <input type="text" placeholder="Campo de busca " class="input form-control">

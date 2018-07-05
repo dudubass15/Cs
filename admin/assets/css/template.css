@@ -2,3 +2,8 @@ body {
 	background-color: blue;
 	color: white;
 }
+.contact-box-footer #menu-button{
+    height: 40px;
+    width: 35%;
+    margin: auto;
+}

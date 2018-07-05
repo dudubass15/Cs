@@ -27,10 +27,17 @@
                         <strong>E-mail:</strong> <?php echo($encomendas['moradores']); ?>
                     </address>
                     <div class="contact-box-footer">
-                        <div class="m-t-xs btn-group">
-                            <a class="btn btn-default" title="Editar" href="<?php echo URL; ?>/encomenda/edit/<?php echo $encomendas['id']; ?>">
-                                <i class="fa fa-pencil"></i>
-                            </a>
+                        <div id="menu-button">
+                            <div class="m-t-xs btn-group">
+                                <a class="btn btn-default" title="Editar Registro" href="<?php echo URL; ?>/encomenda/edit/<?php echo $encomendas['id']; ?>">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </div>
+                            <div class="m-t-xs btn-group">
+                                <a class="btn btn-default" title="Arquivar Registro" href="<?php echo URL; ?>/encomenda/arquivar/<?php echo $encomendas['id']; ?>">
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

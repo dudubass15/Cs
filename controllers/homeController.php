@@ -23,6 +23,15 @@ class homeController extends controller {
 
 		$dados['encomendas_users'] = $home->getListaEncomendas();
 
+		$this->loadTemplate('home', $dados);
+	}
+
+	public function arquivar() {
+		$dados = array();
+
+		$home = new home();
+
+		$dados['listar_idencomendas'] = $home->EditStats();
 
 		$this->loadTemplate('home', $dados);
 	}

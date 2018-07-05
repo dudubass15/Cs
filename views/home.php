@@ -16,7 +16,7 @@
                             </h4><br>
 
                             <!-- <p><?php echo($e['observacao']); ?></p> -->
-                            
+
                             <a href="#" title="Finalizado"><i class="fa fa-check-square lg"></i></a>
                         </div>
                     </li>
