@@ -26,7 +26,6 @@ class loginController extends controller {
 		unset($_SESSION['id']); //Destroi a SESSION ID.
 		unset($_SESSION['login']); //Destroi a SESSION.
 		unset($_SESSION['senha']); //Destroi a SESSION.
-		unset($_SESSION['tipo']); //Destroi a SESSION.
 		session_destroy();
 		header('Location: '.URL.'/login');
 

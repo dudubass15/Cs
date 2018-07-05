@@ -8,8 +8,11 @@
                     <h5>Encomendas</h5>
                 </div>
                 <div class="ibox-content">
+                    <?php 
+                        $porcentagemDia = $d[0] / 100;
+                    ?>
                     <h1 class="no-margins"><?php echo $d[0]; ?></h1>
-                    <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
+                    <div class="stat-percent font-bold text-success"><?php echo($porcentagemDia); ?>% <i class="fa fa-bolt"></i></div>
                     <small>Total</small>
                 </div>
             </div>
@@ -24,8 +27,11 @@
                     <h5>Encomendas</h5>
                 </div>
                 <div class="ibox-content">
+                    <?php 
+                        $porcentagemMes = $s[0] / 100;
+                    ?>
                     <h1 class="no-margins"><?php echo $s[0]; ?></h1>
-                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                    <div class="stat-percent font-bold text-info"><?php echo($porcentagemMes); ?>% <i class="fa fa-level-up"></i></div>
                     <small>Total</small>
                 </div>
             </div>
@@ -40,11 +46,35 @@
                     <h5>Encomendas</h5>
                 </div>
                 <div class="ibox-content">
+                    <?php 
+                        $porcentagemAno = $s[0] / 100;
+                    ?>
                     <h1 class="no-margins"><?php echo $s[0]; ?></h1>
-                    <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div>
+                    <div class="stat-percent font-bold text-danger"><?php echo($porcentagemAno); ?>% <i class="fa fa-level-down"></i></div>
                     <small>Total</small>
                 </div>
             </div>
         </div>
     </div>
 <?php endforeach; ?>
+
+
+<!-- Mainly scripts -->
+<script src="<?php echo URL; ?>/assets/js/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript">
+
+        $(document).ready(function() {
+            setTimeout(function() {
+                toastr.options = {
+                    closeButton: true,
+                    progressBar: true,
+                    showMethod: 'slideDown',
+                    timeOut: 4000
+                };
+                toastr.success('Olá Usuario, seja bem vindo ...', 'Sistema CS');
+
+            }, 1300);
+        })
+        
+</script>

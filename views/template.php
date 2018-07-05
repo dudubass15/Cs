@@ -88,5 +88,8 @@ $_SESSION['login'];
 	<script src="<?php echo URL; ?>/assets/js/plugins/pace/pace.min.js"></script>
 	<script src="<?php echo URL; ?>/assets/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
 
+	<!-- Toastr -->
+	<script src="<?php echo URL; ?>/assets/js/plugins/toastr/toastr.min.js"></script>
+
 </body>
 </html>
