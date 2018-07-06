@@ -58,23 +58,22 @@
     </div>
 <?php endforeach; ?>
 
-
 <!-- Mainly scripts -->
 <script src="<?php echo URL; ?>/assets/js/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">
 
-        $(document).ready(function() {
-            setTimeout(function() {
-                toastr.options = {
-                    closeButton: true,
-                    progressBar: true,
-                    showMethod: 'slideDown',
-                    timeOut: 4000
-                };
-                toastr.success('Olá Usuario, seja bem vindo ...', 'Sistema CS');
+    $(document).ready(function() {
+        setTimeout(function() {
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                showMethod: 'slideDown',
+                timeOut: 4000
+            };
+            toastr.success('Seja bem vindo ...', 'Sistema CS');
 
-            }, 1300);
-        })
+        }, 1300);
+    })
         
 </script>

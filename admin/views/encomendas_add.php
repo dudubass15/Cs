@@ -11,11 +11,11 @@
                 </div>
             </div>
             <div class="ibox-content">
-                <form method="POST" class="form-horizontal">
+                <form method="POST" class="form-horizontal" onsubmit="return valida_form()">
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="condominio" for="condominio">Condomínio</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="condominio">
+                            <select class="select2_demo_3 form-control form-control" name="condominio" id="condominio">
                                 <option></option>
                                 <?php foreach($lista_condominio as $condominio): ?>
                                     <option value="<?php print_r($condominio['id']); ?>"><?php print_r($condominio[1]); ?></option>
@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="bloco" for="bloco">Bloco</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="bloco">
+                            <select class="select2_demo_3 form-control form-control" name="bloco" id="bloco">
                                 <option></option>
                                 <?php foreach($lista_bloco as $bloco): ?>
                                     <option value="<?php print_r($bloco['id']); ?>">Bloco - <?php print_r($bloco[2]); ?></option>
@@ -41,7 +41,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="apartamento" for="apartamento">Apartamento</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="apartamento">
+                            <select class="select2_demo_3 form-control form-control" name="apartamento" id="apartamento">
                                 <option></option>
                                 <?php foreach($lista_apartamento as $apartamento): ?>
                                     <option value="<?php print_r($apartamento['id']); ?>"><?php print_r($apartamento[3]); ?></option>
@@ -54,7 +54,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="morador">Morador(a)</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="morador">
+                            <select class="select2_demo_3 form-control form-control" name="morador" id="morador">
                                 <option></option>
                                 <?php foreach($lista_morador as $morador): ?>
                                     <option value="<?php print_r($morador['id']); ?>"><?php print_r($morador['nome_morador']); ?></option>
@@ -66,26 +66,26 @@
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="nome_produto">Nome do Produto</label>
-                        <div class="col-sm-8"><input type="text" name="nome_produto" class="form-control"></div>
+                        <div class="col-sm-8"><input type="text" name="nome_produto" class="form-control" id="nome_produto"></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="empresa">Empresa</label>
-                        <div class="col-sm-8"><input type="text" name="empresa" class="form-control"></div>
+                        <div class="col-sm-8"><input type="text" name="empresa" class="form-control" id="empresa"></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="observacao">Observações</label>
-                        <div class="col-sm-8"><textarea class="form-control" rows="3" name="observacao"></textarea></div>
+                        <div class="col-sm-8"><textarea class="form-control" rows="3" name="observacao" id="observacao"></textarea></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="status" for="status">Status</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="status">
+                            <select class="select2_demo_3 form-control form-control" name="status" id="status">
                                 <option></option>
                                 <option value="1">Pendente</option>
                                 <option value="0">Concluído</option>
