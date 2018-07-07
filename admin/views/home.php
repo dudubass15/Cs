@@ -12,7 +12,7 @@
                         $porcentagemDia = $d[0] / 100;
                     ?>
                     <h1 class="no-margins"><?php echo $d[0]; ?></h1>
-                    <div class="stat-percent font-bold text-success"><?php echo($porcentagemDia); ?>% <i class="fa fa-bolt"></i></div>
+                    <div class="stat-percent font-bold text-success"><?php echo($porcentagemDia); ?>% <i class="fa fa-level-up"></i></div>
                     <small>Total</small>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                         $porcentagemAno = $s[0] / 100;
                     ?>
                     <h1 class="no-margins"><?php echo $s[0]; ?></h1>
-                    <div class="stat-percent font-bold text-danger"><?php echo($porcentagemAno); ?>% <i class="fa fa-level-down"></i></div>
+                    <div class="stat-percent font-bold text-danger"><?php echo($porcentagemAno); ?>% <i class="fa fa-level-up"></i></div>
                     <small>Total</small>
                 </div>
             </div>
