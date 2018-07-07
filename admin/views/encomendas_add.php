@@ -18,7 +18,7 @@
                             <select class="select2_demo_3 form-control form-control" name="condominio" id="condominio">
                                 <option></option>
                                 <?php foreach($lista_condominio as $condominio): ?>
-                                    <option value="<?php print_r($condominio['id']); ?>"><?php print_r($condominio[1]); ?></option>
+                                    <option value="<?php echo($condominio['id']); ?>"><?php echo($condominio[1]); ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -31,7 +31,7 @@
                             <select class="select2_demo_3 form-control form-control" name="bloco" id="bloco">
                                 <option></option>
                                 <?php foreach($lista_bloco as $bloco): ?>
-                                    <option value="<?php print_r($bloco['id']); ?>">Bloco - <?php print_r($bloco[2]); ?></option>
+                                    <option value="<?php echo($bloco['id']); ?>">Bloco - <?php echo($bloco[2]); ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -44,7 +44,7 @@
                             <select class="select2_demo_3 form-control form-control" name="apartamento" id="apartamento">
                                 <option></option>
                                 <?php foreach($lista_apartamento as $apartamento): ?>
-                                    <option value="<?php print_r($apartamento['id']); ?>"><?php print_r($apartamento[3]); ?></option>
+                                    <option value="<?php echo($apartamento['id']); ?>"><?php echo($apartamento[3]); ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -57,7 +57,7 @@
                             <select class="select2_demo_3 form-control form-control" name="morador" id="morador">
                                 <option></option>
                                 <?php foreach($lista_morador as $morador): ?>
-                                    <option value="<?php print_r($morador['id']); ?>"><?php print_r($morador['nome_morador']); ?></option>
+                                    <option value="<?php echo($morador['id']); ?>"><?php echo($morador['nome_morador']); ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

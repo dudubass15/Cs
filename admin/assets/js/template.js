@@ -36,4 +36,7 @@ function valida_form() {
         alert("Campo do status vazio !");
         return false;
     }
+
+    alert("Encomenda cadastrada com sucesso !");
+    return true;
 }
