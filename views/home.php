@@ -13,11 +13,13 @@
 
                             <h4 style="text-align: center;">
                                 <?php echo($e['empresa']); ?>
-                            </h4><br>
+                            </h4><br><p></p><p></p>
 
-                            <!-- <p><?php echo($e['observacao']); ?></p> -->
+                            <!-- <a href="<?php echo URL; ?>/home/arquivar/<?php echo($e['']); ?>" title="Finalizado"><i class="fa fa-check-square lg"></i></a> -->
 
-                            <a href="<?php echo URL; ?>/home/arquivar/<?php echo($e['']); ?>" title="Finalizado"><i class="fa fa-check-square lg"></i></a>
+                            <a href="<?php echo URL; ?>/home/arquivar/<?php echo($e[0]); ?>" style="width: 90%;">
+                                <button type="button" class="btn btn-outline btn-warning" onclick="NewCadastro();" style="width: 100%;"><i class="fa fa-check-square lg"></i> Recebido</button>
+                            </a>                            
                         </div>
                     </li>
                 </ul>
@@ -43,5 +45,9 @@
 
             }, 1300);
         })
+
+        function NewCadastro(){
+            alert("Encomenda arquivada com sucesso !");
+        }
         
 </script>

@@ -27,10 +27,6 @@ class homeController extends controller {
 	}
 
 	public function arquivar($id) {
-		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
-			header('Location: '.URL.'/login');
-		}
-
 		$dados = array();
 
 		$home = new home();
