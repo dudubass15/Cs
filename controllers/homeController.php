@@ -26,14 +26,20 @@ class homeController extends controller {
 		$this->loadTemplate('home', $dados);
 	}
 
-	public function arquivar() {
+	public function arquivar($id) {
+		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
+			header('Location: '.URL.'/login');
+		}
+
 		$dados = array();
 
 		$home = new home();
 
-		$dados['listar_idencomendas'] = $home->EditStats();
+		$status = '0';
 
-		$this->loadTemplate('home', $dados);
+		$home->EditStats($id, $status);
+
+		header('Location: '.URL.'/home');
 	}
 }
 

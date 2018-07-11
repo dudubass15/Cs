@@ -17,7 +17,7 @@
 
                             <!-- <p><?php echo($e['observacao']); ?></p> -->
 
-                            <a href="#" title="Finalizado"><i class="fa fa-check-square lg"></i></a>
+                            <a href="<?php echo URL; ?>/home/arquivar/<?php echo($e['']); ?>" title="Finalizado"><i class="fa fa-check-square lg"></i></a>
                         </div>
                     </li>
                 </ul>
