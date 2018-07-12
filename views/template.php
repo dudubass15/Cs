@@ -91,5 +91,8 @@ $_SESSION['login'];
 	<!-- Toastr -->
 	<script src="<?php echo URL; ?>/assets/js/plugins/toastr/toastr.min.js"></script>
 
+	<!-- JS criado do zero -->
+	<script src="<?php echo URL; ?>/assets/js/template.js"></script>
+
 </body>
 </html>

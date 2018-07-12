@@ -11,35 +11,35 @@
                 </div>
             </div>
             <div class="ibox-content">
-                <form method="POST" class="form-horizontal">
+                <form method="POST" class="form-horizontal" onsubmit="return AddCondominio();">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="numero">Nome</label>
-                        <div class="col-sm-8"><input type="text" name="nome" value="Ed. " class="form-control"></div>
+                        <label class="col-sm-2 control-label" for="nome">Nome</label>
+                        <div class="col-sm-8"><input type="text" name="nome" value="Ed. " id="nome" class="form-control"></div>
                     </div>
                                
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="cnpj">CNPJ</label>
-                        <div class="col-sm-8"><input type="text" name="cnpj" class="form-control" data-mask="00.000.000/0000-00" placeholder="00.000.000/0000-00"></div>
+                        <div class="col-sm-8"><input type="text" name="cnpj" class="form-control" data-mask="00.000.000/0000-00" placeholder="00.000.000/0000-00" id="cnpj"></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="telefone">Telefone</label>
-                        <div class="col-sm-8"><input type="text" name="telefone" class="form-control" data-mask="(00) 0000-0000" placeholder="(00) 0000-0000"></div>
+                        <div class="col-sm-8"><input type="text" name="telefone" class="form-control" data-mask="(00) 0000-0000" placeholder="(00) 0000-0000" id="telefone"></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="endereco">Endereço</label>
-                        <div class="col-sm-8"><input type="text" name="endereco" class="form-control"></div>
+                        <div class="col-sm-8"><input type="text" name="endereco" class="form-control" id="endereco"></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="cidade" for="cidade">Cidade</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="cidade">
+                            <select class="select2_demo_3 form-control form-control" name="cidade" id="cidade">
                                 <option></option>
                                  <option value="Cariacia">Cariacia - ES</option>
                                  <option value="Colatina">Colatina - ES</option>
@@ -59,7 +59,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="estado" for="estado">Estado</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="estado">
+                            <select class="select2_demo_3 form-control form-control" name="estado" id="estado">
                                 <option></option>
                                 <option value="Acre">Acre (AC)</option>
                                 <option value="Alagoas">Alagoas (AL)</option>

@@ -40,3 +40,47 @@ function valida_form() {
     alert("Encomenda cadastrada com sucesso !");
     return true;
 }
+
+function AddCondominio(){
+
+    var nome = document.getElementById("nome").value;
+    var cnpj = document.getElementById("cnpj").value;
+    var telefone = document.getElementById("telefone").value;
+    var endereco = document.getElementById("endereco").value;
+    var cidade = document.getElementById("cidade").value;
+    var estado = document.getElementById("estado").value;
+
+    // var variaveis = new Array(nome, cnpj, telefone, endereco, cidade, estado);
+    
+
+    if(nome == 'Ed. ' || nome == ''){
+        alert("Campo do nome vazio !");
+        return false;
+    }
+    if(cnpj == ''){
+        alert("Campo do cnpj vazio !");
+        return false;
+    }
+    if(telefone == ''){
+        alert("Campo do telefone vazio !");
+        return false;
+    }
+    if(endereco == ''){
+        alert("Campo do endereco vazio !");
+        return false;
+    }
+    if(cidade == ''){
+        alert("Campo do cidade vazio !");
+        return false;
+    }
+    if(estado == ''){
+        alert("Campo do estado vazio !");
+        return false;
+    }
+    alert("Condomínio cadastro com sucesso !");
+    return true;
+}
+
+function delCondominio(){
+    
+}
