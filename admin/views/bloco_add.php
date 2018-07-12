@@ -11,12 +11,12 @@
                 </div>
             </div>
             <div class="ibox-content">
-                <form method="POST" class="form-horizontal">
+                <form method="POST" class="form-horizontal" onsubmit="return AddBloco();">
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="condominio" for="condominio">Condomínio</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="condominio">
+                            <select class="select2_demo_3 form-control form-control" name="condominio" id="condominio">
                                 <option></option>
                                 <?php foreach($lista_condominio as $condominio): ?>
                                     <option value="<?php echo($condominio['id']); ?>"><?php echo($condominio['nome']); ?></option>
@@ -28,13 +28,13 @@
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="numero">Nº Bloco</label>
-                        <div class="col-sm-8"><input type="number" name="numero" class="form-control"></div>
+                        <div class="col-sm-8"><input type="number" name="numero" class="form-control" id="numero"></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="nome_bloco">Nome</label>
-                        <div class="col-sm-8"><input type="text" name="nome_bloco" class="form-control"></div>
+                        <div class="col-sm-8"><input type="text" name="nome_bloco" class="form-control" id="nome_bloco"></div>
                     </div>
 
                     <div class="form1">

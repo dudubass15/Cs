@@ -52,7 +52,6 @@ function AddCondominio(){
 
     // var variaveis = new Array(nome, cnpj, telefone, endereco, cidade, estado);
     
-
     if(nome == 'Ed. ' || nome == ''){
         alert("Campo do nome vazio !");
         return false;
@@ -61,10 +60,10 @@ function AddCondominio(){
         alert("Campo do cnpj vazio !");
         return false;
     }
-    if(telefone == ''){
-        alert("Campo do telefone vazio !");
-        return false;
-    }
+    // if(telefone == ''){
+    //     alert("Campo do telefone vazio !");
+    //     return false;
+    // }
     if(endereco == ''){
         alert("Campo do endereco vazio !");
         return false;
@@ -81,6 +80,86 @@ function AddCondominio(){
     return true;
 }
 
-function delCondominio(){
+function AddBloco(){
+
+    var condominio = document.getElementById("condominio").value;
+    var numero = document.getElementById("numero").value;
+    var nome_bloco = document.getElementById("nome_bloco").value;
     
+    if(condominio == ''){
+        alert("Campo Condominio vazio !");
+        return false;
+    }
+    if(numero == ''){
+        alert("Campo Numero Bloco vazio !");
+        return false;
+    }
+    // if(nome_bloco == ''){
+    //     alert("Campo Nome vazio !");
+    //     return false;
+    // }
+    alert("Condomínio cadastro com sucesso !");
+    return true;
+}
+
+function AddApartamento(){
+
+    var condominio = document.getElementById("condominio").value;
+    var bloco = document.getElementById("bloco").value;
+    var apartamento = document.getElementById("apartamento").value;
+    var telefone = document.getElementById("telefone").value;
+    var senha = document.getElementById("senha").value;
+
+    if(condominio == ''){
+        alert("Campo Condominio vazio !");
+        return false;
+    }
+    if(bloco == ''){
+        alert("Campo Numero do Bloco vazio !");
+        return false;
+    }
+    if(apartamento == ''){
+        alert("Campo Numero do Apartamento vazio !");
+        return false;
+    }
+    // if(telefone == ''){
+    //     alert("Campo Numero do Telefone vazio !");
+    //     return false;
+    // }
+    alert("Condomínio cadastro com sucesso !");
+    return true;
+}
+
+function AddMorador(){
+
+    var condominio = document.getElementById("condominio").value;
+    var bloco = document.getElementById("bloco").value;
+    var apartamento = document.getElementById("apartamento").value;
+    var nome = document.getElementById("nome").value;
+    var celular = document.getElementById("celular").value;
+    var cpf = document.getElementById("cpf").value;
+    var email = document.getElementById("email").value;
+
+    if(condominio == ''){
+        alert("Campo Condominio vazio !");
+        return false;
+    }
+    if(bloco == ''){
+        alert("Campo Numero do Bloco vazio !");
+        return false;
+    }
+    if(apartamento == ''){
+        alert("Campo Numero do Apartamento vazio !");
+        return false;
+    }
+    if(nome == ''){
+        alert("Campo Morador(a) vazio !");
+        return false;
+    }
+    alert("Condomínio cadastro com sucesso !");
+    return true;
+}
+
+function edit(){
+    alert("Dados alterados com sucesso");
 }

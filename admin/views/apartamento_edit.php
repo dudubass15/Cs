@@ -59,7 +59,7 @@
 
                     <div class="form1">
                         <div class="form-button">
-                            <button class="btn btn-primary" type="submit">Salvar</button>
+                            <button class="btn btn-primary" type="submit" onclick="edit();">Salvar</button>
                         </div>
                     </div>
                 </form>
