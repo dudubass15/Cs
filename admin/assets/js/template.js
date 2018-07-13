@@ -98,7 +98,7 @@ function AddBloco(){
     //     alert("Campo Nome vazio !");
     //     return false;
     // }
-    alert("Condomínio cadastro com sucesso !");
+    alert("Bloco cadastro com sucesso !");
     return true;
 }
 
@@ -126,7 +126,7 @@ function AddApartamento(){
     //     alert("Campo Numero do Telefone vazio !");
     //     return false;
     // }
-    alert("Condomínio cadastro com sucesso !");
+    alert("Apartamento cadastro com sucesso !");
     return true;
 }
 
@@ -156,7 +156,7 @@ function AddMorador(){
         alert("Campo Morador(a) vazio !");
         return false;
     }
-    alert("Condomínio cadastro com sucesso !");
+    alert("Morador cadastro com sucesso !");
     return true;
 }
 
