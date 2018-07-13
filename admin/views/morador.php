@@ -3,11 +3,11 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Morador(a)</h5>
+                    <h5 style="font-size: 20px; margin-top: 6px; margin-left: 10px;">Moradores</h5>
                     <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
+                        <button type="button" class="btn btn-w-m btn-default">
+                            <a href="<?php echo URL; ?>/morador/add" style="color: #515151;">Novo</a>
+                        </button>
                     </div>
                 </div>
                 <div class="ibox-content">
