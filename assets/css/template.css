@@ -2,3 +2,24 @@ body {
 	background-color: blue;
 	color: white;
 }
+#button-left{
+	width: 135px;
+	height: 35px;
+	float: right;
+	margin-top: 5px;
+	margin-right: 20px;
+}
+#button-left a{
+	color:#25C1B6;
+}
+#button-left a:hover{
+	color:#00AE87;
+}
+#h1-error{
+	margin-top: 200px;
+	text-align: center;
+}
+#h1-error-encomendas{
+	margin-top: 200px;
+	text-align: center;
+}

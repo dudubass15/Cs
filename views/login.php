@@ -16,6 +16,10 @@
 </head>
 
 <body class="gray-bg">
+    <!-- Botão que dá acesso a pagina administrativa da aplicacao -->
+    <div id="button-left">
+        <a href="<?php echo URL; ?>/admin/login" class="btn btn-w-m btn-link"><i class="fa fa-home"></i> <span class="nav-label">Administrativo</span></a>
+    </div>
 
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>

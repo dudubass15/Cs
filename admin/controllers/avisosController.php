@@ -1,13 +1,14 @@
 <?php
-class encomendaController extends controller {
+class avisosController extends controller{
 
 	public function __construct() {
 		$usuario = new usuarios();
 		if (!$usuario->logado()) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
+		
 		$permissao = $_SESSION['tipo'];
-		if ($permissao == '1') {
+		if ($permissao == '2') {
 			unset($_SESSION['id']); //Destroi a SESSION ID.
 			unset($_SESSION['login']); //Destroi a SESSION.
 			unset($_SESSION['senha']); //Destroi a SESSION.
@@ -16,16 +17,19 @@ class encomendaController extends controller {
 		}
 	}
 
-	public function index() {
+	public function index(){
 		$dados = array();
 
-		$encomendas = new encomendas();
+		$aviso = new avisos();
 
-		$dados['encomendas'] = $encomendas->ListarEncomendas();
-		$dados['contagem_en'] = $encomendas->ContagemEncomendas();
-
-		$this->loadTemplate('encomendas', $dados);
+		$this->loadTemplate('avisos', $dados);
 	}
-}
 
+	public function view(){
+		$dados = array();
+
+		$this->loadTemplate('avisos_view', $dados);
+	}
+
+}
 ?>

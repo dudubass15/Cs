@@ -19,6 +19,9 @@ $_SESSION['login'];
 	<link href="<?php echo URL; ?>/assets/css/plugins/select2/select2.min.css" rel="stylesheet">
 	<link href="<?php echo URL; ?>/assets/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
 
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
 	<!-- Toastr style -->
 	<link href="<?php echo URL; ?>/assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
@@ -39,7 +42,7 @@ $_SESSION['login'];
 								</ul>
 							</div>
 							<div class="logo-element">
-								IN+
+								CS
 							</div>
 						</li>
 
@@ -56,6 +59,10 @@ $_SESSION['login'];
 
 								<li><a href="<?php echo URL; ?>/encomenda/view2"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Concluídas</span> </a></li>
 							</ul>
+						</li>
+
+						<li>
+							<a href="<?php echo URL; ?>/avisos"><i class="fa fa-comment"></i> <span class="nav-label">Avisos</span></a>
 						</li>
 
 						<li>

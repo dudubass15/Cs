@@ -7,7 +7,6 @@ class blocos extends model {
 		} else {
 			return false; // retorna valor false.
 		}
-
 	}
 
 	// Abaixo precisa está presente, pois na view está sendo chamado uma forench utilizando o model condominios ...

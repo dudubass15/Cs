@@ -15,9 +15,7 @@
                     </div>
                     <div class="clients-list">
                     <ul class="nav nav-tabs">
-                        <?php foreach ($contagem_en as $c): ?>
-                            <span class="pull-right small text-muted"><?php echo($c['encomendas']); ?> Elemento(s)</span>
-                        <?php endforeach ?>
+                        <span class="pull-right small text-muted">0 Elemento(s)</span>
                         <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-gift"></i> Geral</a></li>
                     </ul>
                     <div class="tab-content">
@@ -26,17 +24,9 @@
                                 <div class="table-responsive">
                                     <table class="table table-striped table-hover">
                                         <tbody>
-                                        <?php foreach ($encomendas as $e): ?>
                                         <tr>
-                                            <td class="contact-type"><i class="fa fa-briefcase"> </i></td>
-                                            <td style="font-weight: bold;"><?php echo($e['empresa']); ?></a></td>
-                                            <td class="contact-type"><i class="fa fa-registered"> </i></td>
-                                            <td> <?php echo($e['nome_produto']); ?></td>
-                                            <td class="contact-type"><i class="fa fa-calendar"> </i></td>
-                                            <td> <?php echo date('d-m-Y', strtotime($e['encomendas'])); ?></td>
-                                            <td class="client-status"><span class="label label-primary">Recebido</span></td>
+                                            <h1 id="h1-error-encomendas">Você não possui nenhuma encomenda recebida ....</h1>
                                         </tr>
-                                        <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>
