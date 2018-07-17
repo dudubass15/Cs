@@ -24,7 +24,7 @@ $_SESSION['login'];
 	<!-- Toastr style -->
 	<link href="<?php echo URL; ?>/assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 </head>
-<body class="pace-done body-small">
+<body>
 
 	<div id="wrapper">
 		<nav class="navbar-default navbar-static-side" role="navigation">

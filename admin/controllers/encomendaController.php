@@ -17,7 +17,7 @@ class encomendaController extends controller {
 		}
 	}
 
-	public function view1(){
+	public function pendentes(){
 		$dados = array();
 
 		$encomendas = new encomendas();
@@ -27,7 +27,7 @@ class encomendaController extends controller {
 		$this->loadTemplate('encomendas_view_pendentes', $dados);
 	}
 
-	public function view2(){
+	public function concluidas(){
 		$dados = array();
 
 		$encomendas = new encomendas();
@@ -63,7 +63,7 @@ class encomendaController extends controller {
 			$encomendas = new encomendas();
 
 			$encomendas->add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status);
-			header('Location: '.URL.'/encomenda/view1');
+			header('Location: '.URL.'/encomenda/pendentes');
 		}
 		
 		$this->loadTemplate('encomendas_add', $dados);
@@ -98,7 +98,7 @@ class encomendaController extends controller {
 
 			$encomenda->edit($id, $condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status);
 
-			header('Location: '.URL.'/encomenda/view1');
+			header('Location: '.URL.'/encomenda/pendentes');
 		}
 		
 		$this->loadTemplate('encomendas_edit', $dados);
@@ -117,7 +117,7 @@ class encomendaController extends controller {
 
 		$encomenda->arquivo($id, $status);
 
-		header('Location: '.URL.'/encomenda/view1');
+		header('Location: '.URL.'/encomenda/pendentes');
 	}
 
 	public function del($id) {
@@ -131,7 +131,7 @@ class encomendaController extends controller {
 
 		$encomenda->del($id);
 
-		header('Location: '.URL.'/encomenda/view1');
+		header('Location: '.URL.'/encomenda/pendentes');
 	}
 }
 ?>

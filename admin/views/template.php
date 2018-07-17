@@ -26,7 +26,7 @@ $_SESSION['login'];
 	<link href="<?php echo URL; ?>/assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
 </head>
-<body class="pace-done body-small">
+<body>
 
 	<div id="wrapper">
 		<nav class="navbar-default navbar-static-side" role="navigation">
@@ -52,12 +52,12 @@ $_SESSION['login'];
 
 						<li>
 							<a href="#"><i class="fa fa-bell"></i> <span class="nav-label">Encomendas</span><span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li><a href="<?php echo URL; ?>/encomenda/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
+							<ul class="nav nav-second-level collapse">
+								<li><a href="<?php echo URL; ?>/encomenda/add"><i class="fa fa-edit (alias)"></i> Novo</a></li>
 
-								<li><a href="<?php echo URL; ?>/encomenda/view1"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Pendentes</span> </a></li>
+								<li><a href="<?php echo URL; ?>/encomenda/pendentes"><i class="fa fa-folder-open-o"></i> Pendentes</a></li>
 
-								<li><a href="<?php echo URL; ?>/encomenda/view2"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Concluídas</span> </a></li>
+								<li><a href="<?php echo URL; ?>/encomenda/concluidas"><i class="fa fa-folder-open-o"></i> Concluídas</a></li>
 							</ul>
 						</li>
 
@@ -69,56 +69,56 @@ $_SESSION['login'];
 							<a href="index.html"><i class="fa fa-cogs"></i> <span class="nav-label">Configurações</span> <span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
 								<li>
-									<a href="#"><i class="fa fa-building-o"></i> <span class="nav-label">Condomínios</span> <span class="fa arrow"></span></a>
+									<a href="#"><i class="fa fa-building-o"></i> Condomínios<span class="fa arrow"></span></a>
 									<ul class="nav nav-second-level">
 
-										<li><a href="<?php echo URL; ?>/condominios/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
+										<li><a href="<?php echo URL; ?>/condominios/add"><i class="fa fa-edit (alias)"></i> Novo</a></li>
 
-										<li><a href="<?php echo URL; ?>/condominios"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
+										<li><a href="<?php echo URL; ?>/condominios"><i class="fa fa-folder-open-o"></i> Visualizar</a></li>
 
 									</ul>
 								</li>
 
 								<li>
-									<a href="#"><i class="fa fa-users"></i> <span class="nav-label">Blocos</span> <span class="fa arrow"></span></a>
+									<a href="#"><i class="fa fa-users"></i> Blocos<span class="fa arrow"></span></a>
 									<ul class="nav nav-second-level">
 
-										<li><a href="<?php echo URL; ?>/bloco/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
+										<li><a href="<?php echo URL; ?>/bloco/add"><i class="fa fa-edit (alias)"></i> Novo</a></li>
 
-										<li><a href="<?php echo URL; ?>/bloco/"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
+										<li><a href="<?php echo URL; ?>/bloco/"><i class="fa fa-folder-open-o"></i> Visualizar</a></li>
 
 									</ul>
 								</li>
 
 								<li>
-									<a href="#"><i class="fa fa-plus-square-o"></i> <span class="nav-label">Apartamentos</span> <span class="fa arrow"></span></a>
+									<a href="#"><i class="fa fa-plus-square-o"></i> Apartamentos<span class="fa arrow"></span></a>
 									<ul class="nav nav-second-level">
 
-										<li><a href="<?php echo URL; ?>/apartamento/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
+										<li><a href="<?php echo URL; ?>/apartamento/add"><i class="fa fa-edit (alias)"></i> Novo</a></li>
 
-										<li><a href="<?php echo URL; ?>/apartamento"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
+										<li><a href="<?php echo URL; ?>/apartamento"><i class="fa fa-folder-open-o"></i> Visualizar</a></li>
 
 									</ul>
 								</li>
 
 								<li>
-									<a href="#"><i class="fa fa-male"></i> <span class="nav-label">Moradores</span> <span class="fa arrow"></span></a>
+									<a href="#"><i class="fa fa-male"></i> Moradores<span class="fa arrow"></span></a>
 									<ul class="nav nav-second-level">
 
-										<li><a href="<?php echo URL; ?>/morador/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
+										<li><a href="<?php echo URL; ?>/morador/add"><i class="fa fa-edit (alias)"></i> Novo</a></li>
 
-										<li><a href="<?php echo URL; ?>/morador"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
+										<li><a href="<?php echo URL; ?>/morador"><i class="fa fa-folder-open-o"></i> Visualizar</a></li>
 
 									</ul>
 								</li>
 
 								<li>
-									<a href="#"><i class="fa fa-user-o"></i> <span class="nav-label">Usuarios Sistema</span> <span class="fa arrow"></span></a>
+									<a href="#"><i class="fa fa-user-o"></i> Usuarios<span class="fa arrow"></span></a>
 									<ul class="nav nav-second-level">
 
-										<li><a href="<?php echo URL; ?>/usuarios/add"><i class="fa fa-edit (alias)"></i> <span class="nav-label">Novo</span> </a></li>
+										<li><a href="<?php echo URL; ?>/usuarios/add"><i class="fa fa-edit (alias)"></i> Novo</a></li>
 
-										<li><a href="<?php echo URL; ?>/usuarios"><i class="fa fa-folder-open-o"></i> <span class="nav-label">Visualizar</span> </a></li>
+										<li><a href="<?php echo URL; ?>/usuarios"><i class="fa fa-folder-open-o"></i> Visualizar</span> </a></li>
 									</ul>
 								</li>
 							</ul>
@@ -151,40 +151,44 @@ $_SESSION['login'];
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<!-- Mainly scripts -->
-		<script src="<?php echo URL; ?>/assets/js/jquery-3.1.1.min.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/bootstrap.min.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<!-- Mainly scripts -->
+	<script src="<?php echo URL; ?>/assets/js/jquery-3.1.1.min.js"></script>
+	<script src="<?php echo URL; ?>/assets/js/bootstrap.min.js"></script>
+	<script src="<?php echo URL; ?>/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="<?php echo URL; ?>/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-		<!-- Custom and plugin javascript -->
-		<script src="<?php echo URL; ?>/assets/js/inspinia.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/plugins/pace/pace.min.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
+	<!-- Custom and plugin javascript -->
+	<script src="<?php echo URL; ?>/assets/js/inspinia.js"></script>
+	<script src="<?php echo URL; ?>/assets/js/plugins/pace/pace.min.js"></script>
+	<script src="<?php echo URL; ?>/assets/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
 
-		<!-- Select2 -->
-		<script src="<?php echo URL; ?>/assets/js/plugins/select2/select2.full.min.js"></script>
+	<!-- Select2 -->
+	<script src="<?php echo URL; ?>/assets/js/plugins/select2/select2.full.min.js"></script>
 
-		<!-- Mascaras para inputs -->
-		<script src="<?php echo URL; ?>/assets/js/jquery.mask.js"></script>
-		<script src="<?php echo URL; ?>/assets/js/plugins/dataTables/datatables.min.js"></script>
+	<!-- Mascaras para inputs -->
+	<script src="<?php echo URL; ?>/assets/js/jquery.mask.js"></script>
+	<script src="<?php echo URL; ?>/assets/js/plugins/dataTables/datatables.min.js"></script>
 
-		<!-- Toastr -->
-		<script src="<?php echo URL; ?>/assets/js/plugins/toastr/toastr.min.js"></script>
-		
-		<!-- JS criado do zero -->
-		<script src="<?php echo URL; ?>/assets/js/template.js"></script>
+	<!-- jQuery UI -->
+    <script src="<?php echo URL; ?>/assets/js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-	</body>
+	<!-- Toastr -->
+	<script src="<?php echo URL; ?>/assets/js/plugins/toastr/toastr.min.js"></script>
 
-		<script>
-			$(document).ready(function(){
-				$('.dataTables-example').DataTable({
-					pageLength: 25,
-					responsive: true,
-					dom: '<"html5buttons"B>lTfgitp',
-					buttons: [
+	<!-- JS criado do zero -->
+	<script src="<?php echo URL; ?>/assets/js/template.js"></script>
+
+</body>
+
+<script>
+	$(document).ready(function(){
+		$('.dataTables-example').DataTable({
+			pageLength: 25,
+			responsive: true,
+			dom: '<"html5buttons"B>lTfgitp',
+			buttons: [
 					//{ extend: 'copy'},
 					//{extend: 'csv'},
 					//{extend: 'excel', title: 'ExampleFile'},
@@ -204,7 +208,7 @@ $_SESSION['login'];
 
 			});
 
-			});
+	});
 
-		</script>
+</script>
 </html>
