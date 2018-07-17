@@ -1,5 +1,5 @@
 <?php
-class errorsController extends controller {
+class pendentesController extends controller {
 
 	public function __construct() {
 		$usuario = new usuarios();
@@ -16,21 +16,10 @@ class errorsController extends controller {
 		}
 	}
 
-	public function index(){
+	public function index() {
 		$dados = array();
 
-		$verificacao = new home();
-
-		$dados = $verificacao->getListaEncomendas();
-
-		$this->loadTemplate('encomendas_notify_home', $dados);
-	}
-
-	public function encomendas(){
-		$dados = array();
-
-		$this->loadTemplate('encomendas_notify_encomendas', $dados);
+		$this->loadTemplate('home', $dados);	
 	}
 
 }
-?>

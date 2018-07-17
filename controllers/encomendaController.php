@@ -24,7 +24,11 @@ class encomendaController extends controller {
 		$dados['encomendas'] = $encomendas->ListarEncomendas();
 		$dados['contagem_en'] = $encomendas->ContagemEncomendas();
 
-		$this->loadTemplate('encomendas', $dados);
+		if (!empty($dados) && $dados['encomendas'][0]['status'] == '0') {
+			$this->loadTemplate('encomendas', $dados);
+		} else {
+			header('Location: '.URL.'/msg/encomendas');
+		}
 	}
 }
 

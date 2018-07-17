@@ -1,5 +1,5 @@
 <?php
-class homeController extends controller {
+class msgController extends controller {
 
 	public function __construct() {
 		$usuario = new usuarios();
@@ -16,31 +16,34 @@ class homeController extends controller {
 		}
 	}
 
-	public function index() {
+	public function index(){
 		$dados = array();
 
 		$home = new home();
 
 		$encomendas['encomendas_users'] = $home->getListaEncomendas();
 
-		if (!empty($encomendas) && $encomendas['encomendas_users'][0]['status'] == '1') {
-			$this->loadTemplate('home', $encomendas);
-		} else {
+		if (empty($encomendas)) {
 			header('Location: '.URL.'/msg');
+		} else {
+			$this->loadTemplate('msg_home', $dados);
 		}
+
 	}
 
-	public function arquivar($id) {
+	public function encomendas(){
 		$dados = array();
 
 		$home = new home();
 
-		$status = '0';
+		$encomendas['encomendas_users'] = $home->getListaEncomendas();
 
-		$home->EditStats($id, $status);
-
-		header('Location: '.URL.'/home');
+		if (empty($encomendas)) {
+			header('Location: '.URL.'/msg/encomenda');
+		} else {
+			$this->loadTemplate('msg_encomendas', $dados);
+		}
 	}
-}
 
+}
 ?>

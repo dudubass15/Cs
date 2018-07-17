@@ -33,7 +33,7 @@
                                             <td class="contact-type"><i class="fa fa-registered"> </i></td>
                                             <td> <?php echo($e['nome_produto']); ?></td>
                                             <td class="contact-type"><i class="fa fa-calendar"> </i></td>
-                                            <td> <?php echo date('d-m-Y', strtotime($e['encomendas'])); ?></td>
+                                            <td> <?php echo date('d-m-Y', strtotime($e['data_postagem'])); ?></td>
                                             <td class="client-status"><span class="label label-primary">Recebido</span></td>
                                         </tr>
                                         <?php endforeach ?>

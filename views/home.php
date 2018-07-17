@@ -1,6 +1,7 @@
+<body>
 <div class="row">
     <div class="col-lg-12">
-        <div class="wrapper wrapper-content animated fadeInUp">
+        <div class="wrapper wrapper-content animated fadeInUp" id="validacao"">
             <?php foreach ($encomendas_users as $e): ?>
                 <ul class="notes">
                     <li>
@@ -15,11 +16,9 @@
                                 <?php echo($e['empresa']); ?>
                             </h4><br><p></p><p></p>
 
-                            <!-- <a href="<?php echo URL; ?>/home/arquivar/<?php echo($e['']); ?>" title="Finalizado"><i class="fa fa-check-square lg"></i></a> -->
-
                             <a href="<?php echo URL; ?>/home/arquivar/<?php echo($e[0]); ?>" style="width: 90%;">
                                 <button type="button" class="btn btn-outline btn-warning" onclick="NewCadastro();" style="width: 100%;"><i class="fa fa-check-square lg"></i> Recebido</button>
-                            </a>                            
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -27,6 +26,7 @@
         </div>
     </div>
 </div>
+</body>
 
 <!-- Mainly scripts -->
 <script src="<?php echo URL; ?>/assets/js/jquery-3.1.1.min.js"></script>
