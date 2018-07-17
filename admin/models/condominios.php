@@ -57,5 +57,3 @@ class condominios extends model {
 	}	
 
 }
-
-?> 

@@ -50,5 +50,3 @@ class home extends model {
 		$this->db->query($sql);
 	}
 }
-
-?>

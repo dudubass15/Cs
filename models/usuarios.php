@@ -46,5 +46,3 @@ class usuarios extends model {
 		return $array;
 	}
 }
-
-?> 

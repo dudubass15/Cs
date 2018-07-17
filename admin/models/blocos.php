@@ -74,5 +74,3 @@ class blocos extends model {
 		$this->db->query($sql);
 	}
 }
-
-?>

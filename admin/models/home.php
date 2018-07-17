@@ -62,5 +62,3 @@ class home extends model {
 		return $array;
 	}
 }
-
-?>

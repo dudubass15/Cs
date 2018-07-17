@@ -123,5 +123,3 @@ class moradores extends model {
 		$this->db->query($sql);
 	}
 }
-
-?>

@@ -61,5 +61,3 @@ class encomendas extends model {
 		return $array;
 	}
 }
-
-?> 

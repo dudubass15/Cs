@@ -87,5 +87,3 @@ class apartamentos extends model {
 		$this->db->query($sql);
 	}	
 }
-
-?> 
