@@ -16,7 +16,7 @@
                     <div class="clients-list">
                     <ul class="nav nav-tabs">
                         <?php foreach ($contagem_en as $c): ?>
-                            <span class="pull-right small text-muted"><?php echo($c['encomendas']); ?> Elemento(s)</span>
+                            <span class="pull-right small text-muted"><?php echo($c['COUNT(*)']); ?> Elemento(s)</span>
                         <?php endforeach ?>
                         <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-gift"></i> Geral</a></li>
                     </ul>

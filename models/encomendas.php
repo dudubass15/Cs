@@ -39,12 +39,19 @@ class encomendas extends model {
 		$user_id = $_SESSION['id'];
 		$user_nome = $_SESSION['nome'];
 
-		$sql = "SELECT COUNT(*) AS encomendas,
-			moradores.id, moradores.nome_morador, moradores.celular, moradores.cpf, moradores.email AS moradores,
-			usuarios.id, usuarios.nome AS usuarios
-			FROM encomendas
+		$sql = "SELECT COUNT(*)
+					 , moradores.id
+					 , moradores.nome_morador
+					 , moradores.celular
+					 , moradores.cpf
+					 , moradores.email
+					 , usuarios.id
+					 , usuarios.nome 
+				  FROM encomendas
 			INNER JOIN moradores ON moradores.id = encomendas.moradores_id
-			INNER JOIN usuarios ON usuarios.id = moradores.usuarios_id WHERE usuarios.nome = '$user_nome' AND encomendas.status = '0'";
+			INNER JOIN usuarios ON usuarios.id = moradores.usuarios_id 
+				  WHERE usuarios.nome = '$user_nome' 
+				  AND encomendas.status = '0' ";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0 ) {
