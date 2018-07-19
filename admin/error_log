@@ -30,3 +30,4 @@
 [22-May-2018 10:45:53 America/Chicago] PHP Warning:  include(views/usuario.php): failed to open stream: No such file or directory in /home/sistem14/public_html/Cs/core/controller.php on line 15
 [22-May-2018 10:45:53 America/Chicago] PHP Warning:  include(views/usuario.php): failed to open stream: No such file or directory in /home/sistem14/public_html/Cs/core/controller.php on line 15
 [22-May-2018 10:45:53 America/Chicago] PHP Warning:  include(): Failed opening 'views/usuario.php' for inclusion (include_path='.:/opt/php56/lib/php') in /home/sistem14/public_html/Cs/core/controller.php on line 15
+[16-Jul-2018 22:56:59 America/Chicago] PHP Fatal error:  Class 'Controller' not found in /home/sistem14/public_html/Cs/admin/core/core.php on line 41
