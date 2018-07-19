@@ -37,6 +37,42 @@ class encomendaController extends controller {
 		$this->loadTemplate('encomendas_view_concluidas', $dados);
 	}
 
+	public function sendEmail(){
+		$dados = array();
+
+		$email = new emails();
+
+		$dados['id'] = $email->buscaID();
+
+		// Em $id eu percorro todo o array pegando somente o ID
+		$id = $dados['id'][0]['id'];
+
+		$resultado = $email->buscaEmail($id);
+
+		// Recebe as informações do formulário
+		if(isset($resultado) && !empty($resultado)){
+
+			$nome = $resultado[0]['nome_morador'];
+			$email = $resultado[0]['email'];
+			$msg = "<h1>Olá caro(a)</h1>".$nome." <h1>você possui uma nova encomenda na Portaria!</h1>";
+
+			$para = $email;
+			$assunto = "Encomenda pendente na Portaria";
+			$corpo = "Nome: ".$nome." - E-mail: ".$email." - Mensagem: ".$msg;
+
+			$cabecalho = "From: portaria@cs.sistemaskadu.com.br"."\r\n".
+						 "Replay-To: ".$email."\r\n".
+						 "X-Mailer: PHP/".phpversion();
+
+
+			mail($para, $assunto, $corpo, $cabecalho);
+
+			echo "<script>alert('E-mail enviado com sucesso !');</script>";
+
+			header('Location: '.URL.'/encomenda/pendentes');
+		}
+	}
+
 	public function add() {
 		$dados = array();
 
@@ -49,6 +85,8 @@ class encomendaController extends controller {
 		$dados['lista_apartamento'] = $encomendas->getListaApto();
 
 		$dados['lista_morador'] = $encomendas->getListaMorador();
+
+		//print_r($dados1['lista_morador'][0]['email']); die;
 
 		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
@@ -63,6 +101,9 @@ class encomendaController extends controller {
 			$encomendas = new encomendas();
 
 			$encomendas->add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status);
+
+			return sendEmail();
+
 			header('Location: '.URL.'/encomenda/pendentes');
 		}
 		
