@@ -52,26 +52,18 @@ class encomendaController extends controller {
 		// Recebe as informações do formulário
 		if(isset($resultado) && !empty($resultado)){
 
-			$nome = $resultado[0]['nome_morador'];
-			$condominio = $resultado[0]['nome'];
-			$email = $resultado[0]['email'];
-			$msg = "Olá caro(a)".$nome." você possui uma nova encomenda na Portaria!";
+			$nome = $resultado[0]['nome_morador']; //Pega o nome do morador
+			$condominio = $resultado[0]['nome'];	//Pega o nome do Condomínio
+			$email = $resultado[0]['email'];	//Pega o e-mail do morador
+			$msg = "Olá caro(a)".$nome." você possui uma nova encomenda na Portaria!"; //Mensagem que
 			$url = 'www.cs.sistemaskadu.com.br';
 
 			$para = $email;
 			$assunto = 'Você tem uma nova encomenda ' .'- ' .$condominio;
 			//$corpo = "Nome: ".$nome." - E-mail: ".$email." - Mensagem: ".$msg;
 
-			$corpo = 
-			'
-				Condomínio do ' .$condominio.' informa:<br><br>
-
-				Olá '.$nome.','. ' você acaba de receber uma nova encomenda na Portaria do Condomínio. 
-				Acesse o sistema através desse link www.cs.sistemaskadu.com.br com seu usuário e senha agora mesmo, 
-				e tenha mais informações sobre a encomenda que te espera. <br><br>
-				Estamos a sua disposição !
-				
-			';
+			$corpo = 'Olá ' .$nome.','. ' você possui uma nova encomenda na Portaria. 
+			Por gentileza acessar www.cs.sistemaskadu.com.br com seu login e senha para pegar mais informações.';
 
 			$cabecalho = "From: portaria@cs.sistemaskadu.com.br"."\r\n".
 						 "Replay-To: ".$email."\r\n".
