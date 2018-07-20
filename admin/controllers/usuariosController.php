@@ -38,12 +38,11 @@ class usuariosController extends controller {
 
 		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
 			$nome = addslashes($_POST['nome']);
-			$cpf = addslashes($_POST['cpf']);
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
 			$tipo = addslashes($_POST['tipo']);
 
-			$usuario->add($nome, $cpf, $login, $senha, $tipo);
+			$usuario->add($nome, $login, $senha, $tipo);
 
 			header('Location: '.URL.'/usuarios');
 
@@ -63,14 +62,13 @@ class usuariosController extends controller {
 
 		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
 			$nome = addslashes($_POST['nome']);
-			$cpf = addslashes($_POST['cpf']);
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
 			$tipo = addslashes($_POST['tipo']);
 
 			$usuario = new usuarios();
 
-			$usuario->edit($id, $nome, $cpf, $login, $senha, $tipo);
+			$usuario->edit($id, $nome, $login, $senha, $tipo);
 
 			header('Location: '.URL.'/usuarios');
 

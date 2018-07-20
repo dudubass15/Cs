@@ -67,14 +67,14 @@ class usuarios extends model {
 		return $array;
 	}
 
-	public function add($nome, $cpf, $login, $senha, $tipo) {
-		$sql = "INSERT INTO usuarios (nome, cpf, login, senha, tipo)";
-		$sql.= "VALUE ('$nome', '$cpf', '$login', '$senha', '$tipo')";
+	public function add($nome, $login, $senha, $tipo) {
+		$sql = "INSERT INTO usuarios (nome, login, senha, tipo)";
+		$sql.= "VALUE ('$nome', '$login', '$senha', '$tipo')";
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $nome, $cpf, $login, $senha, $tipo) {
-		$sql = "UPDATE usuarios SET nome = '$nome', cpf = '$cpf', login = '$login', tipo = '$tipo'";
+	public function edit($id, $nome, $login, $senha, $tipo) {
+		$sql = "UPDATE usuarios SET nome = '$nome', login = '$login', tipo = '$tipo'";
 		if (!empty($senha)) {
 			$sql.= "senha = '$senha' ";
 		}

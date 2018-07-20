@@ -17,12 +17,7 @@
                         <label class="col-sm-2 control-label" for="nome">Nome</label>
                         <div class="col-sm-8"><input type="nome" name="nome" class="form-control"></div>
                     </div>
-
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="cpf">CPF</label>
-                        <div class="col-sm-8"><input type="cpf" name="cpf" class="form-control" data-mask="000.000.000-00" placeholder="000.000.000-00"></div>
-                    </div>                    
+                                     
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="login">Login</label>

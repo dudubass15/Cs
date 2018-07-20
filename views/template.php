@@ -53,7 +53,10 @@ $_SESSION['login'];
 						</li>
 
 						<li>
-							<a href="<?php echo URL; ?>/"><i class="fa fa-comment"></i> <span class="nav-label">Avisos</span></a>
+							<a href="<?php echo URL; ?>/#"><i class="fa fa-comment"></i> <span class="nav-label">Avisos</span></a>
+						</li>
+						<li>
+							<a href="https://bit.ly/2mt6tVL" target=“_blank”><i class="fa fa-whatsapp"></i> <span class="nav-label">Suporte</span></a>
 						</li>
 					</li>
 				</ul>

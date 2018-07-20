@@ -21,12 +21,6 @@
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="cpf">CPF</label>
-                        <div class="col-sm-8"><input type="text" name="cpf" class="form-control" data-mask="000.000.000-00" value="<?php echo $usuarios_edit['cpf']; ?>"></div>
-                    </div>
-
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
                         <label class="col-sm-2 control-label" for="login">Login</label>
                         <div class="col-sm-8"><input type="text" name="login" class="form-control" value="<?php echo $usuarios_edit['login']; ?>" placeholder="fulano@cs.com.br"></div>
                     </div>
@@ -34,7 +28,7 @@
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="senha">Senha</label>
-                        <div class="col-sm-8"><input type="text" name="senha" class="form-control"></div>
+                        <div class="col-sm-8"><input type="password" name="senha" class="form-control"></div>
                     </div>
 
                     <div class="hr-line-dashed"></div>

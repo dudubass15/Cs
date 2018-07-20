@@ -62,8 +62,7 @@ class encomendaController extends controller {
 			$assunto = 'Você tem uma nova encomenda ' .'- ' .$condominio;
 			//$corpo = "Nome: ".$nome." - E-mail: ".$email." - Mensagem: ".$msg;
 
-			$corpo = 'Olá ' .$nome.','. ' você possui uma nova encomenda na Portaria. 
-			Por gentileza acessar www.cs.sistemaskadu.com.br com seu login e senha para pegar mais informações.';
+			$corpo = 'Olá ' .$nome.','. ' você possui uma nova encomenda na Portaria. Por gentileza acessar www.cs.sistemaskadu.com.br com seu login e senha para pegar mais informações.';
 
 			$cabecalho = "From: portaria@cs.sistemaskadu.com.br"."\r\n".
 						 "Replay-To: ".$email."\r\n".
