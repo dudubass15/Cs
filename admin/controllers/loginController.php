@@ -16,7 +16,6 @@ class loginController extends controller {
 			} else{
 				echo '<script>alert("Usuario e Senha inválidos !");</script>';
 			}
-			
 		}
 
 		$this->loadView('login', $dados);

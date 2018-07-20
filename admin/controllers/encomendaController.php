@@ -53,21 +53,37 @@ class encomendaController extends controller {
 		if(isset($resultado) && !empty($resultado)){
 
 			$nome = $resultado[0]['nome_morador'];
+			$condominio = $resultado[0]['nome'];
 			$email = $resultado[0]['email'];
-			$msg = "<h1>Olá caro(a)</h1>".$nome." <h1>você possui uma nova encomenda na Portaria!</h1>";
+			$msg = "Olá caro(a)".$nome." você possui uma nova encomenda na Portaria!";
+			$url = 'www.cs.sistemaskadu.com.br';
 
 			$para = $email;
-			$assunto = "Encomenda pendente na Portaria";
-			$corpo = "Nome: ".$nome." - E-mail: ".$email." - Mensagem: ".$msg;
+			$assunto = 'Você tem uma nova encomenda ' .'- ' .$condominio;
+			//$corpo = "Nome: ".$nome." - E-mail: ".$email." - Mensagem: ".$msg;
+
+			$corpo = 
+			'
+			<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+			<body style="margin-top: 10px;">
+				<div style="width: 100%; height: 80px;">
+					<h1 style="text-align: center; color: orange; font-family: Lato, sans-serif; font-size: 40px;">Condomínio do ' .$condominio.' informa:</h1>
+				</div>
+
+				<div style="width: 100%; height: 300px;">
+					<p style="font-size:24px; margin-left: 30px; margin-right: 30px; font-family: sans-serif;">Olá '.$nome.','. ' você acaba de receber uma nova encomenda na Portaria do Condomínio. Acesse o sistema através desse link <a href="www.cs.sistemaskadu.com.br" target="_blank" style="text-decoration: none;">www.cs.sitemaskadu.com.br</a> com seu usuário e senha agora mesmo, e tenha mais informações sobre a encomenda que te espera. </p><br>
+					<p style="font-size:24px; margin-right: 30px; font-family: sans-serif; float: right;">Estamos a sua disposição !</p>
+					<?php print_r($nome); die; ?>
+				<div>
+			</body>
+			';
 
 			$cabecalho = "From: portaria@cs.sistemaskadu.com.br"."\r\n".
 						 "Replay-To: ".$email."\r\n".
 						 "X-Mailer: PHP/".phpversion();
 
-
 			mail($para, $assunto, $corpo, $cabecalho);
-
-			echo "<script>alert('E-mail enviado com sucesso !');</script>";
 
 			header('Location: '.URL.'/encomenda/pendentes');
 		}
@@ -86,8 +102,6 @@ class encomendaController extends controller {
 
 		$dados['lista_morador'] = $encomendas->getListaMorador();
 
-		//print_r($dados1['lista_morador'][0]['email']); die;
-
 		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
 			$bloco = addslashes($_POST['bloco']);
@@ -102,9 +116,7 @@ class encomendaController extends controller {
 
 			$encomendas->add($condominio, $bloco, $apartamentos, $morador, $nome_produto, $empresa, $observacao, $status);
 
-			return sendEmail();
-
-			header('Location: '.URL.'/encomenda/pendentes');
+			header('Location: '.URL.'/encomenda/sendEmail');
 		}
 		
 		$this->loadTemplate('encomendas_add', $dados);

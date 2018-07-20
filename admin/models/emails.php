@@ -24,9 +24,11 @@ class emails extends model{
 
 		$sql = "SELECT m.email
 			    ,m.nome_morador
+			    ,c.nome
 				,e.id
 				FROM encomendas e
 				LEFT JOIN moradores m ON m.id = e.moradores_id
+				LEFT JOIN condominios c ON c.id = e.condominios_id
 				WHERE e.id = $id ";
 
 		$qry = $this->db->query($sql);

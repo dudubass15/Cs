@@ -1,0 +1,5 @@
+.htaccess
+config.php
+
+admin/.htaccess
+admin/config.php
