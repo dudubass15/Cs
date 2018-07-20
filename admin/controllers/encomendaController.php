@@ -64,19 +64,13 @@ class encomendaController extends controller {
 
 			$corpo = 
 			'
-			<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+				Condomínio do ' .$condominio.' informa:<br><br>
 
-			<body style="margin-top: 10px;">
-				<div style="width: 100%; height: 80px;">
-					<h1 style="text-align: center; color: orange; font-family: Lato, sans-serif; font-size: 40px;">Condomínio do ' .$condominio.' informa:</h1>
-				</div>
-
-				<div style="width: 100%; height: 300px;">
-					<p style="font-size:24px; margin-left: 30px; margin-right: 30px; font-family: sans-serif;">Olá '.$nome.','. ' você acaba de receber uma nova encomenda na Portaria do Condomínio. Acesse o sistema através desse link <a href="www.cs.sistemaskadu.com.br" target="_blank" style="text-decoration: none;">www.cs.sitemaskadu.com.br</a> com seu usuário e senha agora mesmo, e tenha mais informações sobre a encomenda que te espera. </p><br>
-					<p style="font-size:24px; margin-right: 30px; font-family: sans-serif; float: right;">Estamos a sua disposição !</p>
-					<?php print_r($nome); die; ?>
-				<div>
-			</body>
+				Olá '.$nome.','. ' você acaba de receber uma nova encomenda na Portaria do Condomínio. 
+				Acesse o sistema através desse link www.cs.sistemaskadu.com.br com seu usuário e senha agora mesmo, 
+				e tenha mais informações sobre a encomenda que te espera. <br><br>
+				Estamos a sua disposição !
+				
 			';
 
 			$cabecalho = "From: portaria@cs.sistemaskadu.com.br"."\r\n".
