@@ -55,15 +55,33 @@ class encomendaController extends controller {
 			$nome = $resultado[0]['nome_morador']; //Pega o nome do morador
 			$condominio = $resultado[0]['nome'];	//Pega o nome do Condomínio
 			$email = $resultado[0]['email'];	//Pega o e-mail do morador
-			$msg = "Olá caro(a)".$nome." você possui uma nova encomenda na Portaria!"; //Mensagem que
 			$url = 'www.cs.sistemaskadu.com.br';
 
 			$para = $email;
 			$assunto = 'Você tem uma nova encomenda ' .'- ' .$condominio;
-			//$corpo = "Nome: ".$nome." - E-mail: ".$email." - Mensagem: ".$msg;
 
-			$corpo = 'Olá ' .$nome.','. ' você possui uma nova encomenda na Portaria. Por gentileza acessar www.cs.sistemaskadu.com.br com seu login e senha para pegar mais informações.';
+			//$corpo = 'Olá ' .$nome.','. ' você possui uma nova encomenda na Portaria. Por gentileza acessar www.cs.sistemaskadu.com.br com seu login e senha para pegar mais informações.';
 
+			$corpo = 
+				'
+				<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	
+				<body style="margin-top: 10px;">
+					<div style="width: 100%; height: 80px;">
+						<h1 style="text-align: center; color: orange; font-family: Lato, sans-serif; font-size: 40px;">Condomínio do ' .$condominio.' informa:</h1>
+					</div>
+	
+					<div style="width: 100%; height: 300px;">
+						<p style="font-size:24px; margin-left: 30px; margin-right: 30px; font-family: sans-serif;">Olá '.$nome.','. ' você acaba de receber uma nova encomenda na Portaria do Condomínio. Acesse o sistema através desse link <a href="www.cs.sistemaskadu.com.br" target="_blank" style="text-decoration: none;">www.cs.sitemaskadu.com.br</a> com seu usuário e senha agora mesmo, e tenha mais informações sobre a encomenda que te espera. </p><br>
+						<p style="font-size:24px; margin-right: 30px; font-family: sans-serif; float: right;">Estamos a sua disposição !</p>
+						<?php print_r($nome); die; ?>
+					<div>
+				</body>
+			';
+			print_r($corpo); die;
+
+			$cabecalho .= 'MIME-Version: 1.0' . "\r\n".
+			$cabecalho .= 'Content-type: text/html; charset=iso-8859-1;' . "\r\n".
 			$cabecalho = "From: portaria@cs.sistemaskadu.com.br"."\r\n".
 						 "Replay-To: ".$email."\r\n".
 						 "X-Mailer: PHP/".phpversion();
