@@ -78,7 +78,6 @@ class encomendaController extends controller {
 					<div>
 				</body>
 			';
-			print_r($corpo); die;
 
 			$cabecalho .= 'MIME-Version: 1.0' . "\r\n".
 			$cabecalho .= 'Content-type: text/html; charset=iso-8859-1;' . "\r\n".
