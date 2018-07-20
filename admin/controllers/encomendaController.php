@@ -79,9 +79,9 @@ class encomendaController extends controller {
 				</body>
 			';
 
-			$cabecalho .= 'MIME-Version: 1.0' . "\r\n".
+			$cabecalho = 'MIME-Version: 1.0' . "\r\n".
 			$cabecalho .= 'Content-type: text/html; charset=iso-8859-1;' . "\r\n".
-			$cabecalho = "From: portaria@cs.sistemaskadu.com.br"."\r\n".
+			$cabecalho .= "From: portaria@cs.sistemaskadu.com.br"."\r\n".
 						 "Replay-To: ".$email."\r\n".
 						 "X-Mailer: PHP/".phpversion();
 
