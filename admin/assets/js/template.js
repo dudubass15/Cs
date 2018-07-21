@@ -160,6 +160,32 @@ function AddMorador(){
     return true;
 }
 
+function AddAvisos(){
+
+    var titulo = document.getElementById("titulo").value;
+    var resumo = document.getElementById("resumo").value;
+    var texto = document.getElementById("texto").value;
+
+    if(titulo == ''){
+        alert("Campo Título vazio !");
+        return false;
+    }
+    if(resumo == ''){
+        alert("Campo Resumo vazio !");
+        return false;
+    }
+    if(texto == ''){
+        alert("O campo de Texto estar vazio !");
+        return false;
+    }
+    alert("Aviso inserido com sucesso !");
+    return true;
+}
+
 function edit(){
     alert("Dados alterados com sucesso");
+}
+
+function del(){
+    alert("Dados foram deletados com sucesso");
 }
