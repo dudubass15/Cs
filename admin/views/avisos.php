@@ -1,5 +1,5 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
+    <div class="col-sm-4">
         <h2>Painel de Avisos</h2>
         <ol class="breadcrumb">
             <li>
@@ -51,3 +51,15 @@
     </div>
 <?php endforeach; ?>
 </div>
+
+<div id="small-chat">
+    <span class="badge badge-warning pull-right"></span>
+    <a class="btn btn-success btn-circle btn-lg" href="<?php echo URL; ?>/avisos/add" title="Novo">
+        <i class="fa fa-edit" style="font-size: 20px; margin-top: 3px;"></i>
+    </a>
+</div>
+
+<div id="right-sidebar" class="animated">
+    <div class="sidebar-container">
+        
+    </div>
