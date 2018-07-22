@@ -53,7 +53,7 @@ class avisosController extends controller{
 
 			$aviso->add($titulo, $resumo, $texto, $usuario, $tag);
 
-			header('Location: '.URL.'/avisos/view');
+			header('Location: '.URL.'/avisos');
 		}
 
 		$this->loadTemplate('avisos_add', $dados);

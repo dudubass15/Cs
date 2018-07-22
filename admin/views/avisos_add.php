@@ -35,11 +35,11 @@
                         <div class="col-sm-8">
                             <select class="select2_demo_3 form-control form-control" name="tag" id="tag">
                                 <option></option>
-                                <option value="Assembleias">Assembleia</option>
-                                <option value="Comemorações">Comemoração</option>
-                                <option value="Eventos">Evento</option>
-                                <option value="Festas">Festa</option>
-                                <option value="Reuniões">Reunião</option>
+                                <option value="Assembleia">Assembleia</option>
+                                <option value="Comemoração">Comemoração</option>
+                                <option value="Evento">Evento</option>
+                                <option value="Festa">Festa</option>
+                                <option value="Reunião">Reunião</option>
                             </select>
                         </div>
                     </div><br>

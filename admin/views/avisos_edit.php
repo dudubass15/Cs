@@ -35,11 +35,11 @@
                         <div class="col-sm-8">
                             <select class="select2_demo_3 form-control form-control" name="tag" id="tag">
                                 <option value="<?php echo($avisos_edit[0]['tag']); ?>"><?php echo($avisos_edit[0]['tag']); ?></option>
-                                <option value="Assembleias">Assembleias</option>
-                                <option value="Comemorações">Comemorações</option>
-                                <option value="Eventos">Eventos</option>
-                                <option value="Festas">Festas</option>
-                                <option value="Reuniões">Reuniões</option>
+                                <option value="Assembleia">Assembleia</option>
+                                <option value="Comemoração">Comemoração</option>
+                                <option value="Evento">Evento</option>
+                                <option value="Festa">Festa</option>
+                                <option value="Reunião">Reunião</option>
                             </select>
                         </div>
                     </div><br>
