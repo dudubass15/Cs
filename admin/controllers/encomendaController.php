@@ -55,16 +55,26 @@ class encomendaController extends controller {
 			$nome = $resultado[0]['nome_morador']; //Pega o nome do morador
 			$condominio = $resultado[0]['nome'];	//Pega o nome do Condomínio
 			$email = $resultado[0]['email'];	//Pega o e-mail do morador
-			$msg = "Olá caro(a)".$nome." você possui uma nova encomenda na Portaria!"; //Mensagem que
-			$url = 'www.cs.sistemaskadu.com.br';
 
 			$para = $email;
 			$assunto = 'Você tem uma nova encomenda ' .'- ' .$condominio;
-			//$corpo = "Nome: ".$nome." - E-mail: ".$email." - Mensagem: ".$msg;
 
-			$corpo = 'Olá ' .$nome.','. ' você possui uma nova encomenda na Portaria. Por gentileza acessar www.cs.sistemaskadu.com.br com seu login e senha para pegar mais informações.';
+			//$corpo = 'Olá ' .$nome.','. ' você possui uma nova encomenda na Portaria. Por gentileza acessar www.cs.sistemaskadu.com.br com seu login e senha para pegar mais informações.';
+			$corpo = "
+				<html>
+					<body>
+						<div style='text-align: center; margin-top: 40px;'>
+							<img width='550px' height='500px' src='../assets/img/email_backup.png' />
+						</div>
+					</body>
+				</html>
 
-			$cabecalho = "From: portaria@cs.sistemaskadu.com.br"."\r\n".
+			";
+			print_r($corpo); die;
+
+			$cabecalho = 'MIME-Version: 1.0' . "\r\n";
+			$cabecalho .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			$cabecalho .= "From: portaria@cs.sistemaskadu.com.br"."\r\n".
 						 "Replay-To: ".$email."\r\n".
 						 "X-Mailer: PHP/".phpversion();
 
