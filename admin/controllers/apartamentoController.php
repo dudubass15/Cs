@@ -58,6 +58,8 @@ class apartamentoController extends controller {
 
 		$apartamento = new apartamentos();
 
+		$dados['lista_condominio'] = $apartamento->getListaApto();
+
 		$dados['lista_apartamento'] = $apartamento->getLista();
 
 		$dados['lista_bloco'] = $apartamento->getListaBL();
@@ -65,31 +67,16 @@ class apartamentoController extends controller {
 		$dados['apto_edit'] = $apartamento->getAptoInfo($id);
 
 		if (isset($_POST['apartamento']) && !empty($_POST['apartamento'])) {
+			$condominio = addslashes($_POST['condominio']);
+			$bloco = addslashes($_POST['bloco']);
 			$apartamentos = addslashes($_POST['apartamento']);
 			$telefone = addslashes($_POST['telefone']);
 			$senha = addslashes($_POST['senha']);
 
-			$apartamento->edit($id, $apartamentos, $telefone, $senha);
+			$apartamento->edit($id, $condominio, $bloco, $apartamentos, $telefone, $senha);
 
 			header('Location: '.URL.'/apartamento');
 
-		}if (isset($_POST['telefone']) && !empty($_POST['telefone'])) {
-			$apartamentos = addslashes($_POST['apartamento']);
-			$telefone = addslashes($_POST['telefone']);
-			$senha = addslashes($_POST['senha']);
-
-			$apartamento->edit($id, $apartamentos, $telefone, $senha);
-
-			header('Location: '.URL.'/apartamento');
-			
-		}if (isset($_POST['senha']) && !empty($_POST['senha'])) {
-			$apartamentos = addslashes($_POST['apartamento']);
-			$telefone = addslashes($_POST['telefone']);
-			$senha = addslashes($_POST['senha']);
-
-			$apartamento->edit($id, $apartamentos, $telefone, $senha);
-
-			header('Location: '.URL.'/apartamento');
 		}
 
 		$this->loadTemplate('apartamento_edit', $dados);

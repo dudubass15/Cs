@@ -80,8 +80,6 @@ class moradorController extends controller {
 		$dados['lista_apartamento'] = $morador->getListaApartamentos();
 
 		$dados['moradores_info'] = $morador->getListaMoradores($id);
-		
-		$dados['lista_moradores'] = $morador->index();
 
 		$dados['lista_usuarios'] = $morador->getListaUser();
 

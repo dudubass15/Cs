@@ -16,9 +16,11 @@
                         <label class="col-sm-2 control-label" name="condominio" for="condominio">Condomínio</label>
                         <div class="col-sm-8">
                             <select class="select2_demo_3 form-control form-control" name="condominio">
-                                <option value="<?php echo($apto_edit['id']); ?>"> <?php echo $apto_edit['condominios']; ?></option>
-                                <?php foreach($lista_apartamento as $apartamento): ?>
-                                    <option value="<?php echo $apartamento['id']; ?>"><?php echo $apartamento['condominios']; ?></option>
+                                <option value="<?php echo $apto_edit['condominios_id']; ?>">
+                                    <?php echo $apto_edit['condominios']; ?>
+                                </option>
+                                <?php foreach($lista_condominio as $c): ?>
+                                    <option value="<?php echo $c['id']; ?>"><?php echo $c['nome']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -28,8 +30,10 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" name="bloco" for="bloco">Bloco</label>
                         <div class="col-sm-8">
-                            <select class="select2_demo_3 form-control form-control" name="condominio">
-                                <option value="<?php echo($apto_edit['id']); ?>"> <?php echo $apto_edit['blocos']; ?></option>
+                            <select class="select2_demo_3 form-control form-control" name="bloco">
+                                <option value="<?php echo $apto_edit['blocos_id']; ?>">
+                                    <?php echo $apto_edit['blocos']; ?>
+                                </option>
                                 <?php foreach($lista_bloco as $bloco): ?>
                                     <option value="<?php echo $bloco['id']; ?>"><?php echo $bloco['numero']; ?></option>
                                 <?php endforeach; ?>

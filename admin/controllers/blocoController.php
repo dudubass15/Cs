@@ -60,6 +60,8 @@ class blocoController extends controller {
 
 		$dados['bloco_info'] = $bloco->ListarBloco($id);
 
+		//print_r($dados); die;
+
 		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
 			$numero = addslashes($_POST['numero']);

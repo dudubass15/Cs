@@ -77,8 +77,8 @@ class apartamentos extends model {
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $apartamentos, $telefone, $senha) {
-		$sql = "UPDATE apartamentos SET numero_apartamento = '$apartamentos', telefone = '$telefone', senha_acesso = '$senha' WHERE id = $id";
+	public function edit($id, $condominio, $bloco, $apartamentos, $telefone, $senha) {
+		$sql = "UPDATE apartamentos SET condominios_id = '$condominio', blocos_id = '$bloco', numero_apartamento = '$apartamentos', telefone = '$telefone', senha_acesso = '$senha' WHERE id = $id";
 		$this->db->query($sql);
 	}
 
