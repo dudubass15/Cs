@@ -51,15 +51,3 @@
         <?php endforeach; ?>
     </div>
 </div>
-
-<div id="small-chat">
-    <span class="badge badge-warning pull-right"></span>
-    <a class="btn btn-success btn-circle btn-lg" href="<?php echo URL; ?>/avisos/add" title="Novo">
-        <i class="fa fa-edit" style="font-size: 20px; margin-top: 3px;"></i>
-    </a>
-</div>
-
-<div id="right-sidebar" class="animated">
-    <div class="sidebar-container">
-        
-    </div>
