@@ -85,8 +85,8 @@ class encomendaController extends controller {
 				    <!-- Begin page content -->
 				    <main role='main' class='container'>
 				      <h1 class='mt-5'>Nova encomenda ...</h1>
-				      <p class='lead'>Olá $nome, você acaba de receber uma nova encomenda.</p>
-				      <p>Acesse <a href='www.cs.sistemaskadu.com.br'>www.cs.sistemaskadu.com.br</a> e tenha mais informações sobre sua encomenda.</p>
+				      <p class='lead'>Ola $nome, voce acaba de receber uma nova encomenda.</p>
+				      <p>Acesse www.cs.sistemaskadu.com.br e tenha mais informacoes sobre sua encomenda.</p>
 				    </main>
 
 				    <footer class='footer'>
