@@ -41,6 +41,16 @@
                             </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Permissões</label>
+                        <div class="col-sm-10">
+                            <label class="checkbox-inline"> 
+                                <input type="checkbox" value="ADD" id="inlineCheckbox1" name="permissao[]"> Adicionar </label> <label class="checkbox-inline">
+                                <input type="checkbox" value="EDIT" id="inlineCheckbox2" name="permissao[]"> Editar </label> <label class="checkbox-inline">
+                                <input type="checkbox" value="DEL" id="inlineCheckbox3" name="permissao[]"> Deletar </label>
+                        </div>
+                    </div>
+
                     <div class="form1">
                         <div class="form-button">
                             <button class="btn btn-primary" type="submit">Salvar</button>

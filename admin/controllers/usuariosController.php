@@ -41,8 +41,10 @@ class usuariosController extends controller {
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
 			$tipo = addslashes($_POST['tipo']);
+			$checkbox_permissao = $_POST['permissao'];
+			$permissao = implode(",", $checkbox_permissao);
 
-			$usuario->add($nome, $login, $senha, $tipo);
+			$usuario->add($nome, $login, $senha, $tipo, $permissao);
 
 			header('Location: '.URL.'/usuarios');
 
@@ -65,10 +67,12 @@ class usuariosController extends controller {
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
 			$tipo = addslashes($_POST['tipo']);
+			$checkbox_permissao = $_POST['permissao'];
+			$permissao = implode(",", $checkbox_permissao);
 
 			$usuario = new usuarios();
 
-			$usuario->edit($id, $nome, $login, $senha, $tipo);
+			$usuario->edit($id, $nome, $login, $senha, $tipo, $permissao);
 
 			header('Location: '.URL.'/usuarios');
 

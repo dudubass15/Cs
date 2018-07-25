@@ -1,5 +1,6 @@
 <?php
 class usuarios extends model {
+	private $id;
 
 	public function logado() {
 		if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
@@ -21,6 +22,7 @@ class usuarios extends model {
 			$_SESSION['login'] = $row['login'];
 			$_SESSION['senha'] = $row['senha'];
 			$_SESSION['tipo'] = $row['tipo'];
+			$_SESSION['permissao'] = $row['permissao'];
 
 			return true;
 		}
@@ -50,31 +52,17 @@ class usuarios extends model {
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetch();
 		}
-
 		return $array;
 	}
 
-	public function getListaCargos() {
-		$array = array();
-
-		$sql = "SELECT * FROM cargos";
-		$qry = $this->db->query($sql);
-
-		if ($qry->rowCount() > 0) {
-			$array = $qry->fetchAll();
-		}
-
-		return $array;
-	}
-
-	public function add($nome, $login, $senha, $tipo) {
-		$sql = "INSERT INTO usuarios (nome, login, senha, tipo)";
-		$sql.= "VALUE ('$nome', '$login', '$senha', '$tipo')";
+	public function add($nome, $login, $senha, $tipo, $permissao) {
+		$sql = "INSERT INTO usuarios (nome, login, senha, tipo, permissao)";
+		$sql.= "VALUE ('$nome', '$login', '$senha', '$tipo', '$permissao')";
 		$this->db->query($sql);
 	}
 
 	public function edit($id, $nome, $login, $senha, $tipo) {
-		$sql = "UPDATE usuarios SET nome = '$nome', login = '$login', tipo = '$tipo'";
+		$sql = "UPDATE usuarios SET nome = '$nome', login = '$login', tipo = '$tipo', permissao = '$permissao'";
 		if (!empty($senha)) {
 			$sql.= "senha = '$senha' ";
 		}
