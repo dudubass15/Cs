@@ -57,18 +57,78 @@ class encomendaController extends controller {
 			$email = $resultado[0]['email'];	//Pega o e-mail do morador
 
 			$para = $email;
-			$assunto = 'Você tem uma nova encomenda ' .'- ' .$condominio;
+			$assunto = 'Voce tem uma nova encomenda ' .'- ' .$condominio;
 
 			//$corpo = 'Olá ' .$nome.','. ' você possui uma nova encomenda na Portaria. Por gentileza acessar www.cs.sistemaskadu.com.br com seu login e senha para pegar mais informações.';
 			$corpo = "
-				<html>
-					<body>
-						<div style='text-align: center; margin-top: 40px;'>
-							<img width='550px' height='500px' src='../assets/img/email_backup.png' />
-						</div>
-					</body>
-				</html>
+				
+				<!doctype html>
+				<html lang='pt'>
+				  <head>
+				    <meta charset='utf-8'>
+				    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+				    <meta name='description' content=''>
+				    <meta name='author' content=''>
+				    <link rel='icon' href='../../../../favicon.ico'>
 
+				    <title>Recebimento de Encomenda</title>
+
+				    <!-- Bootstrap core CSS -->
+				    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous'>
+
+				    <!-- Custom styles for this template -->
+				    <link href='sticky-footer.css' rel='stylesheet'>
+				  </head>
+
+				  <body>
+
+				    <!-- Begin page content -->
+				    <main role='main' class='container'>
+				      <h1 class='mt-5'>Nova encomenda ...</h1>
+				      <p class='lead'>Olá $nome, você acaba de receber uma nova encomenda.</p>
+				      <p>Acesse <a href='www.cs.sistemaskadu.com.br'>www.cs.sistemaskadu.com.br</a> e tenha mais informações sobre sua encomenda.</p>
+				    </main>
+
+				    <footer class='footer'>
+				      <div class='container'>
+				        <span class='text-muted'>Sistema CS - Administrador.</span>
+				      </div>
+				    </footer>
+
+				    <style rel='stylesheet' type='text/css'>
+				    	/* Sticky footer styles
+				    	-------------------------------------------------- */
+				    	html {
+				    	  position: relative;
+				    	  min-height: 100%;
+				    	}
+				    	body {
+				    	  margin-bottom: 60px; /* Margin bottom by footer height */
+				    	}
+				    	.footer {
+				    	  position: absolute;
+				    	  bottom: 0;
+				    	  width: 100%;
+				    	  height: 60px; /* Set the fixed height of the footer here */
+				    	  line-height: 60px; /* Vertically center the text there */
+				    	  background-color: #f5f5f5;
+				    	}
+
+
+				    	/* Custom page CSS
+				    	-------------------------------------------------- */
+				    	/* Not required for template or sticky footer method. */
+
+				    	.container {
+				    	  width: auto;
+				    	  max-width: 680px;
+				    	  padding: 0 15px;
+				    	}
+
+				    </style>
+
+				  </body>
+				</html>
 			";
 
 			$cabecalho = 'MIME-Version: 1.0' . "\r\n";
