@@ -22,6 +22,12 @@ class moradorController extends controller {
 
 		$morador = new moradores();
 
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
+
 		//Abaixo está sendo passado as informações do banco Condomínios e Blocos para ser representados através de forench's na view ...
 		$dados['lista_condominio'] = $morador->getListaCondominios();
 
@@ -38,6 +44,12 @@ class moradorController extends controller {
 		$dados = array();
 
 		$morador = new moradores();
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
 		$dados['lista_condominio'] = $morador->getListaCondominios();
 
@@ -110,6 +122,12 @@ class moradorController extends controller {
 		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 		
 		$morador = new moradores();;
 

@@ -1,6 +1,8 @@
 <?php
 class usuariosController extends controller {
+
 	private $usuario;
+
 	public function __construct() {
 		$usuario = new usuarios();
 		if (!$usuario->logado()) { //valida o retorno do método se ele é true ou false.
@@ -15,6 +17,10 @@ class usuariosController extends controller {
 			session_destroy();
 			header('Location: '.URL.'/login');
 		}
+
+		$id = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id);
 	}
 
 	public function index(){
@@ -22,7 +28,11 @@ class usuariosController extends controller {
 
 		$usuario = new usuarios();
 
+		$id_user = $_SESSION['id'];
+
 		$dados['lista_usuarios'] = $usuario->getLista();
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
 		$this->loadTemplate('usuarios', $dados);
 	}
@@ -35,6 +45,12 @@ class usuariosController extends controller {
 		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
 		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
 			$nome = addslashes($_POST['nome']);
@@ -92,6 +108,12 @@ class usuariosController extends controller {
 		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 		
 		$usuario->del($id);
 

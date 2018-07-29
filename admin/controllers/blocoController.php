@@ -22,6 +22,12 @@ class blocoController extends controller {
 
 		$bloco = new blocos();
 
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
+
 		$dados['lista_bloco'] = $bloco->getLista();
 
 		$this->loadTemplate('bloco', $dados);
@@ -31,6 +37,12 @@ class blocoController extends controller {
 		$dados = array();
 
 		$bloco = new blocos();
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
 		$dados['lista_condominio'] = $bloco->getListaBloco();
 
@@ -59,8 +71,6 @@ class blocoController extends controller {
 		$dados['lista_condominio'] = $bloco->getListaBloco();
 
 		$dados['bloco_info'] = $bloco->ListarBloco($id);
-
-		//print_r($dados); die;
 
 		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
@@ -101,6 +111,12 @@ class blocoController extends controller {
 		}
 		
 		$bloco = new blocos();
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
 		$bloco->del($id);
 

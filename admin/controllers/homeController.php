@@ -21,6 +21,12 @@ class homeController extends controller {
 
 		$home = new home();
 
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
+
 		$dados['encomendas_dia'] = $home->getRelatorioDia();
 		$dados['encomendas_mes'] = $home->getRelatorioMes();
 		$dados['encomendas_ano'] = $home->getRelatorioAno();

@@ -1,6 +1,8 @@
 <?php
 class usuarios extends model {
 	private $id;
+	private $usuario;
+	private $permissoes;
 
 	public function logado() {
 		if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
@@ -53,6 +55,21 @@ class usuarios extends model {
 			$array = $qry->fetch();
 		}
 		return $array;
+	}
+
+	public function getPermissao($id){
+		$array = array();
+
+		$sql = "SELECT permissao FROM usuarios WHERE id = $id";
+		$qry = $this->db->query($sql);
+
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetchAll();
+
+			$string = $array[0]['permissao'];
+			$resultado = explode(',', $string);
+		}
+		return $resultado;
 	}
 
 	public function add($nome, $login, $senha, $tipo, $permissao) {

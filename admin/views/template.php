@@ -25,6 +25,8 @@ $_SESSION['login'];
 	<!-- Toastr style -->
 	<link href="<?php echo URL; ?>/assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
+	<link href="<?php echo URL; ?>/assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+
 </head>
 <body>
 

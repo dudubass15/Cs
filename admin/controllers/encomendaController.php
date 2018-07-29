@@ -22,6 +22,12 @@ class encomendaController extends controller {
 
 		$encomendas = new encomendas();
 
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
+
 		$dados['encomendas_registradas'] = $encomendas->getListaEncomendas();
 
 		$this->loadTemplate('encomendas_view_pendentes', $dados);
@@ -31,6 +37,12 @@ class encomendaController extends controller {
 		$dados = array();
 
 		$encomendas = new encomendas();
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
 		$dados['encomendas_concluidas'] = $encomendas->view_concluidas();
 
@@ -147,6 +159,12 @@ class encomendaController extends controller {
 		$dados = array();
 
 		$encomendas = new encomendas();
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
 		$dados['lista_condominio'] = $encomendas->getListaCondominio();
 

@@ -24,6 +24,12 @@ class avisosController extends controller{
 
 		$dados['info_aviso'] = $aviso->IndexAviso();
 
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
+
 		$this->loadTemplate('avisos', $dados);
 	}
 
@@ -56,6 +62,14 @@ class avisosController extends controller{
 			header('Location: '.URL.'/avisos');
 		}
 
+		$usuario = new usuarios();
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
+
 		$this->loadTemplate('avisos_add', $dados);
 	}
 
@@ -86,8 +100,6 @@ class avisosController extends controller{
 
 		$dados['avisos_edit'] = $aviso->editAviso($id);
 
-		//print_r($dados); die;
-
 		$this->loadTemplate('avisos_edit', $dados);
 	}
 
@@ -99,6 +111,12 @@ class avisosController extends controller{
 		}
 		
 		$aviso = new avisos();
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
 		$aviso->del($id);
 

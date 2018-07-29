@@ -21,6 +21,12 @@ class apartamentoController extends controller {
 		$dados = array();
 
 		$apartamento = new apartamentos();
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 		
 		$dados['lista_apartamento'] = $apartamento->getLista();
 
@@ -32,6 +38,11 @@ class apartamentoController extends controller {
 
 		$apartamento = new apartamentos();
 
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 		$dados['lista_apartamento'] = $apartamento->getListaApto();
 		$dados['lista_bloco'] = $apartamento->getListaBL();
 
@@ -90,6 +101,12 @@ class apartamentoController extends controller {
 		}
 		
 		$apartamento = new apartamentos();
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
 		$apartamento->del($id);
 

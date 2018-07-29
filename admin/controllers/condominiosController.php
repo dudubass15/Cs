@@ -22,6 +22,12 @@ class condominiosController extends controller {
 
 		$condominio = new condominios();
 
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
+
 		$dados['lista_condominio'] = $condominio->getLista();
 		
 		$this->loadTemplate('condominio', $dados);
@@ -35,6 +41,12 @@ class condominiosController extends controller {
 		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
 		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
 			$nome = addslashes($_POST['nome']);
@@ -93,6 +105,12 @@ class condominiosController extends controller {
 		if ($usuario->logado() == false) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
+
+		$usuario = new usuarios();
+
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 		
 		$condominio = new condominios();
 

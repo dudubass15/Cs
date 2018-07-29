@@ -16,10 +16,6 @@ spl_autoload_register(function ($class){
 	
 });
 
-// include 'core/core.php';
-// include 'core/controller.php';
-// include 'controllers/homeController.php';
-
 $core = new core();
 $core->run();
 
