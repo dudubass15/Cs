@@ -104,7 +104,7 @@ class moradores extends model {
 	public function getListaUser(){
 		$array = array();
 
-		$sql = "SELECT * FROM usuarios WHERE tipo = 2";
+		$sql = "SELECT * FROM usuarios";
 
 		$qry = $this->db->query($sql);
 
