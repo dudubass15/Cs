@@ -6,7 +6,7 @@ class avisosController extends controller{
 		if (!$usuario->logado()) { //valida o retorno do método se ele é true ou false.
 			header('Location: '.URL.'/login');
 		}
-		$permissao = $_SESSION['tipo'];
+		$permissao = $_SESSION['acesso'];
 		if ($permissao == '1') {
 			unset($_SESSION['id']); //Destroi a SESSION ID.
 			unset($_SESSION['login']); //Destroi a SESSION.

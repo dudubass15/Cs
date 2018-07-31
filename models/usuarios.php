@@ -5,7 +5,7 @@ class usuarios extends model {
 		if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 			return true; // retorna valor verdadeiro.
 		}
-		if (isset($_SESSION['tipo']) && !empty($_SESSION['tipo'])) {
+		if (isset($_SESSION['acesso']) && !empty($_SESSION['acesso'])) {
 			return true; // retorna valor verdadeiro.
 		}
 		else {
@@ -15,7 +15,7 @@ class usuarios extends model {
 
 	public function validaLogin($login, $senha) {
 		
-		$sql = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha' AND tipo = '2' ";
+		$sql = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha' AND acesso = '2' ";
 
 		$qry = $this->db->query($sql);
 
@@ -25,7 +25,7 @@ class usuarios extends model {
 			$_SESSION['nome'] = $row['nome'];
 			$_SESSION['login'] = $row['login'];
 			$_SESSION['senha'] = $row['senha'];
-			$_SESSION['tipo'] = $row['tipo'];
+			$_SESSION['acesso'] = $row['acesso'];
 
 			return true;
 		}
