@@ -28,21 +28,18 @@
                                         <td class="center"><?php echo $b['nome']; ?></td>
                                         <td class="center"><?php echo $b['login']; ?></td>
                                         <td>
-                                            <?php if(in_array('EDIT', $permissaoAll) && !$permissaoAll[0] == NULL): ?>
+                                            
                                             <button class="btn btn-info btn-circle" type="button" title="Editar">
                                                 <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/usuarios/edit/<?php echo $b['id']; ?>">
                                                     <i class="fa fa-paste"></i>
                                                 </a>
                                             </button>
-                                            <?php endif; ?>
 
-                                            <?php if(in_array('DEL', $permissaoAll) && !$permissaoAll[0] == NULL): ?>
                                             <button class="btn btn-warning btn-circle" type="button" title="Deletar">
                                                 <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/usuarios/del/<?php echo $b['id']; ?>">
                                                     <i class="fa fa-times"></i>
                                                 </a>
                                             </button>
-                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

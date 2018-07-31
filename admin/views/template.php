@@ -2,6 +2,14 @@
 
 $_SESSION['login'];
 
+$usuario = new usuarios();
+
+$id = $_SESSION['id'];
+
+$dados = $usuario->getPermissao($id);
+
+//print_r($dados[0]['permissao']); die;
+
 ?>
 
 <html>
@@ -67,19 +75,23 @@ $_SESSION['login'];
 							<a href="<?php echo URL; ?>/avisos"><i class="fa fa-comment"></i> <span class="nav-label">Avisos</span></a>
 						</li>
 
+
+						
 						<li>
 							<a href="index.html"><i class="fa fa-cogs"></i> <span class="nav-label">Configurações</span> <span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
-								<li>
-									<a href="#"><i class="fa fa-building-o"></i> Condomínios<span class="fa arrow"></span></a>
-									<ul class="nav nav-second-level">
+								<?php if(in_array('CONFIG', $dados)): ?>
+									<li>
+										<a href="#"><i class="fa fa-building-o"></i> Condomínios<span class="fa arrow"></span></a>
+										<ul class="nav nav-second-level">
 
-										<li><a href="<?php echo URL; ?>/condominios/add"><i class="fa fa-edit (alias)"></i> Novo</a></li>
+											<li><a href="<?php echo URL; ?>/condominios/add"><i class="fa fa-edit (alias)"></i> Novo</a></li>
 
-										<li><a href="<?php echo URL; ?>/condominios"><i class="fa fa-folder-open-o"></i> Visualizar</a></li>
+											<li><a href="<?php echo URL; ?>/condominios"><i class="fa fa-folder-open-o"></i> Visualizar</a></li>
 
-									</ul>
-								</li>
+										</ul>
+									</li>
+								<?php endif; ?>
 
 								<li>
 									<a href="#"><i class="fa fa-users"></i> Blocos<span class="fa arrow"></span></a>
@@ -114,15 +126,17 @@ $_SESSION['login'];
 									</ul>
 								</li>
 
-								<li>
-									<a href="#"><i class="fa fa-user-o"></i> Usuarios<span class="fa arrow"></span></a>
-									<ul class="nav nav-second-level">
+								<?php if(in_array('CONFIG', $dados)): ?>
+									<li>
+										<a href="#"><i class="fa fa-user-o"></i> Usuarios<span class="fa arrow"></span></a>
+										<ul class="nav nav-second-level">
 
-										<li><a href="<?php echo URL; ?>/usuarios/add"><i class="fa fa-edit (alias)"></i> Novo</a></li>
+											<li><a href="<?php echo URL; ?>/usuarios/add"><i class="fa fa-edit (alias)"></i> Novo</a></li>
 
-										<li><a href="<?php echo URL; ?>/usuarios"><i class="fa fa-folder-open-o"></i> Visualizar</span> </a></li>
-									</ul>
-								</li>
+											<li><a href="<?php echo URL; ?>/usuarios"><i class="fa fa-folder-open-o"></i> Visualizar</span> </a></li>
+										</ul>
+									</li>
+								<?php endif; ?>
 							</ul>
 						</li>
 					</li>

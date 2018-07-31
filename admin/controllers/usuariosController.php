@@ -9,7 +9,7 @@ class usuariosController extends controller {
 			header('Location: '.URL.'/login');
 		}
 		
-		$permissao = $_SESSION['tipo'];
+		$permissao = $_SESSION['acesso'];
 		if ($permissao == '2') {
 			unset($_SESSION['id']); //Destroi a SESSION ID.
 			unset($_SESSION['login']); //Destroi a SESSION.
@@ -17,10 +17,6 @@ class usuariosController extends controller {
 			session_destroy();
 			header('Location: '.URL.'/login');
 		}
-
-		$id = $_SESSION['id'];
-
-		$dados['permissaoAll'] = $usuario->getPermissao($id);
 	}
 
 	public function index(){
@@ -56,11 +52,11 @@ class usuariosController extends controller {
 			$nome = addslashes($_POST['nome']);
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
-			$tipo = addslashes($_POST['tipo']);
+			$acesso = addslashes($_POST['acesso']);
 			$checkbox_permissao = $_POST['permissao'];
 			$permissao = implode(",", $checkbox_permissao);
 
-			$usuario->add($nome, $login, $senha, $tipo, $permissao);
+			$usuario->add($nome, $login, $senha, $acesso, $permissao);
 
 			header('Location: '.URL.'/usuarios');
 
@@ -78,25 +74,23 @@ class usuariosController extends controller {
 			header('Location: '.URL.'/login');
 		}
 
+		$dados['usuarios_edit'] = $usuario->getUsuariosInfo($id);
+
 		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
 			$nome = addslashes($_POST['nome']);
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
-			$tipo = addslashes($_POST['tipo']);
+			$acesso = addslashes($_POST['acesso']);
 			$checkbox_permissao = $_POST['permissao'];
 			$permissao = implode(",", $checkbox_permissao);
 
 			$usuario = new usuarios();
 
-			$usuario->edit($id, $nome, $login, $senha, $tipo, $permissao);
+			$usuario->edit($id, $nome, $login, $senha, $acesso, $permissao);
 
 			header('Location: '.URL.'/usuarios');
 
 		}
-
-			$usuario = new usuarios();
-
-			$dados['usuarios_edit'] = $usuario->getUsuariosInfo($id);
 
 			$this->loadTemplate('usuarios_edit', $dados);
 	}
@@ -119,7 +113,6 @@ class usuariosController extends controller {
 
 		header('Location: '.URL.'/usuarios');
 	}
-
 }
 
 ?>

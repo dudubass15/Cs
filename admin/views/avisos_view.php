@@ -1,3 +1,13 @@
+<?php
+
+$usuario = new usuarios();
+
+$id = $_SESSION['id'];
+
+$dados = $usuario->getPermissao($id);
+
+?>
+
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
         <h2>Aviso</h2>
@@ -24,14 +34,19 @@
         <div class="col-lg-10 col-lg-offset-1">
             <div class="ibox">
                 <div class="ibox-content">
-                    <div class="pull-right">
-                        <button class="btn btn-white btn-xs" type="button" style="text-decoration: none;">
-                            <a href="<?php echo URL; ?>/avisos/edit/<?php echo($v['id']); ?>">Editar</a>
-                        </button>
-                        <button class="btn btn-white btn-xs" type="button">
-                            <a href="<?php echo URL; ?>/avisos/del/<?php echo($v['id']); ?>" onclick="return del();">Deletar</a>
-                        </button>
-                    </div>
+                        <div class="pull-right">
+                            <?php if(in_array('EDIT', $dados)): ?>
+                            <button class="btn btn-white btn-xs" type="button" style="text-decoration: none;">
+                                <a href="<?php echo URL; ?>/avisos/edit/<?php echo($v['id']); ?>">Editar</a>
+                            </button>
+                            <?php endif; ?>
+                            
+                            <?php if(in_array('DEL', $dados)): ?>
+                            <button class="btn btn-white btn-xs" type="button">
+                                <a href="<?php echo URL; ?>/avisos/del/<?php echo($v['id']); ?>" onclick="return del();">Deletar</a>
+                            </button>
+                            <?php endif; ?>
+                        </div>
                     <div class="text-center article-title">
                     <span class="text-muted"><i class="fa fa-clock-o"></i> 
                         <?php echo($v['horario']); ?> 

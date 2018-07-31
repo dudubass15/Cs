@@ -1,3 +1,13 @@
+<?php
+
+$usuario = new usuarios();
+
+$id = $_SESSION['id'];
+
+$dados = $usuario->getPermissao($id);
+
+?>
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -20,7 +30,9 @@
                                     <th style="text-align: center;">Endereço</th>
                                     <th style="text-align: center;">Cidade</th>
                                     <th style="text-align: center;">Estado</th>
-                                    <th style="text-align: center;">Ações</th>
+                                    <?php if(in_array('DEL', $dados) or in_array('EDIT', $dados)): ?>
+                                        <th style="text-align: center;">Ações</th>
+                                    <?php endif; ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,18 +42,28 @@
                                     <td class="center"><?php echo($condominio[2]); ?></td>
                                     <td class="center"><?php echo($condominio[4]); ?></td>
                                     <td class="center"><?php echo($condominio[5]); ?></td>
-                                    <td class="center"><?php echo($condominio[6]); ?></td>
-                                    <td>
-                                        <button class="btn btn-info btn-circle" type="button" title="Editar">
-                                            <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/condominios/edit/<?php echo($condominio[0]); ?>">
-                                            <i class="fa fa-paste"></i>
-                                        </button>
+                                    <?php if(in_array('DEL', $dados) or in_array('EDIT', $dados)): ?>
+                                        <td class="center"><?php echo($condominio[6]); ?></td>
+                                    <?php endif; ?>
 
-                                        <button class="btn btn-warning btn-circle" type="button" title="Deletar">
-                                        <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/condominios/del/<?php echo($condominio[0]); ?>">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
+                                    <?php if(in_array('DEL', $dados) or in_array('EDIT', $dados)): ?>
+                                        <td>
+                                            <?php if(in_array('EDIT', $dados)): ?>
+                                                <button class="btn btn-info btn-circle" type="button" title="Editar">
+                                                    <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/condominios/edit/<?php echo($condominio[0]); ?>">
+                                                    <i class="fa fa-paste"></i>
+                                                </button>
+                                            <?php endif; ?>
+
+                                            <?php if(in_array('DEL', $dados)): ?>
+                                                <button class="btn btn-warning btn-circle" type="button" title="Deletar">
+                                                <a style="text-decoration: none; color: white;" href="<?php echo URL; ?>/condominios/del/<?php echo($condominio[0]); ?>">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            <?php endif; ?>
+                                        </td>
+                                    <?php endif; ?>
+                                    
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>

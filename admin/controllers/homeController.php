@@ -6,7 +6,7 @@ class homeController extends controller {
 			header('Location: '.URL.'/login');
 		}
 		
-		$permissao = $_SESSION['tipo'];
+		$permissao = $_SESSION['acesso'];
 		if ($permissao == '2') {
 			unset($_SESSION['id']); //Destroi a SESSION ID.
 			unset($_SESSION['login']); //Destroi a SESSION.

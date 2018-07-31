@@ -1,3 +1,13 @@
+<?php
+
+$usuario = new usuarios();
+
+$id = $_SESSION['id'];
+
+$dados = $usuario->getPermissao($id);
+
+?>
+
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-4">
         <h2>Painel de Avisos</h2>
@@ -52,6 +62,7 @@
     </div>
 </div>
 
+<?php if(in_array('ADD', $dados)): ?>
 <div id="small-chat">
     <span class="badge badge-warning pull-right"></span>
     <a class="btn btn-success btn-circle btn-lg" href="<?php echo URL; ?>/avisos/add" title="Novo">
@@ -63,3 +74,4 @@
     <div class="sidebar-container">
         
     </div>
+<?php endif; ?>
