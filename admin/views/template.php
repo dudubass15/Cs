@@ -46,7 +46,8 @@ $dados = $usuario->getPermissao($id);
 						<div class="dropdown profile-element">
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo $_SESSION['nome'] ?></strong>
-								</span> <span class="text-muted text-xs block"><?php echo $_SESSION['login'] ?> <b class="caret"></b></span> </span> </a>
+								</span> 
+								<span class="text-muted text-xs block" style="font-size: 12px;"><?php echo $_SESSION['login'] ?> <b class="caret"></b></span> </span> </a>
 								<ul class="dropdown-menu animated fadeInRight m-t-xs">
 									<li><a href="<?php echo URL; ?>/login/logout/<?php echo $_SESSION['id'] ?>">Sair</a></li>
 								</ul>
@@ -195,6 +196,16 @@ $dados = $usuario->getPermissao($id);
 
 	<!-- JS criado do zero -->
 	<script src="<?php echo URL; ?>/assets/js/template.js"></script>
+
+	<!-- Flot -->
+    <script src="<?php echo URL; ?>/assets/js/plugins/flot/jquery.flot.js"></script>
+    <script src="<?php echo URL; ?>/assets/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="<?php echo URL; ?>/assets/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="<?php echo URL; ?>/assets/js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="<?php echo URL; ?>/assets/js/plugins/flot/jquery.flot.time.js"></script>
+
+    <!-- Flot demo data -->
+    <script src="<?php echo URL; ?>/assets/js/demo/flot-demo.js"></script>
 
 </body>
 

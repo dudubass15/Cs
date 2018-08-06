@@ -49,6 +49,7 @@ class avisosController extends controller{
 		$aviso = new avisos();
 
 		if (isset($_POST['titulo']) && !empty($_POST['titulo'])) {
+			$condominio = $_SESSION['condominios_id'];
 			$titulo = addslashes($_POST['titulo']);
 			$resumo = addslashes($_POST['resumo']);
 			$texto = addslashes($_POST['texto']);
@@ -57,7 +58,7 @@ class avisosController extends controller{
 
 			$aviso = new avisos();
 
-			$aviso->add($titulo, $resumo, $texto, $usuario, $tag);
+			$aviso->add($condominio, $titulo, $resumo, $texto, $usuario, $tag);
 
 			header('Location: '.URL.'/avisos');
 		}
@@ -83,6 +84,7 @@ class avisosController extends controller{
 		}
 
 		if (isset($_POST['titulo']) && !empty($_POST['titulo'])) {
+			$condominio = $_SESSION['condominios_id'];
 			$titulo = addslashes($_POST['titulo']);
 			$resumo = addslashes($_POST['resumo']);
 			$texto = addslashes($_POST['texto']);
@@ -90,7 +92,7 @@ class avisosController extends controller{
 
 			$aviso = new avisos();
 
-			$aviso->edit($id, $titulo, $resumo, $texto, $tag);
+			$aviso->edit($id, $condominio, $titulo, $resumo, $texto, $tag);
 
 			header('Location: '.URL.'/avisos');
 

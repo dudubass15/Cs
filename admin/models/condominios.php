@@ -12,13 +12,25 @@ class condominios extends model {
 	public function getLista() {
 		$array = array();
 
-		$sql = "SELECT * FROM condominios order by nome asc";
+		$condominioID = $_SESSION['condominios_id'];
 
-		if (!empty($nome)) {
-			$sql.= "WHERE nome LIKE '%$nome%' ";
+		if($condominioID == 0){
+			$sql = "SELECT * FROM condominios order by nome asc";
+
+			if (!empty($nome)) {
+				$sql.= "WHERE nome LIKE '%$nome%' ";
+			}
+			
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM condominios WHERE id = '$condominioID' order by nome asc";
+
+			if (!empty($nome)) {
+				$sql.= "WHERE nome LIKE '%$nome%' ";
+			}
+			
+			$qry = $this->db->query($sql);
 		}
-		
-		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -30,9 +42,16 @@ class condominios extends model {
 	public function getCondominioInfo($id) {
 		$array = array();
 
-		$sql = "SELECT * FROM condominios WHERE id = $id";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
 
+		if($condominioID == 0){
+			$sql = "SELECT * FROM condominios WHERE id = $id";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM condominios WHERE id = $id AND id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
+		
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetch();
 		}

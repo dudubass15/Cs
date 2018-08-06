@@ -26,6 +26,7 @@ class usuarios extends model {
 			$_SESSION['login'] = $row['login'];
 			$_SESSION['senha'] = $row['senha'];
 			$_SESSION['acesso'] = $row['acesso'];
+			$_SESSION['condominios_id'] = $row['condominios_id'];
 
 			return true;
 		}

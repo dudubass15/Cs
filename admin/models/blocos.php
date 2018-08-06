@@ -14,10 +14,20 @@ class blocos extends model {
 	public function getLista() {
 		$array = array();
 
-		$sql = "SELECT blocos.id, blocos.numero, blocos.nome AS bloco, condominios.nome AS condominio
-				FROM blocos 
-				INNER JOIN condominios ON condominios.id = blocos.condominios_id";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT blocos.id, blocos.numero, blocos.nome AS bloco, condominios.nome AS condominio
+					FROM blocos 
+					INNER JOIN condominios ON condominios.id = blocos.condominios_id";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT blocos.id, blocos.numero, blocos.nome AS bloco, condominios.nome AS condominio
+					FROM blocos 
+					INNER JOIN condominios ON condominios.id = blocos.condominios_id
+					WHERE condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -31,8 +41,15 @@ class blocos extends model {
 	public function getListaBloco() {
 		$array = array();
 
-		$sql = "SELECT * FROM condominios order by nome asc";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM condominios order by nome asc";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM condominios WHERE id = '$condominioID' order by nome asc";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -44,12 +61,24 @@ class blocos extends model {
 	public function ListarBloco($id) {
 		$array = array();
 
-		$sql = "SELECT blocos.id, blocos.numero, blocos.nome AS blocos, 
-				condominios.id, condominios.nome AS condominios
-				FROM blocos
-				INNER JOIN condominios ON condominios.id = blocos.condominios_id
-				WHERE blocos.id = $id ";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT blocos.id, blocos.numero, blocos.nome AS blocos, 
+					condominios.id, condominios.nome AS condominios
+					FROM blocos
+					INNER JOIN condominios ON condominios.id = blocos.condominios_id
+					WHERE blocos.id = $id";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT blocos.id, blocos.numero, blocos.nome AS blocos, 
+					condominios.id, condominios.nome AS condominios
+					FROM blocos
+					INNER JOIN condominios ON condominios.id = blocos.condominios_id
+					WHERE blocos.id = $id 
+					AND condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetch();

@@ -12,7 +12,9 @@ class avisos extends model {
 	public function IndexAviso(){
 		$array = array();
 
-		$sql = "SELECT * FROM avisos";
+		$condominioID = $_SESSION['condominios_id'];
+
+		$sql = "SELECT * FROM avisos WHERE condominios_id = '$condominioID'";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
@@ -25,7 +27,9 @@ class avisos extends model {
 	public function ViewAviso($id){
 		$array = array();
 
-		$sql = "SELECT * FROM avisos WHERE id = $id";
+		$condominioID = $_SESSION['condominios_id'];
+
+		$sql = "SELECT * FROM avisos WHERE id = $id AND condominios_id = '$condominioID'";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {

@@ -25,6 +25,7 @@ class usuarios extends model {
 			$_SESSION['senha'] = $row['senha'];
 			$_SESSION['acesso'] = $row['acesso'];
 			$_SESSION['permissao'] = $row['permissao'];
+			$_SESSION['condominios_id'] = $row['condominios_id'];
 
 			return true;
 		}
@@ -56,6 +57,19 @@ class usuarios extends model {
 		return $array;
 	}
 
+	public function getCondominio() {
+		$array = array();
+
+		$sql = "SELECT condominios.id, condominios.nome FROM condominios";
+		$qry = $this->db->query($sql);
+
+		if ($qry->rowCount() > 0) {
+			$array = $qry->fetchAll();
+		}
+		
+		return $array;
+	}
+
 	public function getPermissao($id){
 		$array = array();
 
@@ -67,19 +81,18 @@ class usuarios extends model {
 
 			$string = $array[0]['permissao'];
 			$resultado = explode(',', $string);
-
 		}
 		return $resultado;
 	}
 
-	public function add($nome, $login, $senha, $acesso, $permissao) {
-		$sql = "INSERT INTO usuarios (nome, login, senha, acesso, permissao)";
-		$sql.= "VALUE ('$nome', '$login', '$senha', '$acesso', '$permissao')";
+	public function add($condominio, $nome, $login, $senha, $acesso, $permissao) {
+		$sql = "INSERT INTO usuarios (condominios_id, nome, login, senha, acesso, permissao)";
+		$sql.= "VALUE ('$condominio', '$nome', '$login', '$senha', '$acesso', '$permissao')";
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $nome, $login, $senha, $acesso, $permissao) {
-		$sql = "UPDATE usuarios SET nome = '$nome', login = '$login', senha = '$senha', acesso = '$acesso', permissao = '$permissao' WHERE id = $id";
+	public function edit($id, $condominio, $nome, $login, $senha, $acesso, $permissao) {
+		$sql = "UPDATE usuarios SET condominios_id = '$condominio', nome = '$nome', login = '$login', senha = '$senha', acesso = '$acesso', permissao = '$permissao' WHERE id = $id";
 		$this->db->query($sql);
 	}
 

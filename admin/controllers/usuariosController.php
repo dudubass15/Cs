@@ -48,7 +48,10 @@ class usuariosController extends controller {
 
 		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
-		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
+		$dados['userCondominio'] = $usuario->getCondominio();
+
+		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
+			$condominio = addslashes($_POST['condominio']);
 			$nome = addslashes($_POST['nome']);
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
@@ -56,10 +59,9 @@ class usuariosController extends controller {
 			$checkbox_permissao = $_POST['permissao'];
 			$permissao = implode(",", $checkbox_permissao);
 
-			$usuario->add($nome, $login, $senha, $acesso, $permissao);
+			$usuario->add($condominio, $nome, $login, $senha, $acesso, $permissao);
 
 			header('Location: '.URL.'/usuarios');
-
 		}
 
 		$this->loadTemplate('usuario_add', $dados);
@@ -77,6 +79,7 @@ class usuariosController extends controller {
 		$dados['usuarios_edit'] = $usuario->getUsuariosInfo($id);
 
 		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
+			$condominio = addslashes($_POST['condominio']);
 			$nome = addslashes($_POST['nome']);
 			$login = addslashes($_POST['login']);
 			$senha = base64_encode($_POST['senha']);
@@ -86,7 +89,7 @@ class usuariosController extends controller {
 
 			$usuario = new usuarios();
 
-			$usuario->edit($id, $nome, $login, $senha, $acesso, $permissao);
+			$usuario->edit($id, $condominio, $nome, $login, $senha, $acesso, $permissao);
 
 			header('Location: '.URL.'/usuarios');
 

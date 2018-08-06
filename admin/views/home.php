@@ -58,6 +58,27 @@
     </div>
 <?php endforeach; ?>
 
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+       <div class="col-lg-12">
+           <div class="ibox float-e-margins">
+               <div class="ibox-title">
+                   <h5>Gráficos de encomendas </h5>
+                   <div class="ibox-tools">
+                       
+                   </div>
+               </div>
+               <div class="ibox-content">
+                   <div class="flot-chart">
+                       <div class="flot-chart-content" id="flot-line-chart-multi"></div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+</div>
+
+
 <!-- Mainly scripts -->
 <script src="<?php echo URL; ?>/assets/js/jquery-3.1.1.min.js"></script>
 

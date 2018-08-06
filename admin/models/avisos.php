@@ -12,8 +12,15 @@ class avisos extends model {
 	public function IndexAviso(){
 		$array = array();
 
-		$sql = "SELECT * FROM avisos";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM avisos";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM avisos WHERE condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -25,8 +32,15 @@ class avisos extends model {
 	public function ViewAviso($id){
 		$array = array();
 
-		$sql = "SELECT * FROM avisos WHERE id = $id";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM avisos WHERE id = $id";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM avisos WHERE id = $id AND condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -38,8 +52,15 @@ class avisos extends model {
 	public function editAviso($id){
 		$array = array();
 
-		$sql = "SELECT * FROM avisos WHERE id = $id";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM avisos WHERE id = $id";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM avisos WHERE id = $id AND condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -48,14 +69,14 @@ class avisos extends model {
 		return $array;
 	}
 
-	public function add($titulo, $resumo, $texto, $usuario, $tag) {
-		$sql = "INSERT INTO avisos (titulo, resumo, texto, usuario, data_postagem, horario, tag)";
-		$sql.= "VALUE ('$titulo', '$resumo', '$texto', '$usuario', NOW(), NOW(), '$tag')";
+	public function add($condominio, $titulo, $resumo, $texto, $usuario, $tag) {
+		$sql = "INSERT INTO avisos (condominios_id, titulo, resumo, texto, usuario, data_postagem, horario, tag)";
+		$sql.= "VALUE ('$condominio', '$titulo', '$resumo', '$texto', '$usuario', NOW(), NOW(), '$tag')";
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $titulo, $resumo, $texto, $tag) {
-		$sql = "UPDATE avisos SET titulo = '$titulo', resumo = '$resumo', texto = '$texto', tag = '$tag' WHERE id = $id";
+	public function edit($id, $condominio, $titulo, $resumo, $texto, $tag) {
+		$sql = "UPDATE avisos SET condominios_id = '$condominio' titulo = '$titulo', resumo = '$resumo', texto = '$texto', tag = '$tag' WHERE id = $id";
 		$this->db->query($sql);
 	}
 

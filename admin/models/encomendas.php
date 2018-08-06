@@ -33,8 +33,15 @@ class encomendas extends model {
 	public function getListaCondominio() {
 		$array = array();
 
-		$sql = "SELECT * FROM condominios order by nome asc";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM condominios";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM condominios WHERE id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -46,8 +53,15 @@ class encomendas extends model {
 	public function getListaBloco() {
 		$array = array();
 
-		$sql = "SELECT * FROM blocos";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM blocos";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM blocos WHERE condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -59,8 +73,15 @@ class encomendas extends model {
 	public function getListaApto() {
 		$array = array();
 
-		$sql = "SELECT * FROM apartamentos";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM apartamentos";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM apartamentos WHERE condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -72,8 +93,15 @@ class encomendas extends model {
 	public function getListaMorador() {
 		$array = array();
 
-		$sql = "SELECT * FROM moradores";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM moradores";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM moradores WHERE condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -85,21 +113,40 @@ class encomendas extends model {
 	public function getListaEncomendas() {
 		$array = array();
 
-		$sql = "SELECT 
-				condominios.id, condominios.nome AS condominios,
-				blocos.id, blocos.numero AS blocos,
-				apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
-				moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
-				encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
-				encomendas.status, encomendas.data_postagem AS encomendas
-				FROM encomendas
-				INNER JOIN condominios ON condominios.id = encomendas.condominios_id
-				INNER JOIN blocos ON blocos.id = encomendas.blocos_id
-				INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
-				INNER JOIN moradores ON moradores.id = encomendas.moradores_id
-				WHERE encomendas.status = '1'";
+		$condominioID = $_SESSION['condominios_id'];
 
-		$qry = $this->db->query($sql);
+		if($condominioID == 0){
+			$sql = "SELECT 
+					condominios.id, condominios.nome AS condominios,
+					blocos.id, blocos.numero AS blocos,
+					apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
+					moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
+					encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
+					encomendas.status, encomendas.data_postagem AS encomendas
+					FROM encomendas
+					INNER JOIN condominios ON condominios.id = encomendas.condominios_id
+					INNER JOIN blocos ON blocos.id = encomendas.blocos_id
+					INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
+					INNER JOIN moradores ON moradores.id = encomendas.moradores_id
+					WHERE encomendas.status = '1'";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT 
+					condominios.id, condominios.nome AS condominios,
+					blocos.id, blocos.numero AS blocos,
+					apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
+					moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
+					encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
+					encomendas.status, encomendas.data_postagem AS encomendas
+					FROM encomendas
+					INNER JOIN condominios ON condominios.id = encomendas.condominios_id
+					INNER JOIN blocos ON blocos.id = encomendas.blocos_id
+					INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
+					INNER JOIN moradores ON moradores.id = encomendas.moradores_id
+					WHERE encomendas.status = '1'
+					AND encomendas.condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -111,20 +158,40 @@ class encomendas extends model {
 	public function getEditEncomendas($id) {
 		$array = array();
 
-		$sql = "SELECT 
-				condominios.id, condominios.nome AS condominios,
-				blocos.id, blocos.numero AS blocos,
-				apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
-				moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
-				encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
-				encomendas.status, encomendas.data_postagem AS encomendas
-				FROM encomendas
-				INNER JOIN condominios ON condominios.id = encomendas.condominios_id
-				INNER JOIN blocos ON blocos.id = encomendas.blocos_id
-				INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
-				INNER JOIN moradores ON moradores.id = encomendas.moradores_id
-				WHERE encomendas.id = $id";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT 
+					condominios.id, condominios.nome AS condominios,
+					blocos.id, blocos.numero AS blocos,
+					apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
+					moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
+					encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
+					encomendas.status, encomendas.data_postagem AS encomendas
+					FROM encomendas
+					INNER JOIN condominios ON condominios.id = encomendas.condominios_id
+					INNER JOIN blocos ON blocos.id = encomendas.blocos_id
+					INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
+					INNER JOIN moradores ON moradores.id = encomendas.moradores_id
+					WHERE encomendas.id = $id";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT 
+					condominios.id, condominios.nome AS condominios,
+					blocos.id, blocos.numero AS blocos,
+					apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
+					moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
+					encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
+					encomendas.status, encomendas.data_postagem AS encomendas
+					FROM encomendas
+					INNER JOIN condominios ON condominios.id = encomendas.condominios_id
+					INNER JOIN blocos ON blocos.id = encomendas.blocos_id
+					INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
+					INNER JOIN moradores ON moradores.id = encomendas.moradores_id
+					WHERE encomendas.id = $id
+					AND encomendas.condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetch();
@@ -136,21 +203,40 @@ class encomendas extends model {
 	public function view_concluidas(){
 		$array = array();
 
-		$sql = "SELECT 
-				condominios.id, condominios.nome AS condominios,
-				blocos.id, blocos.numero AS blocos,
-				apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
-				moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
-				encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
-				encomendas.status, encomendas.data_postagem AS encomendas
-				FROM encomendas
-				INNER JOIN condominios ON condominios.id = encomendas.condominios_id
-				INNER JOIN blocos ON blocos.id = encomendas.blocos_id
-				INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
-				INNER JOIN moradores ON moradores.id = encomendas.moradores_id
-				WHERE encomendas.status = '0'";
+		$condominioID = $_SESSION['condominios_id'];
 
-		$qry = $this->db->query($sql);
+		if($condominioID == 0){
+			$sql = "SELECT 
+					condominios.id, condominios.nome AS condominios,
+					blocos.id, blocos.numero AS blocos,
+					apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
+					moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
+					encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
+					encomendas.status, encomendas.data_postagem AS encomendas
+					FROM encomendas
+					INNER JOIN condominios ON condominios.id = encomendas.condominios_id
+					INNER JOIN blocos ON blocos.id = encomendas.blocos_id
+					INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
+					INNER JOIN moradores ON moradores.id = encomendas.moradores_id
+					WHERE encomendas.status = '0'";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT 
+					condominios.id, condominios.nome AS condominios,
+					blocos.id, blocos.numero AS blocos,
+					apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
+					moradores.id, moradores.nome_morador, moradores.celular, moradores.email AS moradores,
+					encomendas.id, encomendas.nome_produto, encomendas.empresa, encomendas.observacao, 
+					encomendas.status, encomendas.data_postagem AS encomendas
+					FROM encomendas
+					INNER JOIN condominios ON condominios.id = encomendas.condominios_id
+					INNER JOIN blocos ON blocos.id = encomendas.blocos_id
+					INNER JOIN apartamentos ON apartamentos.id = encomendas.apartamentos_id
+					INNER JOIN moradores ON moradores.id = encomendas.moradores_id
+					WHERE encomendas.status = '0'
+					AND encomendas.condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();

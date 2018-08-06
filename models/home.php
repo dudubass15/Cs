@@ -29,7 +29,7 @@ class home extends model {
 		    INNER JOIN moradores m ON m.id = e.moradores_id
 		    INNER JOIN usuarios u ON u.id = m.usuarios_id 
 		         WHERE u.id = $user 
-		           AND e.status = '1' ";
+		           AND e.status = '1'";
 
 		$qry = $this->db->query($sql);
 

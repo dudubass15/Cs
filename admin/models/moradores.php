@@ -12,16 +12,32 @@ class moradores extends model {
 	public function index() {
 		$array = array();
 
-		$sql = "SELECT condominios.id, condominios.id, condominios.nome AS condominios,
-				blocos.id, blocos.id, blocos.numero AS blocos,
-				apartamentos.id, apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
-				moradores.id, moradores.nome_morador, moradores.celular, moradores.cpf,
-				moradores.email AS moradores
-				FROM moradores
-				LEFT JOIN condominios ON condominios.id = moradores.condominios_id
-				LEFT JOIN blocos ON blocos.id = moradores.blocos_id
-				LEFT JOIN apartamentos ON apartamentos.id = moradores.apartamentos_id";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT condominios.id, condominios.id, condominios.nome AS condominios,
+					blocos.id, blocos.id, blocos.numero AS blocos,
+					apartamentos.id, apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
+					moradores.id, moradores.nome_morador, moradores.celular, moradores.cpf,
+					moradores.email AS moradores
+					FROM moradores
+					LEFT JOIN condominios ON condominios.id = moradores.condominios_id
+					LEFT JOIN blocos ON blocos.id = moradores.blocos_id
+					LEFT JOIN apartamentos ON apartamentos.id = moradores.apartamentos_id";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT condominios.id, condominios.id, condominios.nome AS condominios,
+					blocos.id, blocos.id, blocos.numero AS blocos,
+					apartamentos.id, apartamentos.id, apartamentos.numero_apartamento AS apartamentos,
+					moradores.id, moradores.nome_morador, moradores.celular, moradores.cpf,
+					moradores.email AS moradores
+					FROM moradores
+					LEFT JOIN condominios ON condominios.id = moradores.condominios_id
+					LEFT JOIN blocos ON blocos.id = moradores.blocos_id
+					LEFT JOIN apartamentos ON apartamentos.id = moradores.apartamentos_id
+					WHERE moradores.condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -34,8 +50,15 @@ class moradores extends model {
 	public function getListaCondominios() {
 		$array = array();
 
-		$sql = "SELECT * FROM condominios order by nome asc";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM condominios order by nome asc";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM condominios WHERE id = '$condominioID' order by nome asc";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -48,8 +71,15 @@ class moradores extends model {
 	public function getListaBlocos() {
 		$array = array();
 
-		$sql = "SELECT * FROM blocos";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM blocos";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM blocos WHERE condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -62,8 +92,15 @@ class moradores extends model {
 	public function getListaApartamentos() {
 		$array = array();
 
-		$sql = "SELECT * FROM apartamentos";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM apartamentos";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM apartamentos WHERE condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -75,24 +112,48 @@ class moradores extends model {
 	public function getListaMoradores($id) {
 		$array = array();
 
-		$sql = "SELECT   c.nome
-						,b.numero
-						,b.nome
-						,a.numero_apartamento
-						,a.telefone
-						,u.login
-						,m.nome_morador
-						,m.celular
-						,m.cpf
-						,m.celular
-						,m.email
-					FROM moradores m
-				LEFT JOIN condominios c ON c.id = m.condominios_id
-				LEFT JOIN blocos b ON b.id = m.blocos_id
-				LEFT JOIN apartamentos a ON a.id = m.apartamentos_id
-				LEFT JOIN usuarios u ON u.id = m.usuarios_id
-					WHERE m.id = $id";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT   c.nome
+							,b.numero
+							,b.nome
+							,a.numero_apartamento
+							,a.telefone
+							,u.login
+							,m.nome_morador
+							,m.celular
+							,m.cpf
+							,m.celular
+							,m.email
+						FROM moradores m
+					LEFT JOIN condominios c ON c.id = m.condominios_id
+					LEFT JOIN blocos b ON b.id = m.blocos_id
+					LEFT JOIN apartamentos a ON a.id = m.apartamentos_id
+					LEFT JOIN usuarios u ON u.id = m.usuarios_id
+						WHERE m.id = $id";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT   c.nome
+							,b.numero
+							,b.nome
+							,a.numero_apartamento
+							,a.telefone
+							,u.login
+							,m.nome_morador
+							,m.celular
+							,m.cpf
+							,m.celular
+							,m.email
+						FROM moradores m
+					LEFT JOIN condominios c ON c.id = m.condominios_id
+					LEFT JOIN blocos b ON b.id = m.blocos_id
+					LEFT JOIN apartamentos a ON a.id = m.apartamentos_id
+					LEFT JOIN usuarios u ON u.id = m.usuarios_id
+						WHERE m.id = $id
+						AND m.condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetch();
@@ -104,9 +165,15 @@ class moradores extends model {
 	public function getListaUser(){
 		$array = array();
 
-		$sql = "SELECT * FROM usuarios";
+		$condominioID = $_SESSION['condominios_id'];
 
-		$qry = $this->db->query($sql);
+		if($condominioID == 0){
+			$sql = "SELECT * FROM usuarios";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM usuarios WHERE condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
