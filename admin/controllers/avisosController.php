@@ -30,6 +30,8 @@ class avisosController extends controller{
 
 		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
 
+		//print_r($dados); die;
+
 		$this->loadTemplate('avisos', $dados);
 	}
 

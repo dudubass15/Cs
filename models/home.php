@@ -14,6 +14,8 @@ class home extends model {
 
 		$user = $_SESSION['id'];
 
+		$condominioID = $_SESSION['condominios_id'];
+
 		$sql = "SELECT e.id
 		             , e.nome_produto
 		             , e.empresa
@@ -29,7 +31,8 @@ class home extends model {
 		    INNER JOIN moradores m ON m.id = e.moradores_id
 		    INNER JOIN usuarios u ON u.id = m.usuarios_id 
 		         WHERE u.id = $user 
-		           AND e.status = '1'";
+		           AND e.status = '1'
+		           AND e.condominios_id = $condominioID";
 
 		$qry = $this->db->query($sql);
 

@@ -35,8 +35,17 @@ class usuarios extends model {
 
 	public function getLista() {
 		$array = array();
-		$sql = "SELECT * FROM usuarios";
-		$qry = $this->db->query($sql);
+
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT * FROM usuarios";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT * FROM usuarios WHERE condominios_id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
+		
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();
@@ -48,7 +57,17 @@ class usuarios extends model {
 	public function getUsuariosInfo($id) {
 		$array = array();
 
-		$sql = "SELECT * FROM usuarios WHERE id = $id";
+		$sql = "SELECT c.id
+					,  c.nome
+					,  u.id
+					,  u.nome
+					,  u.login
+					,  u.senha
+					,  u.acesso
+					,  u.permissao
+				FROM usuarios u
+				INNER JOIN condominios c ON c.id = u.condominios_id
+				WHERE u.id = $id";
 		$qry = $this->db->query($sql);
 
 		if ($qry->rowCount() > 0) {
@@ -60,8 +79,15 @@ class usuarios extends model {
 	public function getCondominio() {
 		$array = array();
 
-		$sql = "SELECT condominios.id, condominios.nome FROM condominios";
-		$qry = $this->db->query($sql);
+		$condominioID = $_SESSION['condominios_id'];
+
+		if($condominioID == 0){
+			$sql = "SELECT condominios.id, condominios.nome FROM condominios";
+			$qry = $this->db->query($sql);
+		} else{
+			$sql = "SELECT condominios.id, condominios.nome FROM condominios WHERE id = '$condominioID'";
+			$qry = $this->db->query($sql);
+		}
 
 		if ($qry->rowCount() > 0) {
 			$array = $qry->fetchAll();

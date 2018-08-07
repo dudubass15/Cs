@@ -15,7 +15,18 @@ class avisos extends model {
 		$condominioID = $_SESSION['condominios_id'];
 
 		if($condominioID == 0){
-			$sql = "SELECT * FROM avisos";
+			$sql = "SELECT c.id
+						 , c.nome
+						 , a.id
+						 , a.titulo
+						 , a.resumo
+						 , a.texto
+						 , a.tag
+						 , a.usuario
+						 , a.data_postagem
+						 , a.horario 
+					FROM avisos a
+					INNER JOIN condominios c ON c.id = a.condominios_id";
 			$qry = $this->db->query($sql);
 		} else{
 			$sql = "SELECT * FROM avisos WHERE condominios_id = '$condominioID'";

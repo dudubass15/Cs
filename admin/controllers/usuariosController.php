@@ -76,9 +76,15 @@ class usuariosController extends controller {
 			header('Location: '.URL.'/login');
 		}
 
+		$id_user = $_SESSION['id'];
+
+		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
+
+		$dados['userCondominio'] = $usuario->getCondominio();
+
 		$dados['usuarios_edit'] = $usuario->getUsuariosInfo($id);
 
-		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
+		if (isset($_POST['condominio']) && !empty($_POST['condominio'])) {
 			$condominio = addslashes($_POST['condominio']);
 			$nome = addslashes($_POST['nome']);
 			$login = addslashes($_POST['login']);
