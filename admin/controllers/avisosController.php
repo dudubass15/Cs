@@ -90,11 +90,12 @@ class avisosController extends controller{
 			$titulo = addslashes($_POST['titulo']);
 			$resumo = addslashes($_POST['resumo']);
 			$texto = addslashes($_POST['texto']);
+			$usuario = $_SESSION['nome'];
 			$tag = addslashes($_POST['tag']);
 
 			$aviso = new avisos();
 
-			$aviso->edit($id, $condominio, $titulo, $resumo, $texto, $tag);
+			$aviso->edit($id, $condominio, $titulo, $resumo, $texto, $usuario, $tag);
 
 			header('Location: '.URL.'/avisos');
 

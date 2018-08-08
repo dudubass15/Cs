@@ -86,8 +86,8 @@ class avisos extends model {
 		$this->db->query($sql);
 	}
 
-	public function edit($id, $condominio, $titulo, $resumo, $texto, $tag) {
-		$sql = "UPDATE avisos SET condominios_id = '$condominio' titulo = '$titulo', resumo = '$resumo', texto = '$texto', tag = '$tag' WHERE id = $id";
+	public function edit($id, $condominio, $titulo, $resumo, $texto, $usuario, $tag) {
+		$sql = "UPDATE avisos SET condominios_id = '$condominio', titulo = '$titulo', resumo = '$resumo', texto = '$texto', usuario = '$usuario', tag = '$tag' WHERE id = $id";
 		$this->db->query($sql);
 	}
 
