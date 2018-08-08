@@ -82,7 +82,7 @@ $_SESSION['login'];
 
 			<div class="footer">
 				<div class="pull-right">
-					<strong>Copyright</strong> CS &copy; 2014-2018
+					<strong>Copyright</strong> CS &copy; <?php $data = date('Y')-3 .' - ' .date('Y'); echo $data; ?>
 				</div>
 			</div>
 		</div>

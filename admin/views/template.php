@@ -8,8 +8,6 @@ $id = $_SESSION['id'];
 
 $dados = $usuario->getPermissao($id);
 
-//print_r($dados[0]['permissao']); die;
-
 ?>
 
 <html>
@@ -164,7 +162,7 @@ $dados = $usuario->getPermissao($id);
 
 			<div class="footer">
 				<div class="pull-right">
-					<strong>Copyright</strong> CS &copy; 2014-2018
+					<strong>Copyright</strong> CS &copy; <?php $data = date('Y')-3 .' - ' .date('Y'); echo $data; ?>
 				</div>
 			</div>
 		</div>

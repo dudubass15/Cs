@@ -26,7 +26,6 @@ class homeController extends controller {
 		$id_user = $_SESSION['id'];
 
 		$dados['permissaoAll'] = $usuario->getPermissao($id_user);
-
 		$dados['encomendas_dia'] = $home->getRelatorioDia();
 		$dados['encomendas_mes'] = $home->getRelatorioMes();
 		$dados['encomendas_ano'] = $home->getRelatorioAno();

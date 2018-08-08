@@ -13,6 +13,9 @@
     <link href="<?php echo URL; ?>/assets/css/animate.css" rel="stylesheet">
     <link href="<?php echo URL; ?>/assets/css/style.css" rel="stylesheet">
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
 </head>
 
 <body class="gray-bg">
